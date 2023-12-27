@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { PopupComponent } from '../popup/popup.component';
 import { DataTableDataSource, DataTableItem } from './data-table-datasource';
 
 @Component({
@@ -16,10 +18,27 @@ export class DataTableComponent implements AfterViewInit, OnInit {
   dataSource: DataTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['id', 'name', 'action'];
+
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
     this.dataSource = new DataTableDataSource();
+  }
+
+  Openpopup() {
+
+    var _popup = this.dialog.open(PopupComponent, {
+      width: '60%',
+      data: {
+        title: 'Edit Product'
+      }
+    });
+
+    _popup.afterClosed().subscribe(item => {
+      console.log(item);
+
+    })
   }
 
   ngAfterViewInit() {

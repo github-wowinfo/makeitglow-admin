@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -8,7 +9,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class PopupComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private ref: MatDialogRef<PopupComponent>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private ref: MatDialogRef<PopupComponent>, private builder: FormBuilder) { }
 
   inputData: any;
 
@@ -17,5 +18,17 @@ export class PopupComponent implements OnInit {
   }
   closepopup() {
     this.ref.close('Close using function')
+  }
+
+  myform = this.builder.group({
+    name: this.builder.control(''),
+    email: this.builder.control(''),
+    phone: this.builder.control(''),
+    status: this.builder.control(false),
+  })
+
+  Saveuser() {
+    console.log(this.myform.value);
+
   }
 }
