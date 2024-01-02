@@ -14,7 +14,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
-import { ProductComponent } from './product/product.component';
+import { ProductComponent } from './products/product/product.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -30,6 +30,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { MatCardModule } from '@angular/material/card';
+import { OrdersComponent } from './orders/orders/orders.component';
+import { QueriesComponent } from './queries/queries/queries.component';
+import { CustomersComponent } from './customers/customers/customers.component';
+import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
+import { AddProductComponent } from './products/add-product/add-product.component';
+import { AddProductVariantComponent } from './products/add-product-variant/add-product-variant.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { UploadsComponent } from './uploads/uploads.component';
+import { MasterDataComponent } from './master/master-data/master-data.component';
+import { EcommSequenceComponent } from './sequence/ecomm-sequence/ecomm-sequence.component';
+import { OrderTableComponent } from './orders/order-table/order-table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +53,16 @@ import { MatCardModule } from '@angular/material/card';
     PopupComponent,
     LoginComponent,
     SignupComponent,
+    OrdersComponent,
+    QueriesComponent,
+    CustomersComponent,
+    AddProductComponent,
+    AddProductVariantComponent,
+    ProductListComponent,
+    UploadsComponent,
+    MasterDataComponent,
+    EcommSequenceComponent,
+    OrderTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +84,8 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatCheckboxModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,10 +1,19 @@
-<div id="container" [formGroup]="form">
-    <h1>Login</h1>
+<div class="row">
+    <div class="col-lg-7">
+        <div class="img-div">
+            <img src="../../assets/login.jpeg" alt="">
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div id="container" [formGroup]="form">
+            <h3>Welcome to MakeItGlow</h3>
 
-    <input type="text" formControlName="username" placeholder="Username">
-    <input type="text" formControlName="password" placeholder="Password">
+            <input type="text" formControlName="username" placeholder="Username">
+            <input type="text" formControlName="password" placeholder="Password">
 
-    <button (click)="login()" [disabled]="!form.valid">Login</button>
+            <button (click)="login()" [disabled]="!form.valid">Login</button>
 
 
+        </div>
+    </div>
 </div>
