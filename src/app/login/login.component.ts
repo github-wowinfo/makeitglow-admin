@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     if (!user) {
       alert('Invalid Username and Password')
     } else {
-      this.router.navigateByUrl('/dashboard')
+      this.router.navigateByUrl('/orders')
     }
 
   }

@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./uploads.component.scss']
 })
 export class UploadsComponent implements OnInit {
-
+  onFileSelected(event) {
+    console.log(event)
+  }
   constructor() { }
 
   ngOnInit(): void {
