@@ -57,6 +57,8 @@ import { SubcategoryModalComponent } from './master/subcategory-modal/subcategor
 import { SliderModalComponent } from './master/slider-modal/slider-modal.component';
 import { SubcategoryTableComponent } from './master/subcategory-table/subcategory-table.component';
 import { SliderTableComponent } from './master/slider-table/slider-table.component';
+import { ProductTableComponent } from './products/product-table/product-table.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,6 +96,7 @@ import { SliderTableComponent } from './master/slider-table/slider-table.compone
     SliderModalComponent,
     SubcategoryTableComponent,
     SliderTableComponent,
+    ProductTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -118,7 +121,8 @@ import { SliderTableComponent } from './master/slider-table/slider-table.compone
     MatCardModule,
     MatExpansionModule,
     MatTabsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],

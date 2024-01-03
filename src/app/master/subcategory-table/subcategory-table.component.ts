@@ -16,7 +16,7 @@ export class SubcategoryTableComponent implements AfterViewInit {
   dataSource: SubcategoryTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['name', 'subCat', 'action'];
 
   constructor() {
     this.dataSource = new SubcategoryTableDataSource();

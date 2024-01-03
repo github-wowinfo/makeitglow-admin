@@ -16,7 +16,7 @@ export class CategoryTableComponent implements AfterViewInit {
   dataSource: CategoryTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['name', 'action'];
 
   constructor() {
     this.dataSource = new CategoryTableDataSource();
