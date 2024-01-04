@@ -1,1 +1,98 @@
-<p>ecomm-sequence works!</p>
+<div class="container-fluid page">
+    <div class="d-flex page__box justify-content-between p-3 mt-2">
+        Ecom Sequence
+        <!-- <button mat-raised-button class="add-btn" color="primary">Add User (+)</button> -->
+    </div>
+    <div>
+        <mat-tab-group>
+            <mat-tab label="Top Categories">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+                    <div class="text-end mb-2">
+                        <button mat-raised-button class="add-btn m-auto" color="primary">Add
+                            Brand</button>
+                    </div>
+                    <div cdkDropList class="lesson-list" (cdkDropListDropped)="drop($event)">
+
+                        <mat-card class="mb-2" cdkDrag>
+                            First List
+                        </mat-card>
+                        <mat-card class="mb-2" cdkDrag>
+                            Second List
+                        </mat-card>
+                        <mat-card class="mb-2" cdkDrag>
+                            Third List
+                        </mat-card>
+                    </div>
+                    <!-- <div class="lesson-list mb-2">
+                        <mat-card>
+                            First List
+                        </mat-card>
+                    </div>
+                    <div class="lesson-list mb-2">
+                        <mat-card>
+                            First List
+                        </mat-card>
+                    </div> -->
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Top Sub Categories">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+                    <div class="text-end mb-2">
+                        <button mat-raised-button class="add-btn m-auto" color="primary">Add
+                            References</button>
+                    </div>
+                    <app-refernce-table></app-refernce-table>
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Featured Products">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+                    <div class="text-end mb-2">
+                        <button mat-raised-button class="add-btn m-auto" color="primary">Add
+                            Hex Color</button>
+                    </div>
+                    <app-hexcolor-table></app-hexcolor-table>
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Trending Products">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+                    <div class="text-end mb-2">
+                        <button mat-raised-button class="add-btn m-auto" color="primary">Add
+                            New Category</button>
+                    </div>
+                    <app-category-table></app-category-table>
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Welcome Kit">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+                    <div class="text-end mb-2">
+                        <button mat-raised-button class="add-btn m-auto" color="primary">Add
+                            Sub Category</button>
+                    </div>
+                    <app-subcategory-table></app-subcategory-table>
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab>
+            <!-- <mat-tab label="Sliders">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+                    <div class="text-end mb-2">
+                        <button mat-raised-button class="add-btn m-auto" color="primary" (click)="OpenSliders()">Add
+                            Slider</button>
+                    </div>
+                    <app-hexcolor-table></app-hexcolor-table>
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab> -->
+        </mat-tab-group>
+    </div>
+
+</div>

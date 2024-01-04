@@ -6,32 +6,16 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 
 // TODO: Replace this with your own data model type
 export interface ProductTableItem {
-  name: string;
-  id: number;
+  SrNo: number;
+  products: string;
+  productType: string;
+  category: string;
+  action: string;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: ProductTableItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
+  { SrNo: 1, products: 'Hydrogen', productType: 'variant', category: 'soap', action: '' },
 ];
 
 /**
@@ -59,7 +43,7 @@ export class ProductTableDataSource extends DataSource<ProductTableItem> {
       // stream for the data-table to consume.
       return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange)
         .pipe(map(() => {
-          return this.getPagedData(this.getSortedData([...this.data ]));
+          return this.getPagedData(this.getSortedData([...this.data]));
         }));
     } else {
       throw Error('Please set the paginator and sort on the data source before connecting.');
@@ -70,7 +54,7 @@ export class ProductTableDataSource extends DataSource<ProductTableItem> {
    *  Called when the table is being destroyed. Use this function, to clean up
    * any open connections or free any held resources that were set up during connect.
    */
-  disconnect(): void {}
+  disconnect(): void { }
 
   /**
    * Paginate the data (client-side). If you're using server-side pagination,
@@ -97,8 +81,11 @@ export class ProductTableDataSource extends DataSource<ProductTableItem> {
     return data.sort((a, b) => {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
-        case 'name': return compare(a.name, b.name, isAsc);
-        case 'id': return compare(+a.id, +b.id, isAsc);
+        case 'SrNo': return compare(a.SrNo, b.SrNo, isAsc);
+        case 'products': return compare(+a.products, +b.products, isAsc);
+        case 'productType': return compare(+a.productType, +b.productType, isAsc);
+        case 'category': return compare(+a.category, +b.category, isAsc);
+        case 'action': return compare(+a.action, +b.action, isAsc);
         default: return 0;
       }
     });

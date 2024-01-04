@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-product-variant.component.scss']
 })
 export class AddProductVariantComponent implements OnInit {
-
+  onFileSelected(event) {
+    console.log(event.target.files)
+  }
   constructor() { }
 
   ngOnInit(): void {

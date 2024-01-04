@@ -16,7 +16,8 @@ export class ProductTableComponent implements AfterViewInit {
   dataSource: ProductTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+
+  displayedColumns = ['SrNo', 'products', 'productType', 'category', 'action'];
 
   constructor() {
     this.dataSource = new ProductTableDataSource();

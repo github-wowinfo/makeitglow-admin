@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class AddProductComponent implements OnInit {
 
   constructor() { }
-
+  onFileSelected(event) {
+    console.log(event.target.files)
+  }
   ngOnInit(): void {
   }
 

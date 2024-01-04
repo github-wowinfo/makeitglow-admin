@@ -58,7 +58,7 @@ import { SliderModalComponent } from './master/slider-modal/slider-modal.compone
 import { SubcategoryTableComponent } from './master/subcategory-table/subcategory-table.component';
 import { SliderTableComponent } from './master/slider-table/slider-table.component';
 import { ProductTableComponent } from './products/product-table/product-table.component';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 @NgModule({
   declarations: [
     AppComponent,
@@ -122,7 +122,8 @@ import { ProductTableComponent } from './products/product-table/product-table.co
     MatExpansionModule,
     MatTabsModule,
     HttpClientModule,
-    MatSelectModule
+    MatSelectModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent],

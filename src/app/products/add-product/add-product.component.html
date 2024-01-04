@@ -1,1 +1,60 @@
-<p>add-product works!</p>
+<div class="container-fluid page">
+    <div class="d-flex page__box justify-content-between p-3 mt-2">
+        Add Product
+    </div>
+    <div class="page__content shadow p-3 position-relative">
+        <mat-form-field class="InputStyle">
+            <mat-label>Brand</mat-label>
+            <mat-select>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Product Unit Type</mat-label>
+            <mat-select>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Product Category</mat-label>
+            <mat-select>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Product Sub Category</mat-label>
+            <mat-select>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Product Name</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Short Description</mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Long Description</mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Benefits</mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-label>Product Images</mat-label>
+        <mat-card>
+            <input class="d-block" type="file" (change)="onFileSelected($event)">
+        </mat-card>
+        <!-- <mat-form-field>
+        </mat-form-field> -->
+        <div class="page__content-data position-absolute text-center">
+
+        </div>
+    </div>
+</div>

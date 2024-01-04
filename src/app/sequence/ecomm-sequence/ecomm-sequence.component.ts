@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ecomm-sequence.component.scss']
 })
 export class EcommSequenceComponent implements OnInit {
+
+  lessons = []
+
+  drop(event: CdkDragDrop<any>) {
+    moveItemInArray(this.lessons, event.previousIndex, event.currentIndex)
+  }
 
   constructor() { }
 
