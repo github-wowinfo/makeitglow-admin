@@ -59,6 +59,7 @@ import { SubcategoryTableComponent } from './master/subcategory-table/subcategor
 import { SliderTableComponent } from './master/slider-table/slider-table.component';
 import { ProductTableComponent } from './products/product-table/product-table.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { TopCategoryModalComponent } from './sequence/top-category-modal/top-category-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,6 +98,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     SubcategoryTableComponent,
     SliderTableComponent,
     ProductTableComponent,
+    TopCategoryModalComponent,
   ],
   imports: [
     BrowserModule,
