@@ -23,8 +23,13 @@ export class HexcolorTableComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
+    // Check if the necessary components are defined before accessing their properties
+    if (this.sort && this.paginator && this.table) {
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+      this.table.dataSource = this.dataSource;
+    } else {
+      console.error('One or more required components are undefined.');
+    }
   }
 }
