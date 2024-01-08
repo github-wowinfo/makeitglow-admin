@@ -60,6 +60,7 @@ import { SliderTableComponent } from './master/slider-table/slider-table.compone
 import { ProductTableComponent } from './products/product-table/product-table.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TopCategoryModalComponent } from './sequence/top-category-modal/top-category-modal.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -125,7 +126,8 @@ import { TopCategoryModalComponent } from './sequence/top-category-modal/top-cat
     MatTabsModule,
     HttpClientModule,
     MatSelectModule,
-    DragDropModule
+    DragDropModule,
+    MatSnackBar
   ],
   providers: [],
   bootstrap: [AppComponent],
