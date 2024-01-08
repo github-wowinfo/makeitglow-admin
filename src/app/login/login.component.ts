@@ -4,8 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { NavbarService } from '../services/navbar.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-
+// import { NgToastService } from 'ng-angular-popup'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +15,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     username: ['', Validators.required],
     password: ['', Validators.required]
   })
-  constructor(private snackBar: MatSnackBar, private apiService: ApiService, private authService: AuthService, private fb: FormBuilder, private router: Router, private navbarService: NavbarService) { }
+  constructor(private apiService: ApiService, private authService: AuthService, private fb: FormBuilder, private router: Router, private navbarService: NavbarService) { }
   login() {
     // let newPostData = this.authService.login(this.form.value.username, this.form.value.password)
     // if (!user) {
@@ -33,17 +32,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.apiService.createPost(postData).subscribe(
       (response) => {
         console.log('Post created successfully:', response);
-        this.snackBar.open('Login successful', 'OK', {
-          duration: 3000
-        });
+        // this.toast.success({ detail: 'Success Message', summary: 'Login Successful', duration: 5000 })
         this.router.navigateByUrl('/orders')
         // Optionally, you can handle the response or perform additional actions
       },
       (error) => {
         console.error('Error creating post:', error);
-        this.snackBar.open('Error logging in. Please check your credentials and try again.', 'OK', {
-          duration: 3000
-        });
+
         // Optionally, you can handle errors, show a message, etc.
       }
     );
