@@ -11,7 +11,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getPosts(): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/posts`);
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllBrands`);
   }
 
   createPost(postData: any): Observable<any> {

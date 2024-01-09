@@ -17,12 +17,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   })
   constructor(private apiService: ApiService, private authService: AuthService, private fb: FormBuilder, private router: Router, private navbarService: NavbarService) { }
   login() {
-    // let newPostData = this.authService.login(this.form.value.username, this.form.value.password)
-    // if (!user) {
-    //   alert('Invalid Username and Password')
-    // } else {
-    //   this.router.navigateByUrl('/orders')
-    // }
     const postData = {
       email: this.form.value.username,
       password: this.form.value.password,
