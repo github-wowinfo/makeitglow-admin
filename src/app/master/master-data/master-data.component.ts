@@ -21,11 +21,7 @@ export class MasterDataComponent implements OnInit {
 
 
 
-  Openpopup() {
-    var _popup = this.dialog.open(BrandModalComponent, {
-      width: '40%',
-    });
-  }
+
   OpenReference() {
     var _popup = this.dialog.open(RefernceModalComponent, {
       width: '40%',

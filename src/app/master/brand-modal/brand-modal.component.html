@@ -1,9 +1,9 @@
-<form>
-    <h1 mat-dialog-title>Add Brand</h1>
+<form [formGroup]="myForm" (ngSubmit)="SaveBrand()">
+    <h1 mat-dialog-title>{{inputdata.title}}</h1>
     <div mat-dialog-content>
         <mat-form-field>
             <mat-label>Brand Name</mat-label>
-            <input formControlName="name" matInput>
+            <input formControlName="brndName" matInput>
         </mat-form-field>
     </div>
     <div mat-dialog-actions>

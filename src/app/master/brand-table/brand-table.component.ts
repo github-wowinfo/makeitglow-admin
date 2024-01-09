@@ -1,10 +1,11 @@
+import { BrandModalComponent } from './../brand-modal/brand-modal.component';
 import { ApiService } from './../../api.service';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { BrandTableDataSource, BrandTableItem } from './brand-table-datasource';
-
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-brand-table',
   templateUrl: './brand-table.component.html',
@@ -24,10 +25,28 @@ export class BrandTableComponent implements AfterViewInit {
 
 
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private dialog: MatDialog) {
     // this.dataSource = new BrandTableDataSource();
   }
 
+  editCustomer(id: any) {
+    console.log(id);
+    this.Openpopup(id, 'Edit Brand')
+  }
+
+  addCustomer() {
+    this.Openpopup(0, 'Add Brand')
+  }
+
+  Openpopup(id: any, title: any) {
+    var _popup = this.dialog.open(BrandModalComponent, {
+      width: '40%',
+      data: {
+        title: title,
+        id: id
+      }
+    });
+  }
   ngOnInit(): void {
     this.apiService.getPosts().subscribe(
       (response) => {

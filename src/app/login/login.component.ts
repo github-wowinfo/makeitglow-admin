@@ -25,7 +25,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.apiService.createPost(postData).subscribe(
       (response) => {
-        console.log('Post created successfully:', response);
+        console.log('Post created successfully:', response.token);
+        localStorage.setItem('token', response.token);
         // this.toast.success({ detail: 'Success Message', summary: 'Login Successful', duration: 5000 })
         this.router.navigateByUrl('/orders')
         // Optionally, you can handle the response or perform additional actions
