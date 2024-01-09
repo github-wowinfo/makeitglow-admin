@@ -27,15 +27,36 @@ export class BrandTableComponent implements AfterViewInit {
 
   constructor(private apiService: ApiService, private dialog: MatDialog) {
     // this.dataSource = new BrandTableDataSource();
+    this.loadBrand()
+  }
+
+
+  loadBrand() {
+    this.apiService.getPosts().subscribe(
+      (response) => {
+        this.brand = response
+        this.dataSource = new MatTableDataSource<any>(this.brand)
+      },
+      (error) => {
+        console.error('Error creating post:', error);
+        // Optionally, you can handle errors, show a message, etc.
+      }
+    )
   }
 
   editCustomer(id: any) {
-    console.log(id);
     this.Openpopup(id, 'Edit Brand')
   }
 
   addCustomer() {
     this.Openpopup(0, 'Add Brand')
+  }
+
+  deleteBrand(id: any) {
+    this.apiService.deleteBrand(id).subscribe(response => {
+      this.loadBrand()
+      console.log('Delete successful', response);
+    })
   }
 
   Openpopup(id: any, title: any) {
@@ -46,20 +67,16 @@ export class BrandTableComponent implements AfterViewInit {
         id: id
       }
     });
+
+    _popup.afterClosed().subscribe(item => {
+      this.loadBrand()
+    })
   }
   ngOnInit(): void {
-    this.apiService.getPosts().subscribe(
-      (response) => {
-        this.brand = response
-        this.dataSource = new MatTableDataSource<any>(this.brand)
-        console.log('Post created successfully:', response);
-      },
-      (error) => {
-        console.error('Error creating post:', error);
-        // Optionally, you can handle errors, show a message, etc.
-      }
-    )
+
   }
+
+
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;

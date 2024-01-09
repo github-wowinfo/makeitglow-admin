@@ -32,12 +32,32 @@ export class BrandModalComponent implements OnInit {
   setEditData(id: any) {
     this.apiService.getBrandById(id).subscribe(item => {
       this.editData = item;
-      this.myForm.setValue(this.editData.brndName)
+      this.myForm.setValue({ brndName: this.editData.brndName })
     })
   }
 
+  onFormSubmit() {
+    if (this.inputdata.id > 0) {
+      this.updateBrandData();
+    } else {
+      this.SaveBrand();
+    }
+  }
+
+  updateBrandData() {
+    // Assuming 'myForm' is an instance of FormGroup
+    const updatedData = {
+      id: this.editData.brandId, // Include the id in the request body
+      ...this.myForm.value
+    };
+
+    this.apiService.updateBrandById(updatedData).subscribe(response => {
+      // Handle the response as needed
+      this.closepopup()
+    });
+  }
+
   SaveBrand() {
-    console.log(this.myForm.value);
     this.apiService.createBrand(this.myForm.value).subscribe(res => {
       this.closepopup()
     })

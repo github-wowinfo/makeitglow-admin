@@ -17,8 +17,16 @@ export class ApiService {
     const headers = this.createHeaders();
     return this.http.post(`${environment.apiUrl}/api/Masters/AddBrand`, postData, { headers });
   }
+  updateBrandById(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/UpdateBrand`, postData, { headers });
+  }
+  deleteBrand(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/DeleteBrand/` + id, {}, { headers });
+  }
   getBrandById(id: any): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/api/Masters/GetBrand/${id}`);
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetBrand/` + id);
   }
   createPost(postData: any): Observable<any> {
     return this.http.post(`${environment.apiUrl}/api/Auth/Login`, postData);
