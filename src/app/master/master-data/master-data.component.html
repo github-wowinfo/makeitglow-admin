@@ -5,10 +5,26 @@
     </div>
     <div>
         <mat-tab-group>
-            <mat-tab label="Brands">
+            <mat-tab label="Countries">
                 <div class="page__content shadow p-3 mt-2 position-relative">
 
-                    <app-brand-table></app-brand-table>
+                    <app-countries-table></app-countries-table>
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Cities">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+
+                    <app-city-table></app-city-table>
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Locations">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+
+                    <app-location-table></app-location-table>
                     <div class="page__content-data position-absolute text-center">
                     </div>
                 </div>
@@ -24,13 +40,34 @@
                     </div>
                 </div>
             </mat-tab>
-            <mat-tab label="HexColor">
+            <!-- <mat-tab label="FAQs">
                 <div class="page__content shadow p-3 mt-2 position-relative">
-                    <div class="text-end mb-2">
-                        <button mat-raised-button class="add-btn m-auto" color="primary" (click)="OpenHexColor()">Add
-                            Hex Color</button>
+
+                    <app-faq-table></app-faq-table>
+                    <div class="page__content-data position-absolute text-center">
                     </div>
-                    <app-hexcolor-table></app-hexcolor-table>
+                </div>
+            </mat-tab> -->
+            <!-- <mat-tab label="Events">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+
+                    <app-event-table></app-event-table>
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab> -->
+            <mat-tab label="Tax Rates">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+
+                    <app-tax-table></app-tax-table>
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Brands">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+
+                    <app-brand-table></app-brand-table>
                     <div class="page__content-data position-absolute text-center">
                     </div>
                 </div>
@@ -57,17 +94,6 @@
                     </div>
                 </div>
             </mat-tab>
-            <!-- <mat-tab label="Sliders">
-                <div class="page__content shadow p-3 mt-2 position-relative">
-                    <div class="text-end mb-2">
-                        <button mat-raised-button class="add-btn m-auto" color="primary" (click)="OpenSliders()">Add
-                            Slider</button>
-                    </div>
-                    <app-hexcolor-table></app-hexcolor-table>
-                    <div class="page__content-data position-absolute text-center">
-                    </div>
-                </div>
-            </mat-tab> -->
         </mat-tab-group>
     </div>
 

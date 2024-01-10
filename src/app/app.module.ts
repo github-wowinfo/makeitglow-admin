@@ -60,7 +60,21 @@ import { SliderTableComponent } from './master/slider-table/slider-table.compone
 import { ProductTableComponent } from './products/product-table/product-table.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TopCategoryModalComponent } from './sequence/top-category-modal/top-category-modal.component';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
+import { CountryTableComponent } from './Countries/country-table/country-table.component';
+import { CountriesTableComponent } from './master/countries-table/countries-table.component';
+import { CountriesModalComponent } from './master/countries-modal/countries-modal.component';
+import { CityTableComponent } from './master/city-table/city-table.component';
+import { CityModalComponent } from './master/city-modal/city-modal.component';
+import { LocationTableComponent } from './master/location-table/location-table.component';
+import { LocationModalComponent } from './master/location-modal/location-modal.component';
+import { FaqTableComponent } from './master/faq-table/faq-table.component';
+import { FaqModalComponent } from './master/faq-modal/faq-modal.component';
+import { EventTableComponent } from './master/event-table/event-table.component';
+import { EventModalComponent } from './master/event-modal/event-modal.component';
+import { TaxTableComponent } from './master/tax-table/tax-table.component';
+import { TaxModalComponent } from './master/tax-modal/tax-modal.component';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -101,6 +115,20 @@ import { TopCategoryModalComponent } from './sequence/top-category-modal/top-cat
     SliderTableComponent,
     ProductTableComponent,
     TopCategoryModalComponent,
+    DeleteConfirmationComponent,
+    CountryTableComponent,
+    CountriesTableComponent,
+    CountriesModalComponent,
+    CityTableComponent,
+    CityModalComponent,
+    LocationTableComponent,
+    LocationModalComponent,
+    FaqTableComponent,
+    FaqModalComponent,
+    EventTableComponent,
+    EventModalComponent,
+    TaxTableComponent,
+    TaxModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -128,6 +156,7 @@ import { TopCategoryModalComponent } from './sequence/top-category-modal/top-cat
     HttpClientModule,
     MatSelectModule,
     DragDropModule,
+    MatSnackBarModule
     // NgToastModule
   ],
   providers: [],

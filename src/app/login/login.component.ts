@@ -1,3 +1,4 @@
+import { ToastService } from './../toast.service';
 import { ApiService } from './../api.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -15,7 +16,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     username: ['', Validators.required],
     password: ['', Validators.required]
   })
-  constructor(private apiService: ApiService, private authService: AuthService, private fb: FormBuilder, private router: Router, private navbarService: NavbarService) { }
+  constructor(private apiService: ApiService,
+    private authService: AuthService,
+    private fb: FormBuilder,
+    private router: Router,
+    private toastService: ToastService,
+    private navbarService: NavbarService) { }
   login() {
     const postData = {
       email: this.form.value.username,
@@ -27,13 +33,14 @@ export class LoginComponent implements OnInit, OnDestroy {
       (response) => {
         console.log('Post created successfully:', response.token);
         localStorage.setItem('token', response.token);
-        // this.toast.success({ detail: 'Success Message', summary: 'Login Successful', duration: 5000 })
+        this.toastService.showSuccess('Login successful!');
         this.router.navigateByUrl('/orders')
+
         // Optionally, you can handle the response or perform additional actions
       },
       (error) => {
         console.error('Error creating post:', error);
-
+        this.toastService.showError('Login failed. Please check your credentials.');
         // Optionally, you can handle errors, show a message, etc.
       }
     );

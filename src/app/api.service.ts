@@ -10,6 +10,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  // Brand Api
   getPosts(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/Masters/GetAllBrands`);
   }
@@ -28,6 +29,38 @@ export class ApiService {
   getBrandById(id: any): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/Masters/GetBrand/` + id);
   }
+
+  // Countries Api
+  getCountry(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllCountries`);
+  }
+  // City Api
+  getCity(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllCities`);
+  }
+  // Location Api
+  getLocation(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllLocations`);
+  }
+  // Location Api
+  getReference(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllReferences`);
+  }
+  // Tax Api
+  getTax(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllTaxRates`);
+  }
+  // Category Api
+  getCategory(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllCategories`);
+  }
+  // Sub Category Api
+  getsubCategory(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllSubCategories`);
+  }
+
+
+  // Login Api
   createPost(postData: any): Observable<any> {
     return this.http.post(`${environment.apiUrl}/api/Auth/Login`, postData);
   }

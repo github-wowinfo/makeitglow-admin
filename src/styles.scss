@@ -8,7 +8,18 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.success-toast {
+  background-color: #fff; // green color for success
+  color: #000;
+}
+
+.error-toast {
+  background-color: #f44336; // red color for error
+  color: #fff;
 }
