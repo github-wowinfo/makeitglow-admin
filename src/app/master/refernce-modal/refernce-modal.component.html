@@ -1,13 +1,32 @@
-<form>
-    <h1 mat-dialog-title>Add New Order Reference</h1>
+<!-- <form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+    <h1 mat-dialog-title>{{inputdata.title}}</h1>
     <div mat-dialog-content>
         <mat-form-field>
-            <mat-label>Reference Name</mat-label>
-            <input formControlName="name" matInput>
+            <mat-label>Country Name</mat-label>
+            <input formControlName="countryName" matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Phone Code</mat-label>
+            <input formControlName="phoneCode" matInput>
         </mat-form-field>
     </div>
     <div mat-dialog-actions>
-        <button mat-raised-button color="primary">Save</button>
+        <button mat-raised-button color="primary">{{ inputdata.id ? 'Update' : 'Save' }}</button>
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    </div>
+</form> -->
+
+
+<form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+    <h1 mat-dialog-title>{{inputdata.title}}</h1>
+    <div mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Reference Name</mat-label>
+            <input formControlName="referenceName" matInput>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button color="primary">{{ inputdata.id ? 'Update' : 'Save' }}</button>
         <button mat-raised-button color="warn" mat-dialog-close>Close</button>
     </div>
 </form>

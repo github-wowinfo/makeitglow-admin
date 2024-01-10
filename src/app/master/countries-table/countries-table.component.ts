@@ -1,3 +1,5 @@
+import { ToastService } from './../../toast.service';
+import { DeleteConfirmationComponent } from './../../delete-confirmation/delete-confirmation.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/api.service';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
@@ -21,7 +23,7 @@ export class CountriesTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['name', 'phoneCode', 'action'];
 
-  constructor(private apiService: ApiService, private dialog: MatDialog) {
+  constructor(private apiService: ApiService, private dialog: MatDialog, private toastService: ToastService,) {
     // this.dataSource = new CountriesTableDataSource();
     this.loadCountry()
   }
@@ -37,6 +39,48 @@ export class CountriesTableComponent implements AfterViewInit {
         // Optionally, you can handle errors, show a message, etc.
       }
     )
+  }
+  editCountry(id: any) {
+    this.Openpopup(id, 'Edit Country')
+  }
+
+  addCountry() {
+    this.Openpopup(0, 'Add Country')
+  }
+
+  Openpopup(id: any, title: any) {
+    var _popup = this.dialog.open(CountriesModalComponent, {
+      width: '40%',
+      data: {
+        title: title,
+        id: id
+      }
+    });
+
+    _popup.afterClosed().subscribe(item => {
+      this.loadCountry()
+    })
+  }
+
+  deleteCountry(id: any) {
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        // User confirmed deletion
+        this.apiService.deleteCountry(id).subscribe(response => {
+          this.toastService.showSuccess('Country Deleted successfully!');
+          this.loadCountry();
+          console.log('Delete successful', response);
+        },
+          (error) => {
+            console.error('Error creating post:', error);
+            this.toastService.showError(error);
+            // Optionally, you can handle errors, show a message, etc.
+          }
+        );
+      }
+    });
   }
 
   ngAfterViewInit(): void {

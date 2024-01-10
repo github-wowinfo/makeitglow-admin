@@ -1,3 +1,4 @@
+import { ToastService } from './../../toast.service';
 import { DeleteConfirmationComponent } from './../../delete-confirmation/delete-confirmation.component';
 import { BrandModalComponent } from './../brand-modal/brand-modal.component';
 import { ApiService } from './../../api.service';
@@ -26,7 +27,7 @@ export class BrandTableComponent implements AfterViewInit {
 
 
 
-  constructor(private apiService: ApiService, private dialog: MatDialog) {
+  constructor(private apiService: ApiService, private dialog: MatDialog, private toastService: ToastService,) {
     // this.dataSource = new BrandTableDataSource();
     this.loadBrand()
   }
@@ -60,6 +61,7 @@ export class BrandTableComponent implements AfterViewInit {
       if (result) {
         // User confirmed deletion
         this.apiService.deleteBrand(id).subscribe(response => {
+          this.toastService.showSuccess('Brand Deleted successfully!');
           this.loadBrand();
           console.log('Delete successful', response);
         });

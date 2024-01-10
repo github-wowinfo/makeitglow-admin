@@ -1,3 +1,6 @@
+import { RefernceModalComponent } from './../refernce-modal/refernce-modal.component';
+import { DeleteConfirmationComponent } from './../../delete-confirmation/delete-confirmation.component';
+import { ToastService } from './../../toast.service';
 import { ApiService } from 'src/app/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
@@ -21,7 +24,7 @@ export class RefernceTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['name', 'action'];
 
-  constructor(private apiService: ApiService, private dialog: MatDialog) {
+  constructor(private apiService: ApiService, private dialog: MatDialog, private toastService: ToastService,) {
     this.loadReference()
   }
 
@@ -37,6 +40,51 @@ export class RefernceTableComponent implements AfterViewInit {
       }
     )
   }
+
+  editReference(id: any) {
+    this.Openpopup(id, 'Edit Reference')
+  }
+
+  addReference() {
+    this.Openpopup(0, 'Add Reference')
+  }
+
+  Openpopup(id: any, title: any) {
+    var _popup = this.dialog.open(RefernceModalComponent, {
+      width: '40%',
+      data: {
+        title: title,
+        id: id
+      }
+    });
+
+    _popup.afterClosed().subscribe(item => {
+      this.loadReference()
+    })
+  }
+
+
+  deleteReference(id: any) {
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        // User confirmed deletion
+        this.apiService.deleteReference(id).subscribe(response => {
+          this.toastService.showSuccess('Reference Deleted successfully!');
+          this.loadReference();
+          console.log('Delete successful', response);
+        },
+          (error) => {
+            console.error('Error creating post:', error);
+            this.toastService.showError(error);
+            // Optionally, you can handle errors, show a message, etc.
+          }
+        );
+      }
+    });
+  }
+
 
 
 
