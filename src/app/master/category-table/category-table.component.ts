@@ -1,3 +1,6 @@
+import { DeleteConfirmationComponent } from './../../delete-confirmation/delete-confirmation.component';
+import { CategoryModalComponent } from './../category-modal/category-modal.component';
+import { ToastService } from './../../toast.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/api.service';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
@@ -21,7 +24,7 @@ export class CategoryTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['name', 'description', 'tags', 'url', 'type', 'title', 'metadescription', 'action'];
 
-  constructor(private apiService: ApiService, private dialog: MatDialog) {
+  constructor(private apiService: ApiService, private dialog: MatDialog, private toastService: ToastService) {
     this.loadCat()
   }
 
@@ -36,6 +39,43 @@ export class CategoryTableComponent implements AfterViewInit {
         // Optionally, you can handle errors, show a message, etc.
       }
     )
+  }
+
+  editCat(id: any) {
+    this.Openpopup(id, 'Edit Brand')
+  }
+
+  addCat() {
+    this.Openpopup(0, 'Add Brand')
+  }
+
+  deleteCat(id: any) {
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        // User confirmed deletion
+        this.apiService.deleteCategory(id).subscribe(response => {
+          this.toastService.showSuccess('Category Deleted successfully!');
+          this.loadCat();
+          console.log('Delete successful', response);
+        });
+      }
+    });
+  }
+
+  Openpopup(id: any, title: any) {
+    var _popup = this.dialog.open(CategoryModalComponent, {
+      width: '40%',
+      data: {
+        title: title,
+        id: id
+      }
+    });
+
+    _popup.afterClosed().subscribe(item => {
+      this.loadCat()
+    })
   }
 
   // ngAfterViewInit(): void {

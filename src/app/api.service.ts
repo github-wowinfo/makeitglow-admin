@@ -34,34 +34,6 @@ export class ApiService {
   getCountry(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/Masters/GetAllCountries`);
   }
-  deleteReference(id: any): Observable<any> {
-    const headers = this.createHeaders();
-    return this.http.post(`${environment.apiUrl}/api/Masters/DeleteReference/` + id, {}, { headers });
-  }
-  createReference(postData: any): Observable<any> {
-    const headers = this.createHeaders();
-    return this.http.post(`${environment.apiUrl}/api/Masters/AddReference`, postData, { headers });
-  }
-  updateReferenceById(postData: any): Observable<any> {
-    const headers = this.createHeaders();
-    return this.http.post(`${environment.apiUrl}/api/Masters/UpdateReference`, postData, { headers });
-  }
-  getReferenceById(id: any): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/api/Masters/GetReference/` + id);
-  }
-  // City Api
-  getCity(): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllCities`);
-  }
-  // Location Api
-  getLocation(): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllLocations`);
-  }
-  // Reference Api
-  getReference(): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllReferences`);
-  }
-
   deleteCountry(id: any): Observable<any> {
     const headers = this.createHeaders();
     return this.http.post(`${environment.apiUrl}/api/Masters/DeleteCountry/` + id, {}, { headers });
@@ -77,15 +49,77 @@ export class ApiService {
   getCountryById(id: any): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/Masters/GetCountry/` + id);
   }
+  // City Api
+  getCity(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllCities`);
+  }
+  // Location Api
+  getLocation(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllLocations`);
+  }
+  // Reference Api
+  getReference(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllReferences`);
+  }
+  deleteReference(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/DeleteReference/` + id, {}, { headers });
+  }
+  createReference(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/AddReference`, postData, { headers });
+  }
+  updateReferenceById(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/UpdateReference`, postData, { headers });
+  }
+  getReferenceById(id: any): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetReference/` + id);
+  }
+
 
   // Tax Api
   getTax(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/Masters/GetAllTaxRates`);
   }
+
+  deleteTax(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/DeleteTaxRate/` + id, {}, { headers });
+  }
+  createTax(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/AddTaxRate`, postData, { headers });
+  }
+  updateTaxById(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/UpdateTaxRate`, postData, { headers });
+  }
+  getTaxById(id: any): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetTaxRate/` + id);
+  }
+
   // Category Api
   getCategory(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/Masters/GetAllCategories`);
   }
+
+  deleteCategory(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/DeleteCategory/` + id, {}, { headers });
+  }
+  createCategory(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/AddCategory`, postData, { headers });
+  }
+  updateCategoryById(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/UpdateCategory`, postData, { headers });
+  }
+  getCategoryById(id: any): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetCategory/` + id);
+  }
+
   // Sub Category Api
   getsubCategory(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/Masters/GetAllSubCategories`);

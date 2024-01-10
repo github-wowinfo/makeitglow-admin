@@ -1,33 +1,37 @@
-<form>
-    <h1 mat-dialog-title>Add Categories</h1>
+<form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+    <h1 mat-dialog-title>{{inputdata.title}}</h1>
     <div mat-dialog-content>
         <mat-form-field>
             <mat-label> Category Name</mat-label>
-            <input formControlName="name" matInput>
+            <input formControlName="catgName" matInput>
         </mat-form-field>
         <mat-form-field>
             <mat-label> Description</mat-label>
-            <textarea matInput></textarea>
+            <textarea matInput formControlName="catDescription"></textarea>
         </mat-form-field>
         <mat-form-field>
             <mat-label> Meta Tags</mat-label>
-            <input formControlName="name" matInput>
+            <input formControlName="metaTags" matInput>
         </mat-form-field>
         <mat-form-field>
             <mat-label> Meta Property Url</mat-label>
-            <input formControlName="name" matInput>
+            <input formControlName="metapropertyurl" matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> Meta Property Type</mat-label>
+            <input formControlName="metapropertytype" matInput>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Meta Property Title</mat-label>
-            <input formControlName="name" matInput>
+            <input formControlName="metapropertytitle" matInput>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Meta Property Description</mat-label>
-            <input formControlName="name" matInput>
+            <input formControlName="metapropertydescription" matInput>
         </mat-form-field>
     </div>
     <div mat-dialog-actions>
-        <button mat-raised-button color="primary">Save</button>
+        <button mat-raised-button color="primary">{{ inputdata.id ? 'Update' : 'Save' }}</button>
         <button mat-raised-button color="warn" mat-dialog-close>Close</button>
     </div>
 </form>
