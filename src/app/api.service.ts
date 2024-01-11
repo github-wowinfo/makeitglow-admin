@@ -9,6 +9,12 @@ export class ApiService {
 
 
   constructor(private http: HttpClient) { }
+  // Customer
+  // Sub Category Api
+  getCustomers(): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Auth/GetAllCustomerUsers`, { headers });
+  }
 
   // Brand Api
   getPosts(): Observable<any> {
