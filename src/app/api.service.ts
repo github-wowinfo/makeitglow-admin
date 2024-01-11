@@ -124,7 +124,21 @@ export class ApiService {
   getsubCategory(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/Masters/GetAllSubCategories`);
   }
-
+  deleteSubCategory(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/DeleteSubCategory/` + id, {}, { headers });
+  }
+  createSubCategory(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/AddSubCategory`, postData, { headers });
+  }
+  updateSubCategoryById(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/UpdateSubCategory`, postData, { headers });
+  }
+  getSubCategoryById(id: any): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetSubCategory/` + id);
+  }
 
   // Login Api
   createPost(postData: any): Observable<any> {

@@ -1,40 +1,45 @@
-<form>
-    <h1 mat-dialog-title>Add Categories</h1>
+<form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+    <h1 mat-dialog-title>{{inputdata.title}}</h1>
     <div mat-dialog-content>
         <mat-form-field>
             <mat-label>Category List</mat-label>
-            <select matNativeControl>
-                <option value="" selected></option>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-            </select>
+            <!-- <select matNativeControl formControlName="categoryId" id="dropdown" [(ngModel)]="selectedOption">
+                <option *ngFor="let option of options" [value]="option.catgEntryId">{{ option.catgName }}</option>
+            </select> -->
+            <mat-select formControlName="categoryId" id="dropdown" [(ngModel)]="selectedOption">
+                <mat-option *ngFor="let option of options" [value]="option.catgEntryId">{{ option.catgName
+                    }}</mat-option>
+
+            </mat-select>
         </mat-form-field>
         <mat-form-field>
-            <mat-label> Category Name</mat-label>
-            <input formControlName="name" matInput>
+            <mat-label> SubCategory Name</mat-label>
+            <input formControlName="subCatgName" matInput>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label> Meta Tags</mat-label>
-            <input formControlName="name" matInput>
+            <input formControlName="metaTags" matInput>
         </mat-form-field>
         <mat-form-field>
             <mat-label> Meta Property Url</mat-label>
-            <input formControlName="name" matInput>
+            <input formControlName="metapropertyurl" matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> Meta Property Type</mat-label>
+            <input formControlName="metapropertytype" matInput>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Meta Property Title</mat-label>
-            <input formControlName="name" matInput>
+            <input formControlName="metapropertytitle" matInput>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Meta Property Description</mat-label>
-            <input formControlName="name" matInput>
+            <input formControlName="metapropertydescription" matInput>
         </mat-form-field>
     </div>
     <div mat-dialog-actions>
-        <button mat-raised-button color="primary">Save</button>
+        <button mat-raised-button color="primary">{{ inputdata.id ? 'Update' : 'Save' }}</button>
         <button mat-raised-button color="warn" mat-dialog-close>Close</button>
     </div>
 </form>
