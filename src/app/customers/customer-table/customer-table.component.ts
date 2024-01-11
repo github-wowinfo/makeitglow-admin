@@ -21,7 +21,7 @@ export class CustomerTableComponent implements AfterViewInit {
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['userId', 'email', 'phoneNumber', 'name', 'location', 'reference', 'address', 'action'];
+  displayedColumns = ['userId', 'email', 'phoneNumber', 'name', 'location', 'reference', 'address'];
 
   constructor(private apiService: ApiService, private dialog: MatDialog, private toastService: ToastService,) {
     this.loadCustomers()
