@@ -73,7 +73,7 @@ export class CityModalComponent implements OnInit {
         this.saveCity();
       }
     } else {
-      this.toastService.showError('Please fill out the brand name.');
+      this.toastService.showError('Please fill out the Required Fields.');
     }
   }
 

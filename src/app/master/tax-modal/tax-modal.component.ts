@@ -60,7 +60,7 @@ export class TaxModalComponent implements OnInit {
         this.saveTax();
       }
     } else {
-      this.toastService.showError('Please fill out the brand name.');
+      this.toastService.showError('Please fill out the Required Fields.');
     }
   }
 

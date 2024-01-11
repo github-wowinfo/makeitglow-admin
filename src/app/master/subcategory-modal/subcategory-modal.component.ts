@@ -84,7 +84,7 @@ export class SubcategoryModalComponent implements OnInit {
         this.saveSubCat();
       }
     } else {
-      this.toastService.showError('Please fill out the brand name.');
+      this.toastService.showError('Please fill out the Required Fields.');
     }
   }
 

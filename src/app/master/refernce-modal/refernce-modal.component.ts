@@ -57,7 +57,7 @@ export class RefernceModalComponent implements OnInit {
         this.saveReference();
       }
     } else {
-      this.toastService.showError('Please fill out all the fields.');
+      this.toastService.showError('Please fill out the Required Fields.');
     }
   }
 

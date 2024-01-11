@@ -52,7 +52,7 @@ export class BrandModalComponent implements OnInit {
         this.saveBrand();
       }
     } else {
-      this.toastService.showError('Please fill out the brand name.');
+      this.toastService.showError('Please fill out the Required Fields.');
     }
   }
 
