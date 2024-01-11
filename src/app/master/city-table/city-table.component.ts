@@ -1,3 +1,6 @@
+import { CityModalComponent } from './../city-modal/city-modal.component';
+import { ToastService } from './../../toast.service';
+import { DeleteConfirmationComponent } from './../../delete-confirmation/delete-confirmation.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/api.service';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
@@ -21,7 +24,7 @@ export class CityTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['cityName', 'countryName', 'phoneCode', 'action'];
 
-  constructor(private apiService: ApiService, private dialog: MatDialog) {
+  constructor(private apiService: ApiService, private dialog: MatDialog, private toastService: ToastService) {
     this.loadCity()
   }
 
@@ -36,6 +39,43 @@ export class CityTableComponent implements AfterViewInit {
         // Optionally, you can handle errors, show a message, etc.
       }
     )
+  }
+
+  editCity(id: any) {
+    this.Openpopup(id, 'Edit Brand')
+  }
+
+  addCity() {
+    this.Openpopup(0, 'Add Brand')
+  }
+
+  deleteCity(id: any) {
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        // User confirmed deletion
+        this.apiService.deleteCity(id).subscribe(response => {
+          this.toastService.showSuccess('City Deleted successfully!');
+          this.loadCity();
+          console.log('Delete successful', response);
+        });
+      }
+    });
+  }
+
+  Openpopup(id: any, title: any) {
+    var _popup = this.dialog.open(CityModalComponent, {
+      width: '40%',
+      data: {
+        title: title,
+        id: id
+      }
+    });
+
+    _popup.afterClosed().subscribe(item => {
+      this.loadCity()
+    })
   }
 
   ngAfterViewInit(): void {

@@ -1,1 +1,24 @@
-<p>city-modal works!</p>
+<form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+    <h1 mat-dialog-title>{{inputdata.title}}</h1>
+    <div mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Category List</mat-label>
+            <!-- <select matNativeControl formControlName="categoryId" id="dropdown" [(ngModel)]="selectedOption">
+                <option *ngFor="let option of options" [value]="option.catgEntryId">{{ option.catgName }}</option>
+            </select> -->
+            <mat-select formControlName="countryId" id="dropdown" [(ngModel)]="selectedOption">
+                <mat-option *ngFor="let option of options" [value]="option.countryId">{{ option.countryName
+                    }}</mat-option>
+
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>City Name</mat-label>
+            <input formControlName="cityName" matInput>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button color="primary">{{ inputdata.id ? 'Update' : 'Save' }}</button>
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    </div>
+</form>

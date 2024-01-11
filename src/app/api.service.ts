@@ -53,6 +53,23 @@ export class ApiService {
   getCity(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/Masters/GetAllCities`);
   }
+
+  deleteCity(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/DeleteCity/` + id, {}, { headers });
+  }
+  createCity(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/AddCity`, postData, { headers });
+  }
+  updateCityById(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/UpdateCity`, postData, { headers });
+  }
+  getCityById(id: any): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetCity/` + id);
+  }
+
   // Location Api
   getLocation(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/Masters/GetAllLocations`);
