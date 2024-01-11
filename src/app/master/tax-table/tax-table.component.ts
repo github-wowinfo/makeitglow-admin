@@ -45,7 +45,7 @@ export class TaxTableComponent implements AfterViewInit {
   }
 
   addRate() {
-    this.Openpopup(0, 'Add Tax Brand')
+    this.Openpopup(0, 'Add Tax Rate')
   }
 
   deleteRate(id: any) {

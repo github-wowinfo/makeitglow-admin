@@ -42,12 +42,12 @@ export class CategoryModalComponent implements OnInit {
 
   myForm = this.builder.group({
     catgName: this.builder.control('', Validators.required),
-    catDescription: this.builder.control('', Validators.required),
-    metaTags: this.builder.control('', Validators.required),
-    metapropertyurl: this.builder.control('', Validators.required),
-    metapropertytype: this.builder.control('', Validators.required),
-    metapropertytitle: this.builder.control('', Validators.required),
-    metapropertydescription: this.builder.control('', Validators.required)
+    catDescription: this.builder.control(''),
+    metaTags: this.builder.control(''),
+    metapropertyurl: this.builder.control(''),
+    metapropertytype: this.builder.control(''),
+    metapropertytitle: this.builder.control(''),
+    metapropertydescription: this.builder.control('')
   });
 
   setEditData(id: any) {
@@ -73,7 +73,7 @@ export class CategoryModalComponent implements OnInit {
         this.saveCat();
       }
     } else {
-      this.toastService.showError('Please fill out the brand name.');
+      this.toastService.showError('Please fill out the Required Fields.');
     }
   }
 

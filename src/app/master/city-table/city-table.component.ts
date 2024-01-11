@@ -42,11 +42,11 @@ export class CityTableComponent implements AfterViewInit {
   }
 
   editCity(id: any) {
-    this.Openpopup(id, 'Edit Brand')
+    this.Openpopup(id, 'Edit City')
   }
 
   addCity() {
-    this.Openpopup(0, 'Add Brand')
+    this.Openpopup(0, 'Add City')
   }
 
   deleteCity(id: any) {

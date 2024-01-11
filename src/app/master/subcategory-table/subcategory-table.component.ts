@@ -43,11 +43,11 @@ export class SubcategoryTableComponent implements AfterViewInit {
   }
 
   editSubCat(id: any) {
-    this.Openpopup(id, 'Edit Brand')
+    this.Openpopup(id, 'Edit SubCategory')
   }
 
   addSubCat() {
-    this.Openpopup(0, 'Add Brand')
+    this.Openpopup(0, 'Add SubCategory')
   }
 
   deleteSubCat(id: any) {

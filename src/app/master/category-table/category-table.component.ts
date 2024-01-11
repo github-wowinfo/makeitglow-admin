@@ -42,11 +42,11 @@ export class CategoryTableComponent implements AfterViewInit {
   }
 
   editCat(id: any) {
-    this.Openpopup(id, 'Edit Brand')
+    this.Openpopup(id, 'Edit Category')
   }
 
   addCat() {
-    this.Openpopup(0, 'Add Brand')
+    this.Openpopup(0, 'Add Category')
   }
 
   deleteCat(id: any) {
