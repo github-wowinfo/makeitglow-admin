@@ -11,13 +11,6 @@
             </mat-select>
         </mat-form-field>
         <mat-form-field class="InputStyle">
-            <mat-label>Product Unit Type</mat-label>
-            <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="InputStyle">
             <mat-label>Product Category</mat-label>
             <mat-select>
                 <mat-option value="one">First option</mat-option>
@@ -32,12 +25,33 @@
             </mat-select>
         </mat-form-field>
         <mat-form-field class="InputStyle">
+            <mat-label>Has Variant</mat-label>
+            <mat-select>
+                <mat-option value="true">True</mat-option>
+                <mat-option value="false">False</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
             <mat-label>Product Name</mat-label>
             <input matInput>
         </mat-form-field>
         <mat-form-field class="InputStyle">
             <mat-label>Short Description</mat-label>
             <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Unit Type</mat-label>
+            <mat-select>
+                <mat-option value="1">gm</mat-option>
+                <mat-option value="2">ml</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Tax Rate</mat-label>
+            <mat-select>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+            </mat-select>
         </mat-form-field>
         <mat-form-field class="InputStyle">
             <mat-label>Long Description</mat-label>
@@ -47,8 +61,122 @@
             <mat-label>Benefits</mat-label>
             <textarea matInput></textarea>
         </mat-form-field>
-        <mat-label>Product Images</mat-label>
+        <mat-form-field class="InputStyle">
+            <mat-label>Has Dimension</mat-label>
+            <mat-select>
+                <mat-option value="yes">Yes</mat-option>
+                <mat-option value="no">No</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Batch Code</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Batch Info</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>MFG At</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>MFG By</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>MFG Date</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Warranty In Month</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Remark</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Vendor Info</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Policy</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Meta Tags</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Meta Property Url</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Meta Property Type</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Meta Property Title</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Meta Property Description</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>SrNo</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>BarCodeNo</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Item Title</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Website Moq</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Is Available</mat-label>
+            <mat-select>
+                <mat-option value="true">True</mat-option>
+                <mat-option value="false">False</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Is Buyable</mat-label>
+            <mat-select>
+                <mat-option value="true">True</mat-option>
+                <mat-option value="false">False</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>Hex Color Code</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="InputStyle">
+            <mat-label>How To Use</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-card class="mb-3">
+            <mat-label>Thumbnail Images</mat-label>
+            <input class="d-block" type="file" (change)="onFileSelected($event)">
+        </mat-card>
+        <mat-card class="mb-3">
+            <mat-label>Product Image 1</mat-label>
+            <input class="d-block" type="file" (change)="onFileSelected($event)">
+        </mat-card>
+        <mat-card class="mb-3">
+            <mat-label>Product Image 2</mat-label>
+            <input class="d-block" type="file" (change)="onFileSelected($event)">
+        </mat-card>
         <mat-card>
+            <mat-label>Product Image 3</mat-label>
             <input class="d-block" type="file" (change)="onFileSelected($event)">
         </mat-card>
         <!-- <mat-form-field>

@@ -1,3 +1,4 @@
+import { ViewProductComponent } from './products/view-product/view-product.component';
 import { OrdersComponent } from './orders/orders/orders.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'uploads', component: UploadsComponent },
   { path: 'masterData', component: MasterDataComponent },
   { path: 'EcomSequence', component: EcommSequenceComponent },
+  { path: 'viewProduct/:id', component: ViewProductComponent },
 ];
 
 @NgModule({

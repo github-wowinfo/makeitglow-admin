@@ -1,32 +1,36 @@
 <div class="mat-elevation-z8">
-  <table mat-table class="full-width-table" matSort aria-label="Elements">
+  <table [dataSource]="dataSource" mat-table class="full-width-table" matSort aria-label="Elements">
+    <!-- ['ItemEntryId', 'itemName', 'shortDescription', 'hasVariant', 'action'] -->
     <!-- Id Column -->
-    <ng-container matColumnDef="SrNo">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>SrNo</th>
-      <td mat-cell *matCellDef="let row">{{row.SrNo}}</td>
+    <ng-container matColumnDef="ItemEntryId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Product ID</th>
+      <td mat-cell *matCellDef="let row">{{row.itemEntryId}}</td>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="products">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Products</th>
-      <td mat-cell *matCellDef="let row">{{row.products}}</td>
+    <ng-container matColumnDef="itemName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Name</th>
+      <td mat-cell *matCellDef="let row">{{row.itemName}}</td>
     </ng-container>
     <!-- Name Column -->
-    <ng-container matColumnDef="productType">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Type</th>
-      <td mat-cell *matCellDef="let row">{{row.productType}}</td>
+    <ng-container matColumnDef="shortDescription">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Short Description</th>
+      <td mat-cell *matCellDef="let row">{{row.shortDescription}}</td>
     </ng-container>
     <!-- Name Column -->
-    <ng-container matColumnDef="category">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
-      <td mat-cell *matCellDef="let row">{{row.category}}</td>
+    <ng-container matColumnDef="hasVariant">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Variant</th>
+      <td mat-cell *matCellDef="let row"> <mat-slide-toggle
+          (change)="onSlideToggleChange(row.itemEntryId,row.hasVariant)" [checked]="row.hasVariant"></mat-slide-toggle>
+      </td>
     </ng-container>
     <!-- Name Column -->
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
       <td mat-cell *matCellDef="let row">
         <mat-icon style="cursor: pointer;">edit</mat-icon>
-        <mat-icon style="cursor: pointer;">delete</mat-icon>
+        <mat-icon style="cursor: pointer;" (click)="deleteProduct(row.itemEntryId)">delete</mat-icon>
+        <mat-icon style="cursor: pointer;" (click)="redirectToAnotherComponent('1')">remove_red_eye</mat-icon>
       </td>
     </ng-container>
 

@@ -75,6 +75,8 @@ import { EventTableComponent } from './master/event-table/event-table.component'
 import { EventModalComponent } from './master/event-modal/event-modal.component';
 import { TaxTableComponent } from './master/tax-table/tax-table.component';
 import { TaxModalComponent } from './master/tax-modal/tax-modal.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ViewProductComponent } from './products/view-product/view-product.component';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -129,6 +131,7 @@ import { TaxModalComponent } from './master/tax-modal/tax-modal.component';
     EventModalComponent,
     TaxTableComponent,
     TaxModalComponent,
+    ViewProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -156,7 +159,8 @@ import { TaxModalComponent } from './master/tax-modal/tax-modal.component';
     HttpClientModule,
     MatSelectModule,
     DragDropModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSlideToggleModule
     // NgToastModule
   ],
   providers: [],

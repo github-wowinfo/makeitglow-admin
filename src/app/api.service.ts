@@ -184,6 +184,19 @@ export class ApiService {
     return this.http.post(`${environment.apiUrl}/api/Auth/Login`, postData);
   }
 
+  // Product APIs
+  getProducts(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Items/GetAllItems`);
+  }
+
+  EnableDisableHasVariant(id: any, variant: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Items/EnableDisableHasVariant?id=${id}&hasVariant=${variant}`, {}, { headers });
+  }
+  deleteProduct(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Items/DeleteItem?id=${id}`, {}, { headers });
+  }
 
 
   private createHeaders(): HttpHeaders {
