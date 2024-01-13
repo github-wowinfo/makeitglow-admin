@@ -72,7 +72,7 @@ export class ProductTableComponent implements AfterViewInit {
       if (result) {
         // User confirmed deletion
         this.apiService.deleteProduct(id).subscribe(response => {
-          this.toastService.showSuccess('Brand Deleted successfully!');
+          this.toastService.showSuccess('Product Deleted successfully!');
           this.loadProduct();
           console.log('Delete successful', response);
         });

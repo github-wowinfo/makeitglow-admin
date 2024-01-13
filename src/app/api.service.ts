@@ -197,6 +197,14 @@ export class ApiService {
     const headers = this.createHeaders();
     return this.http.post(`${environment.apiUrl}/api/Items/DeleteItem?id=${id}`, {}, { headers });
   }
+  deleteProductVariant(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Items/DeleteVariantItem?id=${id}`, {}, { headers });
+  }
+  getProductById(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Items/GetItemById?id=${id}`);
+  }
 
 
   private createHeaders(): HttpHeaders {

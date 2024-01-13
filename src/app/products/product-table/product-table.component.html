@@ -30,11 +30,12 @@
       <td mat-cell *matCellDef="let row">
         <mat-icon style="cursor: pointer;">edit</mat-icon>
         <mat-icon style="cursor: pointer;" (click)="deleteProduct(row.itemEntryId)">delete</mat-icon>
-        <mat-icon style="cursor: pointer;" (click)="redirectToAnotherComponent('1')">remove_red_eye</mat-icon>
+        <mat-icon style="cursor: pointer;"
+          (click)="redirectToAnotherComponent(row.itemEntryId)">remove_red_eye</mat-icon>
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef=" displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
