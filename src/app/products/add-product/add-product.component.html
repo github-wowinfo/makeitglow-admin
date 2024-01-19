@@ -5,16 +5,22 @@
     <div class="page__content shadow p-3 position-relative">
         <mat-form-field class="InputStyle">
             <mat-label>Brand</mat-label>
-            <mat-select>
+            <!-- <mat-select formControlName="BrndId">
                 <mat-option value="one">First option</mat-option>
                 <mat-option value="two">Second option</mat-option>
+            </mat-select> -->
+            <mat-select formControlName="BrndId" id="dropdown" [(ngModel)]="selectedOption">
+                <mat-option *ngFor="let option of options" [value]="option.brandId">{{ option.brndName
+                    }}</mat-option>
+
             </mat-select>
         </mat-form-field>
         <mat-form-field class="InputStyle">
             <mat-label>Product Category</mat-label>
-            <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
+            <mat-select formControlName="BrndId" id="dropdown" [(ngModel)]="catselectedOption">
+                <mat-option *ngFor="let option of catoptions" [value]="option.catgEntryId">{{ option.catgName
+                    }}</mat-option>
+
             </mat-select>
         </mat-form-field>
         <mat-form-field class="InputStyle">
@@ -179,6 +185,10 @@
             <mat-label>Product Image 3</mat-label>
             <input class="d-block" type="file" (change)="onFileSelected($event)">
         </mat-card>
+        <div mat-dialog-actions class="mt-3 text-center">
+            <button mat-raised-button color="primary" class="me-3">Save</button>
+            <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+        </div>
         <!-- <mat-form-field>
         </mat-form-field> -->
         <div class="page__content-data position-absolute text-center">
