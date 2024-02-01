@@ -17,7 +17,7 @@
         </mat-form-field>
         <mat-form-field class="InputStyle">
             <mat-label>Product Category</mat-label>
-            <mat-select formControlName="BrndId" id="dropdown" [(ngModel)]="catselectedOption">
+            <mat-select formControlName="CategoryId" id="dropdown" [(ngModel)]="catselectedOption">
                 <mat-option *ngFor="let option of catoptions" [value]="option.catgEntryId">{{ option.catgName
                     }}</mat-option>
 
@@ -25,36 +25,37 @@
         </mat-form-field>
         <mat-form-field class="InputStyle">
             <mat-label>Product Sub Category</mat-label>
-            <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
+            <mat-select formControlName="SubCategoryId" id="dropdown" [(ngModel)]="subcatselectedOption">
+                <mat-option *ngFor="let option of subcatoptions" [value]="option.subCatgEntryId">{{ option.subCatgName
+                    }}</mat-option>
+
             </mat-select>
         </mat-form-field>
-        <mat-form-field class="InputStyle">
+        <!-- <mat-form-field class="InputStyle">
             <mat-label>Has Variant</mat-label>
             <mat-select>
                 <mat-option value="true">True</mat-option>
                 <mat-option value="false">False</mat-option>
             </mat-select>
-        </mat-form-field>
+        </mat-form-field> -->
         <mat-form-field class="InputStyle">
             <mat-label>Product Name</mat-label>
-            <input matInput>
+            <input formControlName="ItemName" matInput>
         </mat-form-field>
         <mat-form-field class="InputStyle">
             <mat-label>Short Description</mat-label>
-            <textarea matInput></textarea>
+            <textarea formControlName="ShortDescription" matInput></textarea>
         </mat-form-field>
         <mat-form-field class="InputStyle">
             <mat-label>Unit Type</mat-label>
-            <mat-select>
-                <mat-option value="1">gm</mat-option>
+            <mat-select formControlName="UnitType">
                 <mat-option value="2">ml</mat-option>
+                <mat-option value="1">gm</mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field class="InputStyle">
             <mat-label>Tax Rate</mat-label>
-            <mat-select>
+            <mat-select formControlName="TaxId">
                 <mat-option value="one">First option</mat-option>
                 <mat-option value="two">Second option</mat-option>
             </mat-select>

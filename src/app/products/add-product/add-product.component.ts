@@ -11,6 +11,8 @@ export class AddProductComponent implements OnInit {
   selectedOption: any;
   catoptions: any[] = [];
   catselectedOption: any;
+  subcatoptions: any[] = [];
+  subcatselectedOption: any;
   constructor(private apiService: ApiService,) {
 
   }
@@ -20,6 +22,7 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {
     this.brandData();
     this.categoryData();
+    this.SubcategoryData()
   }
   brandData() {
     this.apiService.getPosts().subscribe(
@@ -39,6 +42,18 @@ export class AddProductComponent implements OnInit {
         console.log('data', data);
 
         this.catoptions = data;
+      },
+      (error) => {
+        console.error('Error fetching data:', error);
+      }
+    );
+  }
+  SubcategoryData() {
+    this.apiService.getsubCategory().subscribe(
+      (data: any[]) => {
+        console.log('data', data);
+
+        this.subcatoptions = data;
       },
       (error) => {
         console.error('Error fetching data:', error);
