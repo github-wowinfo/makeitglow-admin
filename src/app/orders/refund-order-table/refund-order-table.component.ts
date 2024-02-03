@@ -31,6 +31,7 @@ export class RefundOrderTableComponent implements AfterViewInit {
       (response) => {
         this.refundedorderData = response
         this.dataSource = new MatTableDataSource<any>(this.refundedorderData)
+        this.dataSource.paginator = this.paginator;
       },
       (error) => {
         console.error('Error creating post:', error);
@@ -42,6 +43,5 @@ export class RefundOrderTableComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
   }
 }
