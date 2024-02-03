@@ -5,35 +5,56 @@
     </div>
     <div>
         <mat-tab-group>
-            <mat-tab label="New Orders (1)">
+            <mat-tab label="New Orders">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+                    <app-new-order-table></app-new-order-table>
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Processed Orders">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+                    <app-process-order-table></app-process-order-table>
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Confirmed Orders">
                 <div class="page__content shadow p-3 mt-2 position-relative">
                     <app-order-table></app-order-table>
                     <div class="page__content-data position-absolute text-center">
                     </div>
                 </div>
             </mat-tab>
-            <mat-tab label="Confirmed Orders (1)">
+            <mat-tab label="Shipped Orders">
                 <div class="page__content shadow p-3 mt-2 position-relative">
                     <app-order-table></app-order-table>
                     <div class="page__content-data position-absolute text-center">
                     </div>
                 </div>
             </mat-tab>
-            <mat-tab label="Cancelled Orders (1)">
+            <mat-tab label="Delivered Orders">
                 <div class="page__content shadow p-3 mt-2 position-relative">
                     <app-order-table></app-order-table>
                     <div class="page__content-data position-absolute text-center">
                     </div>
                 </div>
             </mat-tab>
-            <mat-tab label="Refunded Orders (1)">
+            <mat-tab label="Cancelled Orders">
                 <div class="page__content shadow p-3 mt-2 position-relative">
                     <app-order-table></app-order-table>
                     <div class="page__content-data position-absolute text-center">
                     </div>
                 </div>
             </mat-tab>
-            <mat-tab label="Deleted Orders (1)">
+            <mat-tab label="Refunded Orders">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+                    <app-order-table></app-order-table>
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Deleted Orders">
                 <div class="page__content shadow p-3 mt-2 position-relative">
                     <app-order-table></app-order-table>
                     <div class="page__content-data position-absolute text-center">

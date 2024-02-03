@@ -77,6 +77,8 @@ import { TaxTableComponent } from './master/tax-table/tax-table.component';
 import { TaxModalComponent } from './master/tax-modal/tax-modal.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ViewProductComponent } from './products/view-product/view-product.component';
+import { NewOrderTableComponent } from './orders/new-order-table/new-order-table.component';
+import { ProcessOrderTableComponent } from './orders/process-order-table/process-order-table.component';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -132,6 +134,8 @@ import { ViewProductComponent } from './products/view-product/view-product.compo
     TaxTableComponent,
     TaxModalComponent,
     ViewProductComponent,
+    NewOrderTableComponent,
+    ProcessOrderTableComponent,
   ],
   imports: [
     BrowserModule,

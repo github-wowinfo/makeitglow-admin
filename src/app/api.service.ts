@@ -15,6 +15,38 @@ export class ApiService {
     const headers = this.createHeaders();
     return this.http.get(`${environment.apiUrl}/api/Auth/GetAllCustomerUsers`, { headers });
   }
+  getNewOrders(): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Admin/Actions/AllOrdersByStatus/1`, { headers });
+  }
+  getprocessOrders(): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Admin/Actions/AllOrdersByStatus/2`, { headers });
+  }
+  getConfirmedOrders(): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Admin/Actions/AllOrdersByStatus/3`, { headers });
+  }
+  getshippedOrders(): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Admin/Actions/AllOrdersByStatus/4`, { headers });
+  }
+  getdeliveredOrders(): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Admin/Actions/AllOrdersByStatus/5`, { headers });
+  }
+  getcancelledOrders(): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Admin/Actions/AllOrdersByStatus/6`, { headers });
+  }
+  getrefundedOrders(): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Admin/Actions/AllOrdersByStatus/7`, { headers });
+  }
+  getdeletedOrders(): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Admin/Actions/AllOrdersByStatus/0`, { headers });
+  }
 
   // Brand Api
   getPosts(): Observable<any> {
