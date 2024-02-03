@@ -79,6 +79,12 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ViewProductComponent } from './products/view-product/view-product.component';
 import { NewOrderTableComponent } from './orders/new-order-table/new-order-table.component';
 import { ProcessOrderTableComponent } from './orders/process-order-table/process-order-table.component';
+import { ConfirmOrderTableComponent } from './orders/confirm-order-table/confirm-order-table.component';
+import { ShippedOrderTableComponent } from './orders/shipped-order-table/shipped-order-table.component';
+import { DeliveredOrderTableComponent } from './orders/delivered-order-table/delivered-order-table.component';
+import { CanceledOrderTableComponent } from './orders/canceled-order-table/canceled-order-table.component';
+import { RefundOrderTableComponent } from './orders/refund-order-table/refund-order-table.component';
+import { DeletedOrderTableComponent } from './orders/deleted-order-table/deleted-order-table.component';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -136,6 +142,12 @@ import { ProcessOrderTableComponent } from './orders/process-order-table/process
     ViewProductComponent,
     NewOrderTableComponent,
     ProcessOrderTableComponent,
+    ConfirmOrderTableComponent,
+    ShippedOrderTableComponent,
+    DeliveredOrderTableComponent,
+    CanceledOrderTableComponent,
+    RefundOrderTableComponent,
+    DeletedOrderTableComponent,
   ],
   imports: [
     BrowserModule,
