@@ -25,18 +25,8 @@ export class NewOrderTableComponent implements AfterViewInit {
     this.neworder();
   }
 
-  defaultStatus: number = 2;
 
-  openOrderStatusModal(oid: number, status: number) {
-    const dialogRef = this.dialog.open(OrderStatusModalComponent, {
-      data: { oid, status },
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // Handle any result or action after the modal is closed
-    });
-  }
 
 
   neworder() {
@@ -52,7 +42,17 @@ export class NewOrderTableComponent implements AfterViewInit {
       }
     );
   }
+  openOrderStatusModal(oid: number, status: number) {
+    const dialogRef = this.dialog.open(OrderStatusModalComponent, {
+      data: { oid, status },
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.neworder()
+      // Handle any result or action after the modal is closed
+    });
+  }
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.table.dataSource = this.dataSource;

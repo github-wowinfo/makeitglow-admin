@@ -20,7 +20,7 @@ export class DeletedOrderTableComponent implements AfterViewInit {
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['ordrID', 'custId', 'custName', 'total', 'status', 'action'];
+  displayedColumns = ['ordrID', 'custId', 'custName', 'total', 'status'];
 
   constructor(private apiService: ApiService, private dialog: MatDialog) {
     this.deletedorder()

@@ -1,3 +1,4 @@
+import { OrderStatusModalComponent } from './../order-status-modal/order-status-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/api.service';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
@@ -38,7 +39,17 @@ export class DeliveredOrderTableComponent implements AfterViewInit {
       }
     )
   }
+  openOrderStatusModal(oid: number, status: number) {
+    const dialogRef = this.dialog.open(OrderStatusModalComponent, {
+      data: { oid, status },
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      this.deliveredorder()
+      console.log('The dialog was closed');
+      // Handle any result or action after the modal is closed
+    });
+  }
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;

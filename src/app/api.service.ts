@@ -51,7 +51,7 @@ export class ApiService {
 
   updateorderStatus(postData: any): Observable<any> {
     const headers = this.createHeaders();
-    return this.http.post(`${environment.apiUrl}/api/Admin/Actions/UpdateOrderStatus`, postData, { headers });
+    return this.http.post(`${environment.apiUrl}/api/Admin/Actions/UpdateOrderStatus`, postData, { headers, responseType: 'text' });
   }
 
   // Brand Api
