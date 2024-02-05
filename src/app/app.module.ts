@@ -85,6 +85,8 @@ import { DeliveredOrderTableComponent } from './orders/delivered-order-table/del
 import { CanceledOrderTableComponent } from './orders/canceled-order-table/canceled-order-table.component';
 import { RefundOrderTableComponent } from './orders/refund-order-table/refund-order-table.component';
 import { DeletedOrderTableComponent } from './orders/deleted-order-table/deleted-order-table.component';
+import { OrderStatusModalComponent } from './orders/order-status-modal/order-status-modal.component';
+import { FormsModule } from '@angular/forms';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -148,6 +150,7 @@ import { DeletedOrderTableComponent } from './orders/deleted-order-table/deleted
     CanceledOrderTableComponent,
     RefundOrderTableComponent,
     DeletedOrderTableComponent,
+    OrderStatusModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -176,7 +179,8 @@ import { DeletedOrderTableComponent } from './orders/deleted-order-table/deleted
     MatSelectModule,
     DragDropModule,
     MatSnackBarModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    FormsModule
     // NgToastModule
   ],
   providers: [],

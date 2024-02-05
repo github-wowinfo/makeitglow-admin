@@ -1,3 +1,4 @@
+import { OrderStatusModalComponent } from './../order-status-modal/order-status-modal.component';
 import { ApiService } from 'src/app/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
@@ -5,7 +6,6 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator'; // Import MatPaginator
 import { NewOrderTableDataSource, NewOrderTableItem } from './new-order-table-datasource';
-
 @Component({
   selector: 'app-new-order-table',
   templateUrl: './new-order-table.component.html',
@@ -24,6 +24,20 @@ export class NewOrderTableComponent implements AfterViewInit {
   constructor(private apiService: ApiService, private dialog: MatDialog) {
     this.neworder();
   }
+
+  defaultStatus: number = 2;
+
+  openOrderStatusModal(oid: number, status: number) {
+    const dialogRef = this.dialog.open(OrderStatusModalComponent, {
+      data: { oid, status },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // Handle any result or action after the modal is closed
+    });
+  }
+
 
   neworder() {
     this.apiService.getNewOrders().subscribe(

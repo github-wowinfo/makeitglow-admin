@@ -48,6 +48,12 @@ export class ApiService {
     return this.http.get(`${environment.apiUrl}/api/Admin/Actions/AllOrdersByStatus/0`, { headers });
   }
 
+
+  updateorderStatus(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Admin/Actions/UpdateOrderStatus`, postData, { headers });
+  }
+
   // Brand Api
   getPosts(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/Masters/GetAllBrands`);
