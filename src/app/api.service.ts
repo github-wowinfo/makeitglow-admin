@@ -243,6 +243,10 @@ export class ApiService {
     const headers = this.createHeaders();
     return this.http.get(`${environment.apiUrl}/api/Items/GetItemById?id=${id}`);
   }
+  getorderById(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Order/GetOrderDetailsByOrderId?OrderId=${id}`, { headers });
+  }
 
 
   private createHeaders(): HttpHeaders {
