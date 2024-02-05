@@ -1,3 +1,4 @@
+import { OrderDetailsComponent } from './orders/order-details/order-details.component';
 import { ViewProductComponent } from './products/view-product/view-product.component';
 import { OrdersComponent } from './orders/orders/orders.component';
 import { NgModule } from '@angular/core';
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'masterData', component: MasterDataComponent },
   { path: 'EcomSequence', component: EcommSequenceComponent },
   { path: 'viewProduct/:id', component: ViewProductComponent },
+  { path: 'orderDetails/:id', component: OrderDetailsComponent },
 ];
 
 @NgModule({

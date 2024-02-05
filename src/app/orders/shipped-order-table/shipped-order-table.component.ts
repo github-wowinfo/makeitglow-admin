@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { OrderStatusModalComponent } from './../order-status-modal/order-status-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/api.service';
@@ -23,7 +24,7 @@ export class ShippedOrderTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['ordrID', 'custId', 'custName', 'total', 'status', 'action'];
 
-  constructor(private apiService: ApiService, private dialog: MatDialog) {
+  constructor(private router: Router, private apiService: ApiService, private dialog: MatDialog) {
     this.shippedorder()
   }
 
@@ -50,6 +51,12 @@ export class ShippedOrderTableComponent implements AfterViewInit {
       // Handle any result or action after the modal is closed
     });
   }
+
+  redirectToAnotherComponent(id: string): void {
+    console.log('clicked');
+    this.router.navigate(['/orderDetails', id]);
+  }
+
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
