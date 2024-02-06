@@ -2,46 +2,73 @@
     <div class="d-flex page__box justify-content-between p-3 mt-2">
         Order Details
     </div>
-    <!-- <div class="page__content shadow p-3 position-relative">
-        <div *ngIf="product">
+    <div class="page__content shadow p-3 position-relative">
+        <div *ngIf="order">
             <div class="row border-bottom pt-2">
                 <div class="col-md-3">
-                    <h5>Product Id</h5>
-                    <p>{{product.itemEntryId}}</p>
+                    <h5>Order Id</h5>
+                    <p>{{id}}</p>
                 </div>
                 <div class="col-md-3">
-                    <h5>Product Name</h5>
-                    <p>{{product.itemName}}</p>
+                    <h5>Total Quantity</h5>
+                    <p>{{order.productsQty}}</p>
                 </div>
                 <div class="col-md-3">
-                    <h5>Category Id</h5>
-                    <p>{{product.categoryId}}</p>
+                    <h5>Total</h5>
+                    <p>{{order.subTotal}}</p>
                 </div>
                 <div class="col-md-3">
-                    <h5>SubCategory Id</h5>
-                    <p>{{product.subCategoryId}}</p>
+                    <h5>Paid Amount</h5>
+                    <p>{{order.paidAmount/100}}</p>
                 </div>
             </div>
             <div class="row border-bottom pt-2">
                 <div class="col-md-3">
-                    <h5>Brand Id</h5>
-                    <p>{{product.brndId}}</p>
-                </div>
-
-                <div class="col-md-3">
-                    <h5>Unit Type</h5>
-                    <p>{{product.unitType}}</p>
+                    <h5>Customer Id</h5>
+                    <p>{{order.custInfo.custId}}</p>
                 </div>
                 <div class="col-md-3">
-                    <h5>Unit Volume</h5>
-                    <p>{{product.unitVolume}}</p>
+                    <h5>Customer Name</h5>
+                    <p>{{order.custInfo.firstName}}{{order.custInfo.lastName}}</p>
                 </div>
                 <div class="col-md-3">
-                    <h5>Tax Id</h5>
-                    <p>{{product.taxId}}</p>
+                    <h5>Phone Number</h5>
+                    <p>{{order.custInfo.contactno}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Address 1</h5>
+                    <p>{{order.custInfo.addressLine1}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Address 2</h5>
+                    <p>{{order.custInfo.addressLine2}}</p>
                 </div>
             </div>
-            <div class="row border-bottom pt-2">
+            <h5>Order List</h5>
+            <div class="row border-bottom pt-2 order-table">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Item Image</th>
+                            <th>Item Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of order.ordrItms">
+                            <td><img [src]="item.itmimg" alt="{{ item.itmname }}"
+                                    style="max-width: 50px; max-height: 50px;"></td>
+                            <td>{{ item.itmname }}</td>
+                            <td>{{ item.price }}</td>
+                            <td>{{ item.qty }}</td>
+                            <td>{{ item.total }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <div class="row border-bottom pt-2">
 
                 <div class="col-md-3">
                     <h5>Has Dimension</h5>
@@ -125,11 +152,11 @@
             <div class="col-md-12 border-bottom pt-2">
                 <h5>Benefits</h5>
                 <p>{{product.benefits}}</p>
-            </div>
+            </div> -->
         </div>
-        
+
 
         <div class="page__content-data position-absolute text-center">
         </div>
-    </div> -->
+    </div>
 </div>

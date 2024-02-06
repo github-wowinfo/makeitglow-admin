@@ -13,6 +13,7 @@ export class OrderDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private apiService: ApiService, private toastService: ToastService, private dialog: MatDialog) { }
   id: string;
+  order: any = [];
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       // Retrieve the 'id' parameter from the URL
@@ -25,7 +26,7 @@ export class OrderDetailsComponent implements OnInit {
   orderDetails(id) {
     this.apiService.getorderById(id).subscribe(
       (response) => {
-        // this.product = response
+        this.order = response
         console.log(response);
 
       },

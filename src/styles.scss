@@ -31,3 +31,10 @@ body {
 .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
   background-color: #4CAF50;
 }
+
+.order-table table,
+.order-table th,
+.order-table td {
+  border: 1px solid black;
+  padding: 10px;
+}
