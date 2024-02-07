@@ -27,12 +27,16 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Status</th>
       <td mat-cell *matCellDef="let row">
-        <mat-select style="cursor: pointer;" (selectionChange)="openOrderStatusModal(row.oid, $event.value)">
-          <mat-option value="5">Deliver Order</mat-option>
-          <mat-option value="6">Cancel Order</mat-option>
-          <mat-option value="7">Refund Order</mat-option>
-          <mat-option value="0">Delete Order</mat-option>
-        </mat-select>
+
+        <mat-form-field>
+          <mat-label>Change Status</mat-label>
+          <mat-select style="cursor: pointer;" (selectionChange)="openOrderStatusModal(row.oid, $event.value)">
+            <mat-option value="5">Deliver Order</mat-option>
+            <mat-option value="6">Cancel Order</mat-option>
+            <mat-option value="7">Refund Order</mat-option>
+            <mat-option value="0">Delete Order</mat-option>
+          </mat-select>
+        </mat-form-field>
       </td>
     </ng-container>
 
