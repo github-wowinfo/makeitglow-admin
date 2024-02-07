@@ -21,7 +21,7 @@ export class ProcessOrderTableComponent implements AfterViewInit {
   newprocessData: any = [];
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['ordrID', 'custId', 'custName', 'total', 'status', 'action'];
+  displayedColumns = ['srno', 'ordrID', 'custId', 'custName', 'total', 'status', 'action'];
 
   constructor(private router: Router, private apiService: ApiService, private dialog: MatDialog) {
     this.processorder()

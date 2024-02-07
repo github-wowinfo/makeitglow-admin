@@ -21,7 +21,7 @@ export class NewOrderTableComponent implements AfterViewInit {
   neworderData: any = [];
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['ordrID', 'custId', 'custName', 'total', 'status', 'action'];
+  displayedColumns = ['srno', 'ordrID', 'custId', 'custName', 'total', 'status', 'action'];
 
   constructor(private router: Router, private apiService: ApiService, private dialog: MatDialog) {
     this.neworder();
@@ -34,6 +34,8 @@ export class NewOrderTableComponent implements AfterViewInit {
   neworder() {
     this.apiService.getNewOrders().subscribe(
       (response) => {
+        console.log('response', response);
+
         this.neworderData = response;
         this.dataSource = new MatTableDataSource<any>(this.neworderData);
         this.dataSource.paginator = this.paginator; // Set paginator after receiving data
