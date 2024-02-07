@@ -53,6 +53,10 @@ export class ApiService {
     const headers = this.createHeaders();
     return this.http.post(`${environment.apiUrl}/api/Admin/Actions/UpdateOrderStatus`, postData, { headers, responseType: 'text' });
   }
+  updatepaymentStatus(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Admin/Actions/UpdateOrderPaymentStatus`, postData, { headers, responseType: 'text' });
+  }
 
   // Brand Api
   getPosts(): Observable<any> {

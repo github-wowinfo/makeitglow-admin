@@ -7,6 +7,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator'; // Import MatPaginator
 import { NewOrderTableDataSource, NewOrderTableItem } from './new-order-table-datasource';
+import { PaymentStatusModalComponent } from '../payment-status-modal/payment-status-modal.component';
 @Component({
   selector: 'app-new-order-table',
   templateUrl: './new-order-table.component.html',
@@ -54,6 +55,7 @@ export class NewOrderTableComponent implements AfterViewInit {
       // Handle any result or action after the modal is closed
     });
   }
+
 
   redirectToAnotherComponent(id: string): void {
     console.log('clicked');

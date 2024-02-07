@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     <div mat-dialog-content>
         <mat-form-field>
             <mat-label>Remark</mat-label>
-            <input formControlName="remark" matInput>
+            <textarea matInput formControlName="remark"></textarea>
         </mat-form-field>
     </div>
     <div mat-dialog-actions>

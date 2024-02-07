@@ -88,6 +88,7 @@ import { DeletedOrderTableComponent } from './orders/deleted-order-table/deleted
 import { OrderStatusModalComponent } from './orders/order-status-modal/order-status-modal.component';
 import { FormsModule } from '@angular/forms';
 import { OrderDetailsComponent } from './orders/order-details/order-details.component';
+import { PaymentStatusModalComponent } from './orders/payment-status-modal/payment-status-modal.component';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -153,6 +154,7 @@ import { OrderDetailsComponent } from './orders/order-details/order-details.comp
     DeletedOrderTableComponent,
     OrderStatusModalComponent,
     OrderDetailsComponent,
+    PaymentStatusModalComponent,
   ],
   imports: [
     BrowserModule,

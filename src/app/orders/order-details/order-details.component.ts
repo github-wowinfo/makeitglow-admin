@@ -1,3 +1,4 @@
+import { PaymentStatusModalComponent } from './../payment-status-modal/payment-status-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastService } from './../../toast.service';
 import { ApiService } from 'src/app/api.service';
@@ -35,6 +36,18 @@ export class OrderDetailsComponent implements OnInit {
         // Optionally, you can handle errors, show a message, etc.
       }
     )
+  }
+  // order.ordrPymnt.paymentType, order.ordrPymnt.txnId,order.ordrPymnt.txnAmount,order.ordrPymnt.txnMode,order.ordrPymnt.refNo
+  openPaymentStatusModal(oid: number, status: number, type: number, txnId: string, txnAmount: number, txnMode: number, refNo: string) {
+    const dialogRef = this.dialog.open(PaymentStatusModalComponent, {
+      data: { oid, status, type, txnId, txnAmount, txnMode, refNo },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.neworder()
+      // Handle any result or action after the modal is closed
+    });
   }
 
 }

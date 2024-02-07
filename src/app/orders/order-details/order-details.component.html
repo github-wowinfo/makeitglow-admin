@@ -1,9 +1,17 @@
-<div class="container-fluid page">
+<div class="container-fluid page" *ngIf="order">
     <div class="d-flex page__box justify-content-between p-3 mt-2">
-        Order Details
+        <h5>Order Details</h5>
+        <button mat-raised-button color="primary" *ngIf="order.ordrPymnt!== null && order.ordrPymnt.paymentStatus === 2"
+            (click)="openPaymentStatusModal(order.oid, $event.value, order.ordrPymnt.paymentType, order.ordrPymnt.txnId,order.ordrPymnt.txnAmount,order.ordrPymnt.txnMode,order.ordrPymnt.refNo)">COD
+            Payment</button>
+        <!-- <button mat-raised-button color="primary" (click)="updateOrderStatus()">Update Status</button> -->
+        <!-- Button for Refund Payment -->
+        <button mat-raised-button color="primary" *ngIf="order.ordrPymnt!== null && order.ordrPymnt.paymentStatus === 1"
+            (click)="openPaymentStatusModal(order.oid, $event.value, order.ordrPymnt.paymentType, order.ordrPymnt.txnId,order.ordrPymnt.txnAmount,order.ordrPymnt.txnMode,order.ordrPymnt.refNo)">Refund
+            Payment</button>
     </div>
     <div class="page__content shadow p-3 position-relative">
-        <div *ngIf="order">
+        <div>
             <div class="row border-bottom pt-2">
                 <div class="col-md-3">
                     <h5>Order Id</h5>
@@ -25,7 +33,7 @@
             <div class="row border-bottom pt-2">
                 <div class="col-md-3">
                     <h5>Customer Id</h5>
-                    <p>{{order.custInfo.custId}}</p>
+                    <p>{{order.custInfo.uid}}</p>
                 </div>
                 <div class="col-md-3">
                     <h5>Customer Name</h5>
@@ -36,13 +44,13 @@
                     <p>{{order.custInfo.phone}}</p>
                 </div>
                 <div class="col-md-3">
-                    <h5>Address 1</h5>
-                    <p>{{order.custInfo.addressLine1}}</p>
+                    <h5>Email</h5>
+                    <p>{{order.custInfo.email}}</p>
                 </div>
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                     <h5>Address 2</h5>
                     <p>{{order.custInfo.addressLine2}}</p>
-                </div>
+                </div> -->
             </div>
             <h5>Order List</h5>
             <div class="row border-bottom pt-2 order-table">
@@ -68,91 +76,6 @@
                     </tbody>
                 </table>
             </div>
-            <!-- <div class="row border-bottom pt-2">
-
-                <div class="col-md-3">
-                    <h5>Has Dimension</h5>
-                    <p>{{product.hasDiemension}}</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Batch Code</h5>
-                    <p>{{product.batchCode}}</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Batch Info</h5>
-                    <p>{{product.batchInfo}}</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Mfg At</h5>
-                    <p>{{product.mfgAt}}</p>
-                </div>
-            </div>
-            <div class="row border-bottom pt-2">
-                <div class="col-md-3">
-                    <h5>Mfg By</h5>
-                    <p>{{product.mfgBy}}</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Mfg Date</h5>
-                    <p>{{product.mfgDate}}</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Warranty In Month</h5>
-                    <p>{{product.warrantyInMonth}}</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Remark</h5>
-                    <p>{{product.remark}}</p>
-                </div>
-            </div>
-            <div class="row border-bottom pt-2">
-                <div class="col-md-3">
-                    <h5>Vendor Info</h5>
-                    <p>{{product.vendorInfo}}</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Policy</h5>
-                    <p>{{product.policy}}</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Meta Tags</h5>
-                    <p>{{product.metaTags}}</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Meta Property Url</h5>
-                    <p>{{product.metapropertyurl}}</p>
-                </div>
-            </div>
-            <div class="row border-bottom pt-2">
-                <div class="col-md-3">
-                    <h5>Meta Property Type</h5>
-                    <p>{{product.metapropertytype}}</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Meta Property Title</h5>
-                    <p>{{product.metapropertytitle}}</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Meta Property Description</h5>
-                    <p>{{product.metapropertydescription}}</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Meta Property Type</h5>
-                    <p>{{product.metapropertytype}}</p>
-                </div>
-            </div>
-            <div class="col-md-12 border-bottom pt-2">
-                <h5>Short Description</h5>
-                <p>{{product.shortDescription}}</p>
-            </div>
-            <div class="col-md-12 border-bottom pt-2">
-                <h5>Long Description</h5>
-                <p>{{product.longDescription}}</p>
-            </div>
-            <div class="col-md-12 border-bottom pt-2">
-                <h5>Benefits</h5>
-                <p>{{product.benefits}}</p>
-            </div> -->
         </div>
 
 
