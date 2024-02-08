@@ -29,7 +29,7 @@
       <td mat-cell *matCellDef="let row">
 
         <mat-form-field>
-          <mat-label>Change Status</mat-label>
+          <mat-label>Cancelled</mat-label>
           <mat-select style="cursor: pointer;" (selectionChange)="openOrderStatusModal(row.oid, $event.value)">
             <mat-option value="7">Refund Order</mat-option>
             <mat-option value="0">Delete Order</mat-option>

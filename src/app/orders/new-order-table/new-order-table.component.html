@@ -44,7 +44,7 @@
       <td mat-cell *matCellDef="let row">
         <!-- <label for="order change">Change Status</label> -->
         <mat-form-field>
-          <mat-label>Change Status</mat-label>
+          <mat-label>New Order</mat-label>
           <mat-select style="cursor: pointer;" (selectionChange)="openOrderStatusModal(row.oid, $event.value)">
             <mat-option value="2">Process Order</mat-option>
             <mat-option value="3">Confirm Order</mat-option>

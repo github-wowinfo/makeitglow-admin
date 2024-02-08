@@ -19,6 +19,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     </div>
 </form>
   `,
+  styleUrls: ['./order-status-modal.component.scss']
 })
 export class OrderStatusModalComponent {
   orderStatusForm: FormGroup;
