@@ -180,19 +180,20 @@
 
             <mat-card class="mb-3">
                 <mat-label>Thumbnail Images</mat-label>
-                <input class="d-block" type="file" formControlName="ThumbnailFile" (change)="onFileSelected($event)">
+                <input class="d-block" type="file" formControlName="ThumbnailFile" (change)="onFileChange($event)">
             </mat-card>
             <mat-card class="mb-3">
                 <mat-label>Product Image 1</mat-label>
-                <input class="d-block" type="file" formControlName="MainImage1File" (change)="onFileSelected($event)">
+                <input class="d-block" type="file" formControlName="MainImage1File"
+                    (change)="onMain1FileChange($event)">
             </mat-card>
             <mat-card class="mb-3">
                 <mat-label>Product Image 2</mat-label>
-                <input class="d-block" type="file" formControlName="Image2File" (change)="onFileSelected($event)">
+                <input class="d-block" type="file" formControlName="Image2File" (change)="onMain2FileChange($event)">
             </mat-card>
             <mat-card>
                 <mat-label>Product Image 3</mat-label>
-                <input class="d-block" type="file" formControlName="Image3File" (change)="onFileSelected($event)">
+                <input class="d-block" type="file" formControlName="Image3File" (change)="onMain3FileChange($event)">
             </mat-card>
             <div mat-dialog-actions class="mt-3 text-center">
                 <button mat-raised-button color="primary" class="me-3">Save</button>

@@ -19,6 +19,7 @@ export class AddProductComponent implements OnInit {
   subcatselectedOption: any;
   taxoptions: any[] = [];
   taxselectedOption: any;
+  selectedFileName: string = '';
   constructor(
     // @Inject() public data: any,
     // public data: any,
@@ -42,7 +43,7 @@ export class AddProductComponent implements OnInit {
   brandData() {
     this.apiService.getPosts().subscribe(
       (data: any[]) => {
-        console.log('data', data);
+        // console.log('data', data);
 
         this.options = data;
       },
@@ -54,7 +55,7 @@ export class AddProductComponent implements OnInit {
   categoryData() {
     this.apiService.getCategory().subscribe(
       (data: any[]) => {
-        console.log('data', data);
+        // console.log('data', data);
 
         this.catoptions = data;
       },
@@ -66,7 +67,7 @@ export class AddProductComponent implements OnInit {
   SubcategoryData() {
     this.apiService.getsubCategory().subscribe(
       (data: any[]) => {
-        console.log('data', data);
+        // console.log('data', data);
 
         this.subcatoptions = data;
       },
@@ -78,7 +79,7 @@ export class AddProductComponent implements OnInit {
   TaxRate() {
     this.apiService.getTax().subscribe(
       (data: any[]) => {
-        console.log('data', data);
+        // console.log('data', data);
 
         this.taxoptions = data;
       },
@@ -120,11 +121,44 @@ export class AddProductComponent implements OnInit {
     HexColorCode: this.builder.control('', Validators.required),
     HowToUse: this.builder.control('', Validators.required),
     UnitVolume: this.builder.control('', Validators.required),
-    ThumbnailFile: this.builder.control('', Validators.required),
-    MainImage1File: this.builder.control('', Validators.required),
-    Image2File: this.builder.control('', Validators.required),
-    Image3File: this.builder.control('', Validators.required),
+    ThumbnailFile: ['', Validators.required],
+    MainImage1File: ['', Validators.required],
+    Image2File: ['', Validators.required],
+    Image3File: ['', Validators.required],
   });
+
+  onFileChange(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.selectedFileName = file.name;
+      // Set the value of ThumbnailFile FormControl to the file name
+      this.myForm.get('ThumbnailFile')?.setValue(this.selectedFileName);
+    }
+  }
+  onMain1FileChange(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.selectedFileName = file.name;
+      // Set the value of ThumbnailFile FormControl to the file name
+      this.myForm.get('MainImage1File')?.setValue(this.selectedFileName);
+    }
+  }
+  onMain2FileChange(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.selectedFileName = file.name;
+      // Set the value of ThumbnailFile FormControl to the file name
+      this.myForm.get('Image2File')?.setValue(this.selectedFileName);
+    }
+  }
+  onMain3FileChange(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.selectedFileName = file.name;
+      // Set the value of ThumbnailFile FormControl to the file name
+      this.myForm.get('Image3File')?.setValue(this.selectedFileName);
+    }
+  }
 
   onFormSubmit() {
     if (this.myForm.valid) {
