@@ -253,6 +253,11 @@ export class ApiService {
   }
 
 
+  addProduct(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Items/AddNonVariantItem`, postData, { headers });
+  }
+
   private createHeaders(): HttpHeaders {
     // Retrieve token from localStorage
     const token = localStorage.getItem('token');
