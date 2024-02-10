@@ -26,7 +26,7 @@
             </mat-form-field>
             <mat-form-field class="InputStyle">
                 <mat-label>Product Sub Category</mat-label>
-                <mat-select formControlName="SubCategoryId" id="dropdown" [(ngModel)]="subcatselectedOption">
+                <mat-select formControlName="SubCategoryId" id="dropdown">
                     <mat-option *ngFor="let option of subcatoptions" [value]="option.subCatgEntryId">{{
                         option.subCatgName
                         }}</mat-option>
@@ -58,7 +58,7 @@
             <mat-form-field class="InputStyle">
                 <mat-label>Tax Rate</mat-label>
 
-                <mat-select formControlName="TaxId" id="dropdown" [(ngModel)]="taxselectedOption">
+                <mat-select formControlName="TaxId" id="dropdown">
                     <mat-option *ngFor="let option of taxoptions" [value]="option.taxEntryId">{{ option.taxPercent
                         }}</mat-option>
 

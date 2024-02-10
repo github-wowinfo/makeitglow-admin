@@ -116,8 +116,8 @@ export class AddProductComponent implements OnInit {
     Srno: this.builder.control('', Validators.required),
     BarCodeNo: this.builder.control('', Validators.required),
     ItemTitle: this.builder.control('', Validators.required),
-    IsAvailabile: this.builder.control(''),
-    IsBuyable: this.builder.control(''),
+    IsAvailabile: this.builder.control(true),
+    IsBuyable: this.builder.control(true),
     HexColorCode: this.builder.control('', Validators.required),
     HowToUse: this.builder.control('', Validators.required),
     UnitVolume: this.builder.control('', Validators.required),
@@ -127,36 +127,64 @@ export class AddProductComponent implements OnInit {
     Image3File: ['', Validators.required],
   });
 
+  // onFileChange(event: any) {
+  //   if (event.target.files.length > 0) {
+  //     const file = event.target.files[0];
+  //     this.selectedFileName = file.name;
+  //     // Set the value of ThumbnailFile FormControl to the file name
+  //     this.myForm.get('ThumbnailFile')?.setValue(this.selectedFileName);
+  //   }
+  // }
+  // onMain1FileChange(event: any) {
+  //   if (event.target.files.length > 0) {
+  //     const file = event.target.files[0];
+  //     this.selectedFileName = file.name;
+  //     // Set the value of ThumbnailFile FormControl to the file name
+  //     this.myForm.get('MainImage1File')?.setValue(this.selectedFileName);
+  //   }
+  // }
+  // onMain2FileChange(event: any) {
+  //   if (event.target.files.length > 0) {
+  //     const file = event.target.files[0];
+  //     this.selectedFileName = file.name;
+  //     // Set the value of ThumbnailFile FormControl to the file name
+  //     this.myForm.get('Image2File')?.setValue(this.selectedFileName);
+  //   }
+  // }
+  // onMain3FileChange(event: any) {
+  //   if (event.target.files.length > 0) {
+  //     const file = event.target.files[0];
+  //     this.selectedFileName = file.name;
+  //     // Set the value of ThumbnailFile FormControl to the file name
+  //     this.myForm.get('Image3File')?.setValue(this.selectedFileName);
+  //   }
+  // }
+
   onFileChange(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.selectedFileName = file.name;
-      // Set the value of ThumbnailFile FormControl to the file name
-      this.myForm.get('ThumbnailFile')?.setValue(this.selectedFileName);
+      this.myForm.get('ThumbnailFile')?.setValue(file); // Set to file object
     }
   }
+
   onMain1FileChange(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.selectedFileName = file.name;
-      // Set the value of ThumbnailFile FormControl to the file name
-      this.myForm.get('MainImage1File')?.setValue(this.selectedFileName);
+      this.myForm.get('MainImage1File')?.setValue(file); // Set to file object
     }
   }
+
   onMain2FileChange(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.selectedFileName = file.name;
-      // Set the value of ThumbnailFile FormControl to the file name
-      this.myForm.get('Image2File')?.setValue(this.selectedFileName);
+      this.myForm.get('Image2File')?.setValue(file); // Set to file object
     }
   }
+
   onMain3FileChange(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.selectedFileName = file.name;
-      // Set the value of ThumbnailFile FormControl to the file name
-      this.myForm.get('Image3File')?.setValue(this.selectedFileName);
+      this.myForm.get('Image3File')?.setValue(file); // Set to file object
     }
   }
 
@@ -178,6 +206,7 @@ export class AddProductComponent implements OnInit {
 
     this.apiService.addProduct(formData).subscribe(res => {
       this.toastService.showSuccess('Product Added successfully!');
+      location.reload()
     },
       (error) => {
         console.error('Error creating post:', error);

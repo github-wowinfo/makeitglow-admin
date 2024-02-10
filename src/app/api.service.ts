@@ -253,9 +253,9 @@ export class ApiService {
   }
 
 
-  addProduct(postData: any): Observable<any> {
+  addProduct(formData: FormData): Observable<any> {
     const headers = this.createHeaders();
-    return this.http.post(`${environment.apiUrl}/api/Items/AddNonVariantItem`, postData, { headers });
+    return this.http.post(`${environment.apiUrl}/api/Items/AddNonVariantItem`, formData, { headers, responseType: 'text' });
   }
 
   private createHeaders(): HttpHeaders {
@@ -264,7 +264,7 @@ export class ApiService {
 
     // Set the token in the headers
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
+      // 'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
 
