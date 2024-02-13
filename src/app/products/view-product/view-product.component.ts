@@ -4,7 +4,7 @@ import { DeleteConfirmationComponent } from './../../delete-confirmation/delete-
 
 import { ApiService } from 'src/app/api.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
@@ -20,7 +20,7 @@ export class ViewProductComponent implements OnInit {
   id: string;
   product: any = [];
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
-  constructor(private route: ActivatedRoute, private apiService: ApiService, private toastService: ToastService, private dialog: MatDialog) { }
+  constructor(private router: Router, private route: ActivatedRoute, private apiService: ApiService, private toastService: ToastService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -64,6 +64,12 @@ export class ViewProductComponent implements OnInit {
       }
     });
   }
+
+  redirectToAnotherComponent(id: string): void {
+    console.log('clicked');
+    this.router.navigate(['/products/addVariant', id]);
+  }
+
   ngAfterViewInit(): void {
     // Check if the necessary components are defined before accessing their properties
     if (this.sort && this.paginator && this.table) {

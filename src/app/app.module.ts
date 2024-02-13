@@ -89,6 +89,7 @@ import { OrderStatusModalComponent } from './orders/order-status-modal/order-sta
 import { FormsModule } from '@angular/forms';
 import { OrderDetailsComponent } from './orders/order-details/order-details.component';
 import { PaymentStatusModalComponent } from './orders/payment-status-modal/payment-status-modal.component';
+import { AddVariantComponent } from './products/add-variant/add-variant.component';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -155,6 +156,7 @@ import { PaymentStatusModalComponent } from './orders/payment-status-modal/payme
     OrderStatusModalComponent,
     OrderDetailsComponent,
     PaymentStatusModalComponent,
+    AddVariantComponent,
   ],
   imports: [
     BrowserModule,

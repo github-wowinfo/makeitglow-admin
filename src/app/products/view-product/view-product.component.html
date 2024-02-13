@@ -131,7 +131,8 @@
         <div class="mat-elevation-z8">
             <div class="d-flex page__box justify-content-between p-3 mt-2">
                 Product Detail
-                <button mat-raised-button class="add-btn" color="primary">Add
+                <button mat-raised-button class="add-btn" color="primary"
+                    (click)="redirectToAnotherComponent(product.itemEntryId)">Add
                     Variant</button>
             </div>
             <table [dataSource]="dataSource" mat-table class="full-width-table" style="width: 100%;" matSort

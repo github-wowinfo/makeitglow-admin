@@ -30,9 +30,9 @@ export class AddProductComponent implements OnInit {
   }
 
 
-  onFileSelected(event) {
-    console.log(event.target.files)
-  }
+  // onFileSelected(event) {
+  //   console.log(event.target.files)
+  // }
   ngOnInit(): void {
     // this.inputdata = this.data;
     this.brandData();

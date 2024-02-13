@@ -1,60 +1,56 @@
 <div class="container-fluid page">
     <div class="d-flex page__box justify-content-between p-3 mt-2">
-        Add Product
+        Add Product Variant
     </div>
-    <div class="page__content shadow p-3 position-relative">
-        <mat-form-field class="InputStyle">
-            <mat-label>Brand</mat-label>
-            <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="InputStyle">
-            <mat-label>Product Unit Type</mat-label>
-            <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="InputStyle">
-            <mat-label>Product Category</mat-label>
-            <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="InputStyle">
-            <mat-label>Product Sub Category</mat-label>
-            <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="InputStyle">
-            <mat-label>Product Name</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field class="InputStyle">
-            <mat-label>Short Description</mat-label>
-            <textarea matInput></textarea>
-        </mat-form-field>
-        <mat-form-field class="InputStyle">
-            <mat-label>Long Description</mat-label>
-            <textarea matInput></textarea>
-        </mat-form-field>
-        <mat-form-field class="InputStyle">
-            <mat-label>Benefits</mat-label>
-            <textarea matInput></textarea>
-        </mat-form-field>
-        <mat-label>Product Images</mat-label>
-        <mat-card>
-            <input class="d-block" type="file" (change)="onFileSelected($event)">
-        </mat-card>
-        <!-- <mat-form-field>
-        </mat-form-field> -->
-        <div class="page__content-data position-absolute text-center">
+    <form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+        <div class="page__content shadow p-3 position-relative">
+            <mat-form-field class="InputStyle">
+                <mat-label>Item Title</mat-label>
+                <input matInput formControlName="ItemTitle">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>SrNo</mat-label>
+                <input matInput formControlName="Srno">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>BarCodeNo</mat-label>
+                <input matInput formControlName="BarCodeNo">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>How To Use</mat-label>
+                <input matInput formControlName="HowToUse">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Unit Volume</mat-label>
+                <input matInput formControlName="UnitVolume">
+            </mat-form-field>
 
+            <mat-card class="mb-3">
+                <mat-label>Thumbnail Images</mat-label>
+                <input class="d-block" type="file" formControlName="ThumbnailFile" (change)="onFileChange($event)">
+            </mat-card>
+            <mat-card class="mb-3">
+                <mat-label>Product Image 1</mat-label>
+                <input class="d-block" type="file" formControlName="MainImage1File"
+                    (change)="onMain1FileChange($event)">
+            </mat-card>
+            <mat-card class="mb-3">
+                <mat-label>Product Image 2</mat-label>
+                <input class="d-block" type="file" formControlName="Image2File" (change)="onMain2FileChange($event)">
+            </mat-card>
+            <mat-card class="mb-3">
+                <mat-label>Product Image 3</mat-label>
+                <input class="d-block" type="file" formControlName="Image3File" (change)="onMain3FileChange($event)">
+            </mat-card>
+            <div mat-dialog-actions class="mt-3 text-center">
+                <button mat-raised-button color="primary" class="me-3">Save</button>
+                <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+            </div>
+            <!-- <mat-form-field>
+            </mat-form-field> -->
+            <div class="page__content-data position-absolute text-center">
+
+            </div>
         </div>
-    </div>
+    </form>
 </div>
