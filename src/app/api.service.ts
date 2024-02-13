@@ -233,15 +233,15 @@ export class ApiService {
 
   EnableDisableHasVariant(id: any, variant: any): Observable<any> {
     const headers = this.createHeaders();
-    return this.http.post(`${environment.apiUrl}/api/Items/EnableDisableHasVariant?id=${id}&hasVariant=${variant}`, {}, { headers });
+    return this.http.post(`${environment.apiUrl}/api/Items/EnableDisableHasVariant?id=${id}&hasVariant=${variant}`, {}, { headers, responseType: 'text' });
   }
   deleteProduct(id: any): Observable<any> {
     const headers = this.createHeaders();
-    return this.http.post(`${environment.apiUrl}/api/Items/DeleteItem?id=${id}`, {}, { headers });
+    return this.http.post(`${environment.apiUrl}/api/Items/DeleteItem?id=${id}`, {}, { headers, responseType: 'text' });
   }
   deleteProductVariant(id: any): Observable<any> {
     const headers = this.createHeaders();
-    return this.http.post(`${environment.apiUrl}/api/Items/DeleteVariantItem?id=${id}`, {}, { headers });
+    return this.http.post(`${environment.apiUrl}/api/Items/DeleteVariantItem?id=${id}`, {}, { headers, responseType: 'text' });
   }
   getProductById(id: any): Observable<any> {
     const headers = this.createHeaders();

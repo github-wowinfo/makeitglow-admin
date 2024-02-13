@@ -27,7 +27,7 @@ export class ProductTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
 
 
-  displayedColumns = ['ItemEntryId', 'itemName', 'shortDescription', 'hasVariant', 'action'];
+  displayedColumns = ['ItemEntryId', 'itemName', 'hasVariant', 'action'];
 
   constructor(private router: Router, private apiService: ApiService, private dialog: MatDialog, private toastService: ToastService) {
     this.loadProduct()
