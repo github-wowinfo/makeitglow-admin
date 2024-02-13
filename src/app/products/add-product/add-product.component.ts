@@ -176,15 +176,15 @@ export class AddProductComponent implements OnInit {
     });
     console.log('formData', formData, this.myForm.value);
 
-    // this.apiService.addProduct(formData).subscribe(res => {
-    //   this.toastService.showSuccess('Product Added successfully!');
-    //   // location.reload()
-    // },
-    //   (error) => {
-    //     console.error('Error creating post:', error);
-    //     this.toastService.showError(error);
-    //     // Optionally, you can handle errors, show a message, etc.
-    //   }
-    // );
+    this.apiService.addProduct(formData).subscribe(res => {
+      this.toastService.showSuccess('Product Added successfully!');
+      // location.reload()
+    },
+      (error) => {
+        console.error('Error creating post:', error);
+        this.toastService.showError(error);
+        // Optionally, you can handle errors, show a message, etc.
+      }
+    );
   }
 }
