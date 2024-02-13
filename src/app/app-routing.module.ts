@@ -1,3 +1,4 @@
+import { AddInventoryComponent } from './products/add-inventory/add-inventory.component';
 import { OrderDetailsComponent } from './orders/order-details/order-details.component';
 import { ViewProductComponent } from './products/view-product/view-product.component';
 import { OrdersComponent } from './orders/orders/orders.component';
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'EcomSequence', component: EcommSequenceComponent },
   { path: 'viewProduct/:id', component: ViewProductComponent },
   { path: 'orderDetails/:id', component: OrderDetailsComponent },
+  { path: 'Inventory/:id', component: AddInventoryComponent },
 ];
 
 @NgModule({

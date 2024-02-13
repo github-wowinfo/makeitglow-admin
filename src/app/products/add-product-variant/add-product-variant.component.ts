@@ -98,7 +98,7 @@ export class AddProductVariantComponent implements OnInit {
 
     this.apiService.addProductVariant(formData).subscribe(res => {
       this.toastService.showSuccess('Product Variant Added successfully!');
-      // location.reload()
+      location.reload()
     },
       (error) => {
         console.error('Error creating post:', error);

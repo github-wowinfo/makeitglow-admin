@@ -178,7 +178,7 @@ export class AddProductComponent implements OnInit {
 
     this.apiService.addProduct(formData).subscribe(res => {
       this.toastService.showSuccess('Product Added successfully!');
-      // location.reload()
+      location.reload()
     },
       (error) => {
         console.error('Error creating post:', error);

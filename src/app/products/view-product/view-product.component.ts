@@ -32,7 +32,7 @@ export class ViewProductComponent implements OnInit {
   }
 
 
-  displayedColumns = ['vrntEntryId', 'itemTitle', 'barCodeNo', 'isAvailabile', 'isBuyable', 'availableStock', 'action'];
+  displayedColumns = ['vrntEntryId', 'itemTitle', 'barCodeNo', 'availableStock', 'action', 'action1'];
 
   loadProduct(id) {
     this.apiService.getProductById(id).subscribe(
@@ -58,7 +58,8 @@ export class ViewProductComponent implements OnInit {
         // User confirmed deletion
         this.apiService.deleteProductVariant(id).subscribe(response => {
           this.toastService.showSuccess('Variant Deleted successfully!');
-          this.loadProduct(id);
+          // this.loadProduct(id);
+          location.reload()
           console.log('Delete successful', response);
         });
       }
@@ -68,6 +69,10 @@ export class ViewProductComponent implements OnInit {
   redirectToAnotherComponent(id: string): void {
     console.log('clicked');
     this.router.navigate(['/products/addVariant', id]);
+  }
+  redirectToStock(id: string): void {
+    console.log('clicked');
+    this.router.navigate(['/Inventory', id]);
   }
 
   ngAfterViewInit(): void {

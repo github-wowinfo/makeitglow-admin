@@ -155,15 +155,14 @@
                     <td mat-cell *matCellDef="let row">{{row.barCodeNo}}</td>
                 </ng-container>
                 <!-- Name Column -->
-                <ng-container matColumnDef="isAvailabile">
+                <!-- <ng-container matColumnDef="isAvailabile">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>Is Available</th>
                     <td mat-cell *matCellDef="let row">{{row.isAvailabile}}</td>
                 </ng-container>
-                <!-- Name Column -->
                 <ng-container matColumnDef="isBuyable">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>Is Buyable</th>
                     <td mat-cell *matCellDef="let row">{{row.isBuyable}}</td>
-                </ng-container>
+                </ng-container> -->
                 <!-- Name Column -->
                 <ng-container matColumnDef="availableStock">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>Available Stock</th>
@@ -177,6 +176,14 @@
                         <mat-icon style="cursor: pointer;"
                             (click)="deleteProductVariant(row.vrntEntryId)">delete</mat-icon>
                         <mat-icon style="cursor: pointer;">remove_red_eye</mat-icon>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="action1">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Inventory</th>
+                    <td mat-cell *matCellDef="let row">
+                        <button mat-raised-button class="add-btn" color="primary"
+                            (click)="redirectToStock(row.vrntEntryId)">Add
+                            Inventory</button>
                     </td>
                 </ng-container>
 
