@@ -254,7 +254,7 @@ export class ApiService {
 
 
   addProduct(formData: FormData): Observable<any> {
-    const headers = this.createHeaders();
+    const headers = this.createHeaders1();
     return this.http.post(`${environment.apiUrl}/api/Items/AddNonVariantItem`, formData, { headers, responseType: 'text' });
   }
 
@@ -264,7 +264,18 @@ export class ApiService {
 
     // Set the token in the headers
     const headers = new HttpHeaders({
-      // 'Content-Type': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+    return headers;
+  }
+  private createHeaders1(): HttpHeaders {
+    // Retrieve token from localStorage
+    const token = localStorage.getItem('token');
+
+    // Set the token in the headers
+    const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
 

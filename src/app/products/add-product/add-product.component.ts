@@ -127,38 +127,7 @@ export class AddProductComponent implements OnInit {
     Image3File: ['', Validators.required],
   });
 
-  // onFileChange(event: any) {
-  //   if (event.target.files.length > 0) {
-  //     const file = event.target.files[0];
-  //     this.selectedFileName = file.name;
-  //     // Set the value of ThumbnailFile FormControl to the file name
-  //     this.myForm.get('ThumbnailFile')?.setValue(this.selectedFileName);
-  //   }
-  // }
-  // onMain1FileChange(event: any) {
-  //   if (event.target.files.length > 0) {
-  //     const file = event.target.files[0];
-  //     this.selectedFileName = file.name;
-  //     // Set the value of ThumbnailFile FormControl to the file name
-  //     this.myForm.get('MainImage1File')?.setValue(this.selectedFileName);
-  //   }
-  // }
-  // onMain2FileChange(event: any) {
-  //   if (event.target.files.length > 0) {
-  //     const file = event.target.files[0];
-  //     this.selectedFileName = file.name;
-  //     // Set the value of ThumbnailFile FormControl to the file name
-  //     this.myForm.get('Image2File')?.setValue(this.selectedFileName);
-  //   }
-  // }
-  // onMain3FileChange(event: any) {
-  //   if (event.target.files.length > 0) {
-  //     const file = event.target.files[0];
-  //     this.selectedFileName = file.name;
-  //     // Set the value of ThumbnailFile FormControl to the file name
-  //     this.myForm.get('Image3File')?.setValue(this.selectedFileName);
-  //   }
-  // }
+
 
   onFileChange(event: any) {
     if (event.target.files.length > 0) {
@@ -174,6 +143,13 @@ export class AddProductComponent implements OnInit {
     }
   }
 
+  onMain3FileChange(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.myForm.get('Image3File')?.setValue(file); // Set to file object
+    }
+  }
+
   onMain2FileChange(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
@@ -181,12 +157,8 @@ export class AddProductComponent implements OnInit {
     }
   }
 
-  onMain3FileChange(event: any) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.myForm.get('Image3File')?.setValue(file); // Set to file object
-    }
-  }
+
+
 
   onFormSubmit() {
     if (this.myForm.valid) {
@@ -204,15 +176,15 @@ export class AddProductComponent implements OnInit {
     });
     console.log('formData', formData, this.myForm.value);
 
-    this.apiService.addProduct(formData).subscribe(res => {
-      this.toastService.showSuccess('Product Added successfully!');
-      location.reload()
-    },
-      (error) => {
-        console.error('Error creating post:', error);
-        this.toastService.showError(error);
-        // Optionally, you can handle errors, show a message, etc.
-      }
-    );
+    // this.apiService.addProduct(formData).subscribe(res => {
+    //   this.toastService.showSuccess('Product Added successfully!');
+    //   // location.reload()
+    // },
+    //   (error) => {
+    //     console.error('Error creating post:', error);
+    //     this.toastService.showError(error);
+    //     // Optionally, you can handle errors, show a message, etc.
+    //   }
+    // );
   }
 }
