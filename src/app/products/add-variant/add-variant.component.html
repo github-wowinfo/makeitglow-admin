@@ -1,4 +1,4 @@
-<div class="container-fluid page">
+<!-- <div class="container-fluid page">
     <div class="d-flex page__box justify-content-between p-3 mt-2">
         Add Product
     </div>
@@ -6,10 +6,6 @@
         <div class="page__content shadow p-3 position-relative">
             <mat-form-field class="InputStyle">
                 <mat-label>Brand</mat-label>
-                <!-- <mat-select formControlName="BrndId">
-                    <mat-option value="one">First option</mat-option>
-                    <mat-option value="two">Second option</mat-option>
-                </mat-select> -->
                 <mat-select formControlName="BrndId" id="dropdown" [(ngModel)]="selectedOption">
                     <mat-option *ngFor="let option of options" [value]="option.brandId">{{ option.brndName
                         }}</mat-option>
@@ -33,13 +29,6 @@
 
                 </mat-select>
             </mat-form-field>
-            <!-- <mat-form-field class="InputStyle">
-                <mat-label>Has Variant</mat-label>
-                <mat-select>
-                    <mat-option value="true">True</mat-option>
-                    <mat-option value="false">False</mat-option>
-                </mat-select>
-            </mat-form-field> -->
             <mat-form-field class="InputStyle">
                 <mat-label>Product Name</mat-label>
                 <input formControlName="ItemName" matInput>
@@ -199,11 +188,9 @@
                 <button mat-raised-button color="primary" class="me-3">Save</button>
                 <button mat-raised-button color="warn" mat-dialog-close>Close</button>
             </div>
-            <!-- <mat-form-field>
-            </mat-form-field> -->
             <div class="page__content-data position-absolute text-center">
 
             </div>
         </div>
     </form>
-</div>
+</div> -->
