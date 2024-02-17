@@ -5,7 +5,7 @@
     <!-- Id Column -->
     <ng-container matColumnDef="userId">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>User Id</th>
-      <td mat-cell *matCellDef="let row">{{row.userId}}</td>
+      <td mat-cell *matCellDef="let row">{{row.uid}}</td>
     </ng-container>
 
     <!-- Name Column -->
@@ -26,7 +26,7 @@
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+      <td mat-cell *matCellDef="let row">{{row.firstName}} {{row.lastName}}</td>
     </ng-container>
     <!-- Name Column -->
     <ng-container matColumnDef="location">
@@ -41,7 +41,7 @@
     <!-- Name Column -->
     <ng-container matColumnDef="address">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
-      <td mat-cell *matCellDef="let row">{{row.address}}</td>
+      <td mat-cell *matCellDef="let row">{{row.addressLine1}}</td>
     </ng-container>
     <!-- Name Column -->
     <ng-container matColumnDef="action">
