@@ -20,6 +20,8 @@ export class AddProductComponent implements OnInit {
   taxoptions: any[] = [];
   taxselectedOption: any;
   selectedFileName: string = '';
+  isUpdate: boolean = false; // Track if it's in update mode
+  productIdToUpdate: string = ''; // Product ID to update
   constructor(
     // @Inject() public data: any,
     // public data: any,
@@ -39,6 +41,14 @@ export class AddProductComponent implements OnInit {
     this.categoryData();
     this.SubcategoryData();
     this.TaxRate()
+    // Example: Initialize isUpdate and productIdToUpdate directly
+    const updateMode = true; // Set to true if in update mode
+    const productId = 'your_product_id_here'; // Set the product ID to update
+    if (updateMode) {
+      this.isUpdate = true;
+      this.productIdToUpdate = productId;
+      this.populateFormForUpdate();
+    }
   }
   brandData() {
     this.apiService.getPosts().subscribe(
@@ -157,17 +167,55 @@ export class AddProductComponent implements OnInit {
     }
   }
 
-
+  populateFormForUpdate() {
+    // Use the productIdToUpdate to fetch the existing product data and populate the form
+    // Example:
+    // this.apiService.getProductById(this.productIdToUpdate).subscribe(
+    //   (data: any) => {
+    //     this.myForm.patchValue(data);
+    //   },
+    //   (error) => {
+    //     console.error('Error fetching product data for update:', error);
+    //   }
+    // );
+  }
 
 
   onFormSubmit() {
+    // if (this.myForm.valid) {
+    //   this.saveProduct();
+    // } else {
+    //   this.toastService.showError('Please fill out the Required Fields.');
+    // }
     if (this.myForm.valid) {
-      this.saveProduct();
+      if (this.isUpdate) {
+        this.updateProduct();
+      } else {
+        this.saveProduct();
+      }
     } else {
       this.toastService.showError('Please fill out the Required Fields.');
     }
   }
+  updateProduct() {
+    const formData = new FormData();
+    Object.keys(this.myForm.value).forEach(key => {
+      formData.append(key, this.myForm.value[key]);
+    });
 
+    // Add the product ID to update
+    formData.append('id', this.productIdToUpdate);
+
+    this.apiService.updateProduct(formData).subscribe(res => {
+      this.toastService.showSuccess('Product Updated successfully!');
+      // Optionally, navigate to a different route or do something else after update
+    },
+      (error) => {
+        console.error('Error updating product:', error);
+        this.toastService.showError(error);
+      }
+    );
+  }
   saveProduct() {
     const formData = new FormData();
     // Append each field of myForm to FormData

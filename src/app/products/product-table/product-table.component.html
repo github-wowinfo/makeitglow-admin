@@ -28,7 +28,7 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
       <td mat-cell *matCellDef="let row">
-        <mat-icon style="cursor: pointer;">edit</mat-icon>
+        <mat-icon style="cursor: pointer;" (click)="navigateToAddOrUpdateProduct(row.itemEntryId)">edit</mat-icon>
         <mat-icon style="cursor: pointer;" (click)="deleteProduct(row.itemEntryId)">delete</mat-icon>
         <mat-icon style="cursor: pointer;"
           (click)="redirectToAnotherComponent(row.itemEntryId)">remove_red_eye</mat-icon>

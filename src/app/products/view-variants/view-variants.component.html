@@ -30,7 +30,7 @@
 
                 <div class="col-md-3">
                     <h5>Unit Type</h5>
-                    <p>{{variant.unitType}}</p>
+                    <p>{{variant.unitType===2?'ml':''}}</p>
                 </div>
                 <div class="col-md-3">
                     <h5>Unit Volume</h5>
@@ -96,6 +96,7 @@
                     <p>{{variant.metapropertyurl}}</p>
                 </div>
             </div>
+
             <div class="row border-bottom pt-2">
                 <div class="col-md-3">
                     <h5>Meta Property Type</h5>
@@ -112,6 +113,20 @@
                 <div class="col-md-3">
                     <h5>Meta Property Type</h5>
                     <p>{{variant.metapropertytype}}</p>
+                </div>
+            </div>
+            <div class="row border-bottom pt-2">
+                <div class="col-md-3">
+                    <h5>Available Stock</h5>
+                    <p>{{variant.availableStock}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>MRP</h5>
+                    <p>{{variant.mrp}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Selling Price</h5>
+                    <p>{{variant.sellingPrice}}</p>
                 </div>
             </div>
             <div class="col-md-12 border-bottom pt-2">

@@ -85,6 +85,12 @@ export class ProductTableComponent implements AfterViewInit {
     console.log('clicked');
     this.router.navigate(['/viewProduct', id]);
   }
+
+  navigateToAddOrUpdateProduct(productId: string | null) {
+    const route = productId ? `products/addProduct/${productId}` : '/add-product';
+    this.router.navigate([route]);
+  }
+
   // ngAfterViewInit(): void {
   //   this.dataSource.sort = this.sort;
   //   this.dataSource.paginator = this.paginator;

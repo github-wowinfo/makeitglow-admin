@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'queries', component: QueriesComponent },
   { path: 'customers', component: CustomersComponent },
   { path: 'products/productList', component: ProductListComponent },
-  { path: 'products/addProduct', component: AddProductComponent },
+  { path: 'products/addProduct/:productId', component: AddProductComponent },
   { path: 'products/addVariant/:id', component: AddProductVariantComponent },
   { path: 'uploads', component: UploadsComponent },
   { path: 'masterData', component: MasterDataComponent },

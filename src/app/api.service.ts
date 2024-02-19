@@ -257,6 +257,10 @@ export class ApiService {
     const headers = this.createHeaders1();
     return this.http.post(`${environment.apiUrl}/api/Items/AddNonVariantItem`, formData, { headers, responseType: 'text' });
   }
+  updateProduct(formData: FormData): Observable<any> {
+    const headers = this.createHeaders1();
+    return this.http.post(`${environment.apiUrl}/api/Items/UpdateItem`, formData, { headers, responseType: 'text' });
+  }
   addProductVariant(formData: FormData): Observable<any> {
     const headers = this.createHeaders1();
     return this.http.post(`${environment.apiUrl}/api/Items/AddVariantItem`, formData, { headers, responseType: 'text' });
