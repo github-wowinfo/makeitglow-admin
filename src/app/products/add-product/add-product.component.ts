@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastService } from './../../toast.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from './../../api.service';
@@ -28,6 +29,8 @@ export class AddProductComponent implements OnInit {
     private apiService: ApiService,
     private builder: FormBuilder,
     private toastService: ToastService,
+    private router: Router,
+    private route: ActivatedRoute,
   ) {
   }
 
@@ -41,14 +44,23 @@ export class AddProductComponent implements OnInit {
     this.categoryData();
     this.SubcategoryData();
     this.TaxRate()
+
+    this.route.paramMap.subscribe(params => {
+      this.productIdToUpdate = params.get('productId') || '';
+      if (this.productIdToUpdate) {
+        // Populate form for update
+        this.isUpdate = true;
+        this.populateFormForUpdate();
+      }
+    });
     // Example: Initialize isUpdate and productIdToUpdate directly
-    const updateMode = true; // Set to true if in update mode
-    const productId = 'your_product_id_here'; // Set the product ID to update
-    if (updateMode) {
-      this.isUpdate = true;
-      this.productIdToUpdate = productId;
-      this.populateFormForUpdate();
-    }
+    // const updateMode = true; // Set to true if in update mode
+    // const productId = 'your_product_id_here'; // Set the product ID to update
+    // if (updateMode) {
+    //   this.isUpdate = true;
+    //   this.productIdToUpdate = productId;
+    //   this.populateFormForUpdate();
+    // }
   }
   brandData() {
     this.apiService.getPosts().subscribe(
@@ -170,23 +182,64 @@ export class AddProductComponent implements OnInit {
   populateFormForUpdate() {
     // Use the productIdToUpdate to fetch the existing product data and populate the form
     // Example:
-    // this.apiService.getProductById(this.productIdToUpdate).subscribe(
-    //   (data: any) => {
-    //     this.myForm.patchValue(data);
-    //   },
-    //   (error) => {
-    //     console.error('Error fetching product data for update:', error);
-    //   }
-    // );
+    this.apiService.getProductById(this.productIdToUpdate).subscribe(
+      (data: any) => {
+        console.log('data', data.vrnts[0].mainImage1);
+        const mfgDate = new Date(data.mfgDate);
+        const day = mfgDate.getDate().toString().padStart(2, '0'); // Add zero padding for single-digit days
+        const month = (mfgDate.getMonth() + 1).toString().padStart(2, '0'); // Add zero padding for single-digit months
+        const year = mfgDate.getFullYear();
+        const formattedMfgDate = `${day}/${month}/${year}`;
+
+        this.myForm.patchValue({
+          BrndId: data.brndId || '',
+          CategoryId: data.categoryId || '',
+          SubCategoryId: data.subCategoryId || '',
+          ItemName: data.itemName || '',
+          ShortDescription: data.shortDescription || '',
+          UnitType: data.unitType || '',
+          TaxId: data.taxId || '',
+          LongDescription: data.longDescription || '',
+          Benefits: data.benefits || '',
+          HasDiemension: data.hasDiemension || '',
+          BatchCode: data.batchCode || '',
+          BatchInfo: data.batchInfo || '',
+          MfgAt: data.mfgAt || '',
+          MfgBy: data.mfgBy || '',
+          MfgDateValue: formattedMfgDate || '',
+          WarrantyInMonth: data.warrantyInMonth || '',
+          Remark: data.remark || '',
+          VendorInfo: data.vendorInfo || '',
+          Policy: data.policy || '',
+          MetaTags: data.metaTags || '',
+          Metapropertyurl: data.metapropertyurl || '',
+          Metapropertytype: data.metapropertytype || '',
+          Metapropertytitle: data.metapropertytitle || '',
+          Metapropertydescription: data.metapropertydescription || '',
+          Srno: data.vrnts[0].srno || '',
+          BarCodeNo: data.vrnts[0].barCodeNo || '',
+          ItemTitle: data.vrnts[0].itemTitle || '',
+          IsAvailabile: data.vrnts[0].isAvailabile || '',
+          IsBuyable: data.vrnts[0].isBuyable || '',
+          HexColorCode: data.vrnts[0].hexColorCode || '',
+          HowToUse: data.vrnts[0].howToUse || '',
+          UnitVolume: data.vrnts[0].unitVolume || '',
+          ThumbnailFile: data.thumbnail ? data.thumbnail : '',
+          MainImage1File: data.vrnts[0].mainImage1 ? data.vrnts[0].mainImage1 : '',
+          Image2File: data.vrnts[0].image2 ? data.vrnts[0].image2 : '',
+          Image3File: data.vrnts[0].image3 ? data.vrnts[0].image3 : '',
+        });
+        console.log('this.myForm.patchValue', this.myForm.patchValue);
+
+      },
+      (error) => {
+        console.error('Error fetching product data for update:', error);
+      }
+    );
   }
 
 
   onFormSubmit() {
-    // if (this.myForm.valid) {
-    //   this.saveProduct();
-    // } else {
-    //   this.toastService.showError('Please fill out the Required Fields.');
-    // }
     if (this.myForm.valid) {
       if (this.isUpdate) {
         this.updateProduct();
@@ -204,10 +257,11 @@ export class AddProductComponent implements OnInit {
     });
 
     // Add the product ID to update
-    formData.append('id', this.productIdToUpdate);
-
+    formData.append('ItemEntryId', this.productIdToUpdate);
+    console.log('formData', formData, this.myForm.value);
     this.apiService.updateProduct(formData).subscribe(res => {
       this.toastService.showSuccess('Product Updated successfully!');
+      // location.reload()
       // Optionally, navigate to a different route or do something else after update
     },
       (error) => {
