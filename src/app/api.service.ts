@@ -266,6 +266,11 @@ export class ApiService {
     return this.http.post(`${environment.apiUrl}/api/Items/AddItemVariantStock`, postData, { headers, responseType: 'text' });
   }
 
+  getVariantProductById(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Items/GetVariantItemById?id=${id}`);
+  }
+
   private createHeaders(): HttpHeaders {
     // Retrieve token from localStorage
     const token = localStorage.getItem('token');

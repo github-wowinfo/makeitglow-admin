@@ -67,12 +67,13 @@ export class ViewProductComponent implements OnInit {
   }
 
   redirectToAnotherComponent(id: string): void {
-    console.log('clicked');
     this.router.navigate(['/products/addVariant', id]);
   }
   redirectToStock(id: string): void {
-    console.log('clicked');
     this.router.navigate(['/Inventory', id]);
+  }
+  redirectToVariantView(id: string): void {
+    this.router.navigate(['/ViewInventory', id]);
   }
 
   ngAfterViewInit(): void {

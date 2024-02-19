@@ -1,0 +1,149 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box justify-content-between p-3 mt-2">
+        Variant Detail
+    </div>
+    <div class="page__content shadow p-3 position-relative">
+        <div *ngIf="variant">
+            <div class="row border-bottom pt-2">
+                <div class="col-md-3">
+                    <h5>Variant Id</h5>
+                    <p>{{variant.vrntEntryId}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>variant Name</h5>
+                    <p>{{variant.itemTitle}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Category Id</h5>
+                    <p>{{variant.categoryId}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>SubCategory Id</h5>
+                    <p>{{variant.subCategoryId}}</p>
+                </div>
+            </div>
+            <div class="row border-bottom pt-2">
+                <div class="col-md-3">
+                    <h5>Brand Id</h5>
+                    <p>{{variant.brndId}}</p>
+                </div>
+
+                <div class="col-md-3">
+                    <h5>Unit Type</h5>
+                    <p>{{variant.unitType}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Unit Volume</h5>
+                    <p>{{variant.unitVolume}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Tax Id</h5>
+                    <p>{{variant.taxId}}</p>
+                </div>
+            </div>
+            <div class="row border-bottom pt-2">
+
+                <div class="col-md-3">
+                    <h5>Has Dimension</h5>
+                    <p>{{variant.hasDiemension}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Batch Code</h5>
+                    <p>{{variant.batchCode}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Batch Info</h5>
+                    <p>{{variant.batchInfo}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Mfg At</h5>
+                    <p>{{variant.mfgAt}}</p>
+                </div>
+            </div>
+            <div class="row border-bottom pt-2">
+                <div class="col-md-3">
+                    <h5>Mfg By</h5>
+                    <p>{{variant.mfgBy}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Mfg Date</h5>
+                    <p>{{variant.mfgDate}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Warranty In Month</h5>
+                    <p>{{variant.warrantyInMonth}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Remark</h5>
+                    <p>{{variant.remark}}</p>
+                </div>
+            </div>
+            <div class="row border-bottom pt-2">
+                <div class="col-md-3">
+                    <h5>Vendor Info</h5>
+                    <p>{{variant.vendorInfo}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Policy</h5>
+                    <p>{{variant.policy}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Meta Tags</h5>
+                    <p>{{variant.metaTags}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Meta Property Url</h5>
+                    <p>{{variant.metapropertyurl}}</p>
+                </div>
+            </div>
+            <div class="row border-bottom pt-2">
+                <div class="col-md-3">
+                    <h5>Meta Property Type</h5>
+                    <p>{{variant.metapropertytype}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Meta Property Title</h5>
+                    <p>{{variant.metapropertytitle}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Meta Property Description</h5>
+                    <p>{{variant.metapropertydescription}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Meta Property Type</h5>
+                    <p>{{variant.metapropertytype}}</p>
+                </div>
+            </div>
+            <div class="col-md-12 border-bottom pt-2">
+                <h5>Short Description</h5>
+                <p>{{variant.shortDescription}}</p>
+            </div>
+            <div class="col-md-12 border-bottom pt-2">
+                <h5>Long Description</h5>
+                <p>{{variant.longDescription}}</p>
+            </div>
+            <div class="col-md-12 border-bottom pt-2">
+                <h5>Benefits</h5>
+                <p>{{variant.benefits}}</p>
+            </div>
+            <div class="row border-bottom pt-2">
+                <div class="col-md-3">
+                    <h5>Thumbnail Image</h5>
+                    <img src="{{variant.thumbnail}}" width="150px" alt="">
+                </div>
+                <div class="col-md-3">
+                    <h5>Main Image 1</h5>
+                    <img src="{{variant.mainImage1}}" width="150px" alt="">
+                </div>
+                <div class="col-md-3">
+                    <h5>Main Image 2</h5>
+                    <img src="{{variant.image2}}" width="150px" alt="">
+                </div>
+                <div class="col-md-3">
+                    <h5>Main Image 3</h5>
+                    <img src="{{variant.image3}}" width="150px" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -126,6 +126,24 @@
                 <h5>Benefits</h5>
                 <p>{{product.benefits}}</p>
             </div>
+            <div class="row border-bottom pt-2 pb-2">
+                <div class="col-md-3">
+                    <h5>Thumbnail Image</h5>
+                    <img src="{{product.thumbnail}}" width="150px" alt="">
+                </div>
+                <div class="col-md-3">
+                    <h5>Main Image 1</h5>
+                    <img src="{{product.mainImage1}}" width="150px" alt="">
+                </div>
+                <div class="col-md-3">
+                    <h5>Main Image 2</h5>
+                    <img src="{{product.image2}}" width="150px" alt="">
+                </div>
+                <div class="col-md-3">
+                    <h5>Main Image 3</h5>
+                    <img src="{{product.image3}}" width="150px" alt="">
+                </div>
+            </div>
         </div>
         <!-- displayedColumns = ['vrntEntryId', 'barCodeNo', 'isAvailabile', 'isBuyable', 'availableStock', 'action']; -->
         <div class="mat-elevation-z8">
@@ -175,7 +193,8 @@
                         <mat-icon style="cursor: pointer;">edit</mat-icon>
                         <mat-icon style="cursor: pointer;"
                             (click)="deleteProductVariant(row.vrntEntryId)">delete</mat-icon>
-                        <mat-icon style="cursor: pointer;">remove_red_eye</mat-icon>
+                        <mat-icon style="cursor: pointer;"
+                            (click)="redirectToVariantView(row.vrntEntryId)">remove_red_eye</mat-icon>
                     </td>
                 </ng-container>
                 <ng-container matColumnDef="action1">
