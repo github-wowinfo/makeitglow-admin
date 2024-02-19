@@ -15,6 +15,10 @@ export class ApiService {
     const headers = this.createHeaders();
     return this.http.get(`${environment.apiUrl}/api/Auth/GetAllCustomerUsers`, { headers });
   }
+  getQueries(): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Ecom/GetAllContactUs`, { headers });
+  }
   getNewOrders(): Observable<any> {
     const headers = this.createHeaders();
     return this.http.get(`${environment.apiUrl}/api/Admin/Actions/AllOrdersByStatus/1`, { headers });

@@ -1,7 +1,10 @@
+import { ToastService } from './../../toast.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ApiService } from 'src/app/api.service';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { QueryTableDataSource, QueryTableItem } from './query-table-datasource';
 
 @Component({
@@ -13,20 +16,29 @@ export class QueryTableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<QueryTableItem>;
-  dataSource: QueryTableDataSource;
+  // dataSource: QueryTableDataSource;
+  queries: any = [];
+  dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['SrNo', 'Customer', 'Company', 'ContactInfo', 'ZipCode', 'Detail', 'Action'];
+  displayedColumns = ['id', 'name', 'email', 'phone', 'subject', 'message'];
 
-  constructor() {
-    this.dataSource = new QueryTableDataSource();
+  constructor(private apiService: ApiService, private dialog: MatDialog, private toastService: ToastService,) {
+    this.loadQueries()
   }
 
-  // ngAfterViewInit(): void {
-  //   this.dataSource.sort = this.sort;
-  //   this.dataSource.paginator = this.paginator;
-  //   this.table.dataSource = this.dataSource;
-  // }
+  loadQueries() {
+    this.apiService.getQueries().subscribe(
+      (response) => {
+        this.queries = response
+        this.dataSource = new MatTableDataSource<any>(this.queries)
+      },
+      (error) => {
+        console.error('Error creating post:', error);
+        // Optionally, you can handle errors, show a message, etc.
+      }
+    )
+  }
 
   ngAfterViewInit(): void {
     // Check if the necessary components are defined before accessing their properties
