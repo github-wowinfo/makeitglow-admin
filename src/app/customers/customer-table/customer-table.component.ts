@@ -32,6 +32,7 @@ export class CustomerTableComponent implements AfterViewInit {
       (response) => {
         this.customer = response
         this.dataSource = new MatTableDataSource<any>(this.customer)
+        this.dataSource.paginator = this.paginator;
       },
       (error) => {
         console.error('Error creating post:', error);
@@ -40,13 +41,7 @@ export class CustomerTableComponent implements AfterViewInit {
     )
   }
   ngAfterViewInit(): void {
-    // Check if the necessary components are defined before accessing their properties
-    if (this.sort && this.paginator && this.table) {
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-      this.table.dataSource = this.dataSource;
-    } else {
-      console.error('One or more required components are undefined.');
-    }
+    this.dataSource.sort = this.sort;
+    this.table.dataSource = this.dataSource;
   }
 }

@@ -67,7 +67,12 @@ export class ViewProductComponent implements OnInit {
   }
 
   redirectToAnotherComponent(id: string): void {
-    this.router.navigate(['/products/addVariant', id]);
+    // /products/addProduct/0
+    this.router.navigate([`/products/addVariant/${id}/0`]);
+  }
+  navigateToAddOrUpdateProduct(id: string, variantId: string): void {
+    // /products/addProduct/0
+    this.router.navigate([`/products/addVariant/${id}/${variantId}`]);
   }
   redirectToStock(id: string): void {
     this.router.navigate(['/Inventory', id]);
