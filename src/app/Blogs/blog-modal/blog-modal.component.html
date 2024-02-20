@@ -1,1 +1,59 @@
-<p>blog-modal works!</p>
+<form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+    <h1 mat-dialog-title>{{inputdata.title}}</h1>
+    <div mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Blog Category List</mat-label>
+            <mat-select formControlName="BlogCatgId" id="dropdown" [(ngModel)]="selectedOption">
+                <mat-option *ngFor="let option of options" [value]="option.id">{{ option.blogCatgName
+                    }}</mat-option>
+
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Blog Tag List</mat-label>
+            <mat-select formControlName="BlogTags" id="dropdown" [(ngModel)]="selectedtagOption">
+                <mat-option *ngFor="let option of tagoptions" [value]="option.btEntryId">{{ option.btagName
+                    }}</mat-option>
+
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> Blog Title</mat-label>
+            <input formControlName="HeaderTitle" matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Blog Description</mat-label>
+            <textarea matInput formControlName="Description"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> Sources</mat-label>
+            <input formControlName="Sources" matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> Meta Tags</mat-label>
+            <input formControlName="MetaTag" matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Meta Description</mat-label>
+            <input formControlName="MetaDescription" matInput>
+        </mat-form-field>
+        <mat-card class="mb-3">
+            <mat-label>Thumbnail Image *</mat-label>
+            <input class="d-block" type="file" formControlName="Thumbnail" (change)="onFileChange($event)">
+            <div *ngIf="myForm.controls['Thumbnail'].value">
+                <img [src]="myForm.controls['Thumbnail'].value" width="150px" alt="Thumbnail Image">
+            </div>
+        </mat-card>
+        <mat-card class="mb-3">
+            <mat-label>Image 1 *</mat-label>
+            <input class="d-block" type="file" formControlName="Image" (change)="onMain1FileChange($event)">
+            <div *ngIf="myForm.controls['Image'].value">
+                <img [src]="myForm.controls['Image'].value" width="150px" alt="Thumbnail Image">
+            </div>
+        </mat-card>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button color="primary">{{ inputdata.id ? 'Update' : 'Save' }}</button>
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    </div>
+</form>

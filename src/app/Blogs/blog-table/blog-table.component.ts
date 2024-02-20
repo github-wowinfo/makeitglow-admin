@@ -49,11 +49,11 @@ export class BlogTableComponent implements AfterViewInit {
   }
 
   editBlog(id: any) {
-    this.Openpopup(id, 'Edit Blog Tag')
+    this.Openpopup(id, 'Edit Blog ')
   }
 
   addBlog() {
-    this.Openpopup(0, 'Add Blog Tag')
+    this.Openpopup(0, 'Add Blog ')
   }
 
   deleteBlog(id: any) {

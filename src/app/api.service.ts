@@ -276,13 +276,14 @@ export class ApiService {
     const headers = this.createHeaders();
     return this.http.post(`${environment.apiUrl}/api/Blogs/DeleteBlog/?id=${id}`, {}, { headers });
   }
-  createblog(postData: any): Observable<any> {
-    const headers = this.createHeaders();
-    return this.http.post(`${environment.apiUrl}/api/Blogs/AddBlog`, postData, { headers });
+
+  createblog(formData: FormData): Observable<any> {
+    const headers = this.createHeaders1();
+    return this.http.post(`${environment.apiUrl}/api/Blogs/AddBlog`, formData, { headers, responseType: 'text' });
   }
-  updateblogById(postData: any): Observable<any> {
-    const headers = this.createHeaders();
-    return this.http.post(`${environment.apiUrl}/api/Blogs/UpdateBlog`, postData, { headers });
+  updateblogById(formData: FormData): Observable<any> {
+    const headers = this.createHeaders1();
+    return this.http.post(`${environment.apiUrl}/api/Blogs/UpdateBlog`, formData, { headers, responseType: 'text' });
   }
   getblogById(id: any): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/Blogs/GetBlogById/?id=${id}`);
