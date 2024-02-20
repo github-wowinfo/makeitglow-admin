@@ -33,6 +33,8 @@ export class ShippedOrderTableComponent implements AfterViewInit {
       (response) => {
         this.shippedorderData = response
         this.dataSource = new MatTableDataSource<any>(this.shippedorderData)
+        this.dataSource.paginator = this.paginator;
+
       },
       (error) => {
         console.error('Error creating post:', error);
@@ -59,7 +61,7 @@ export class ShippedOrderTableComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+    // this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
 }
