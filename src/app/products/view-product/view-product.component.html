@@ -190,7 +190,8 @@
                 <ng-container matColumnDef="action">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
                     <td mat-cell *matCellDef="let row">
-                        <mat-icon style="cursor: pointer;">edit</mat-icon>
+                        <mat-icon style="cursor: pointer;"
+                            (click)="navigateToAddOrUpdateProduct(product.itemEntryId,row.vrntEntryId)">edit</mat-icon>
                         <mat-icon style="cursor: pointer;"
                             (click)="deleteProductVariant(row.vrntEntryId)">delete</mat-icon>
                         <mat-icon style="cursor: pointer;"

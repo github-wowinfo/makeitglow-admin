@@ -16,6 +16,8 @@ export class AddProductVariantComponent implements OnInit {
   id: string;
   inputdata: any;
   errorMessage: string = '';
+  isUpdate: boolean = false; // Track if it's in update mode
+  variantIdToUpdate: string = '';
   constructor(private apiService: ApiService,
     private builder: FormBuilder,
     private toastService: ToastService,
