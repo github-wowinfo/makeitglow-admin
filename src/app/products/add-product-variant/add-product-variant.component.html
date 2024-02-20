@@ -26,21 +26,34 @@
             </mat-form-field>
 
             <mat-card class="mb-3">
-                <mat-label>Thumbnail Images</mat-label>
+                <mat-label>Thumbnail Images *</mat-label>
                 <input class="d-block" type="file" formControlName="ThumbnailFile" (change)="onFileChange($event)">
+                <div *ngIf="myForm.controls['ThumbnailFile'].value">
+                    <img [src]="myForm.controls['ThumbnailFile'].value" width="150px" alt="Thumbnail Image">
+                </div>
             </mat-card>
+
             <mat-card class="mb-3">
-                <mat-label>Product Image 1</mat-label>
+                <mat-label>Product Image 1 *</mat-label>
                 <input class="d-block" type="file" formControlName="MainImage1File"
                     (change)="onMain1FileChange($event)">
+                <div *ngIf="myForm.controls['MainImage1File'].value">
+                    <img [src]="myForm.controls['MainImage1File'].value" width="150px" alt="Thumbnail Image">
+                </div>
             </mat-card>
             <mat-card class="mb-3">
-                <mat-label>Product Image 2</mat-label>
+                <mat-label>Product Image 2 *</mat-label>
                 <input class="d-block" type="file" formControlName="Image2File" (change)="onMain2FileChange($event)">
+                <div *ngIf="myForm.controls['Image2File'].value">
+                    <img [src]="myForm.controls['Image2File'].value" width="150px" alt="Thumbnail Image">
+                </div>
             </mat-card>
             <mat-card class="mb-3">
-                <mat-label>Product Image 3</mat-label>
+                <mat-label>Product Image 3 *</mat-label>
                 <input class="d-block" type="file" formControlName="Image3File" (change)="onMain3FileChange($event)">
+                <div *ngIf="myForm.controls['Image3File'].value">
+                    <img [src]="myForm.controls['Image3File'].value" width="150px" alt="Thumbnail Image">
+                </div>
             </mat-card>
             <div mat-dialog-actions class="mt-3 text-center">
                 <button mat-raised-button color="primary" class="me-3">Save</button>

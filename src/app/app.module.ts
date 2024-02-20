@@ -94,6 +94,13 @@ import { AddInventoryComponent } from './products/add-inventory/add-inventory.co
 import { ViewVariantsComponent } from './products/view-variants/view-variants.component';
 import { SubscriptionComponent } from './subscription/subscription/subscription.component';
 import { SubscriptionTableComponent } from './subscription/subscription-table/subscription-table.component';
+import { BlogCatModalComponent } from './Blogs/blog-cat-modal/blog-cat-modal.component';
+import { BlogCatTableComponent } from './Blogs/blog-cat-table/blog-cat-table.component';
+import { BlogTagModalComponent } from './Blogs/blog-tag-modal/blog-tag-modal.component';
+import { BlogTagTableComponent } from './Blogs/blog-tag-table/blog-tag-table.component';
+import { BlogModalComponent } from './Blogs/blog-modal/blog-modal.component';
+import { BlogTableComponent } from './Blogs/blog-table/blog-table.component';
+import { BlogDataComponent } from './Blogs/blog-data/blog-data.component';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -165,6 +172,13 @@ import { SubscriptionTableComponent } from './subscription/subscription-table/su
     ViewVariantsComponent,
     SubscriptionComponent,
     SubscriptionTableComponent,
+    BlogCatModalComponent,
+    BlogCatTableComponent,
+    BlogTagModalComponent,
+    BlogTagTableComponent,
+    BlogModalComponent,
+    BlogTableComponent,
+    BlogDataComponent,
   ],
   imports: [
     BrowserModule,
