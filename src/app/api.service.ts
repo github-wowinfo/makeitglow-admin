@@ -236,7 +236,7 @@ export class ApiService {
   }
   deleteblogCategory(id: any): Observable<any> {
     const headers = this.createHeaders();
-    return this.http.post(`${environment.apiUrl}/api/Blogs/DeleteBlogCategory/` + id, {}, { headers });
+    return this.http.post(`${environment.apiUrl}/api/Blogs/DeleteBlogCategory?id=${id}`, {}, { headers });
   }
   createblogCategory(postData: any): Observable<any> {
     const headers = this.createHeaders();
@@ -247,7 +247,7 @@ export class ApiService {
     return this.http.post(`${environment.apiUrl}/api/Blogs/UpdateBlogCategory`, postData, { headers });
   }
   getblogCategoryById(id: any): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/api/Blogs/GetBlogCategory/` + id);
+    return this.http.get(`${environment.apiUrl}/api/Blogs/GetBlogCategoryById/?id=${id}`);
   }
   // Blog Tag Api
   getblogTag(): Observable<any> {
