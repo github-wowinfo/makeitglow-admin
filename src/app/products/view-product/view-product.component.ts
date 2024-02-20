@@ -40,6 +40,8 @@ export class ViewProductComponent implements OnInit {
         this.product = response
         console.log(response);
         this.dataSource = new MatTableDataSource<any>(this.product.vrnts)
+        this.dataSource.paginator = this.paginator;
+
 
       },
       (error) => {
@@ -85,7 +87,6 @@ export class ViewProductComponent implements OnInit {
     // Check if the necessary components are defined before accessing their properties
     if (this.sort && this.paginator && this.table) {
       this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
       this.table.dataSource = this.dataSource;
     } else {
       console.error('One or more required components are undefined.');
