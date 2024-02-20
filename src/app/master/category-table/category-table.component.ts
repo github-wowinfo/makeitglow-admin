@@ -33,6 +33,8 @@ export class CategoryTableComponent implements AfterViewInit {
       (response) => {
         this.catData = response
         this.dataSource = new MatTableDataSource<any>(this.catData)
+        this.dataSource.paginator = this.paginator;
+
       },
       (error) => {
         console.error('Error creating post:', error);
@@ -87,7 +89,6 @@ export class CategoryTableComponent implements AfterViewInit {
     // Check if the necessary components are defined before accessing their properties
     if (this.sort && this.paginator && this.table) {
       this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
       this.table.dataSource = this.dataSource;
     } else {
       console.error('One or more required components are undefined.');

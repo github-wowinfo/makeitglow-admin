@@ -33,6 +33,8 @@ export class CityTableComponent implements AfterViewInit {
       (response) => {
         this.cityData = response
         this.dataSource = new MatTableDataSource<any>(this.cityData)
+        this.dataSource.paginator = this.paginator;
+
       },
       (error) => {
         console.error('Error creating post:', error);
@@ -80,7 +82,6 @@ export class CityTableComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
 }

@@ -33,6 +33,8 @@ export class CountriesTableComponent implements AfterViewInit {
       (response) => {
         this.countryData = response
         this.dataSource = new MatTableDataSource<any>(this.countryData)
+        this.dataSource.paginator = this.paginator;
+
       },
       (error) => {
         console.error('Error creating post:', error);
@@ -85,7 +87,6 @@ export class CountriesTableComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
 }

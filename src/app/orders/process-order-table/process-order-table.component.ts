@@ -32,6 +32,7 @@ export class ProcessOrderTableComponent implements AfterViewInit {
       (response) => {
         this.newprocessData = response
         this.dataSource = new MatTableDataSource<any>(this.newprocessData)
+        this.dataSource.paginator = this.paginator;
       },
       (error) => {
         console.error('Error creating post:', error);
@@ -56,7 +57,7 @@ export class ProcessOrderTableComponent implements AfterViewInit {
   }
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+    // this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
 }

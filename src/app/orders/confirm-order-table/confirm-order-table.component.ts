@@ -33,6 +33,8 @@ export class ConfirmOrderTableComponent implements AfterViewInit {
       (response) => {
         this.confirmorderData = response
         this.dataSource = new MatTableDataSource<any>(this.confirmorderData)
+        this.dataSource.paginator = this.paginator;
+
       },
       (error) => {
         console.error('Error creating post:', error);
@@ -57,7 +59,7 @@ export class ConfirmOrderTableComponent implements AfterViewInit {
   }
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+    // this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
 }

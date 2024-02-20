@@ -32,6 +32,8 @@ export class TaxTableComponent implements AfterViewInit {
       (response) => {
         this.refernceData = response
         this.dataSource = new MatTableDataSource<any>(this.refernceData)
+        this.dataSource.paginator = this.paginator;
+
       },
       (error) => {
         console.error('Error creating post:', error);
@@ -79,7 +81,6 @@ export class TaxTableComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
 }
