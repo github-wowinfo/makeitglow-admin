@@ -1,3 +1,4 @@
+import { SubscriptionComponent } from './subscription/subscription/subscription.component';
 import { ViewVariantsComponent } from './products/view-variants/view-variants.component';
 import { AddInventoryComponent } from './products/add-inventory/add-inventory.component';
 import { OrderDetailsComponent } from './orders/order-details/order-details.component';
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'orderDetails/:id', component: OrderDetailsComponent },
   { path: 'Inventory/:id', component: AddInventoryComponent },
   { path: 'ViewInventory/:id', component: ViewVariantsComponent },
+  { path: 'Subscription', component: SubscriptionComponent }
 ];
 
 @NgModule({

@@ -92,6 +92,8 @@ import { PaymentStatusModalComponent } from './orders/payment-status-modal/payme
 import { AddVariantComponent } from './products/add-variant/add-variant.component';
 import { AddInventoryComponent } from './products/add-inventory/add-inventory.component';
 import { ViewVariantsComponent } from './products/view-variants/view-variants.component';
+import { SubscriptionComponent } from './subscription/subscription/subscription.component';
+import { SubscriptionTableComponent } from './subscription/subscription-table/subscription-table.component';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -161,6 +163,8 @@ import { ViewVariantsComponent } from './products/view-variants/view-variants.co
     AddVariantComponent,
     AddInventoryComponent,
     ViewVariantsComponent,
+    SubscriptionComponent,
+    SubscriptionTableComponent,
   ],
   imports: [
     BrowserModule,
