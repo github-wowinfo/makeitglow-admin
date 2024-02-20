@@ -229,6 +229,65 @@ export class ApiService {
     return this.http.get(`${environment.apiUrl}/api/Masters/GetSubCategory/` + id);
   }
 
+
+  // Blog Category Api
+  getblogCategory(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Blogs/GetAllBlogCategories`);
+  }
+  deleteblogCategory(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Blogs/DeleteBlogCategory/` + id, {}, { headers });
+  }
+  createblogCategory(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Blogs/AddBlogCategory`, postData, { headers });
+  }
+  updateblogCategoryById(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Blogs/UpdateBlogCategory`, postData, { headers });
+  }
+  getblogCategoryById(id: any): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Blogs/GetBlogCategory/` + id);
+  }
+  // Blog Tag Api
+  getblogTag(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Blogs/GetAllBlogTags`);
+  }
+  deleteblogTag(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Blogs/DeleteBlogTags/` + id, {}, { headers });
+  }
+  createblogTag(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Blogs/AddBlogTags`, postData, { headers });
+  }
+  updateblogTagById(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Blogs/UpdateBlogTags`, postData, { headers });
+  }
+  getblogTagById(id: any): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Blogs/GetBlogTags/` + id);
+  }
+  // Blog  Api
+  getblog(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Blogs/GetAllBlogs`);
+  }
+  deleteblog(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Blogs/DeleteBlog/` + id, {}, { headers });
+  }
+  createblog(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Blogs/AddBlog`, postData, { headers });
+  }
+  updateblogById(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Blogs/UpdateBlog`, postData, { headers });
+  }
+  getblogById(id: any): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Blogs/GetBlogById/` + id);
+  }
+
   // Login Api
   createPost(postData: any): Observable<any> {
     return this.http.post(`${environment.apiUrl}/api/Auth/Login`, postData);

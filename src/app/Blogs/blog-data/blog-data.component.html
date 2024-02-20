@@ -1,0 +1,35 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box justify-content-between p-3 mt-2">
+        Blog Data
+        <!-- <button mat-raised-button class="add-btn" color="primary">Add User (+)</button> -->
+    </div>
+    <div>
+        <mat-tab-group>
+            <mat-tab label="Blog Category">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+
+                    <app-blog-cat-table></app-blog-cat-table>
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Blog Tags">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+
+                    <app-blog-tag-table></app-blog-tag-table>
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Blogs">
+                <div class="page__content shadow p-3 mt-2 position-relative">
+
+                    <app-blog-table></app-blog-table>
+                    <div class="page__content-data position-absolute text-center">
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+
+</div>
