@@ -34,7 +34,7 @@ const routes: Routes = [
   { path: 'customers', component: CustomersComponent },
   { path: 'products/productList', component: ProductListComponent },
   { path: 'products/addProduct/:productId', component: AddProductComponent },
-  { path: 'products/addVariant/:id/:varinatId', component: AddProductVariantComponent },
+  { path: 'products/addVariant/:id/:variantId', component: AddProductVariantComponent },
   { path: 'uploads', component: UploadsComponent },
   { path: 'masterData', component: MasterDataComponent },
   { path: 'EcomSequence', component: EcommSequenceComponent },
