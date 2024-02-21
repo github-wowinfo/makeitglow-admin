@@ -1,1 +1,20 @@
-<p>featured-modal works!</p>
+<form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+    <h1 mat-dialog-title>{{inputdata.title}}</h1>
+    <div mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Product List</mat-label>
+            <mat-select formControlName="itmVrntId" id="dropdown" [(ngModel)]="selectedOption">
+                <mat-option *ngFor="let option of options" [value]="option.vrntEntryId">{{ option.itemTitle
+                    }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> Sequence No</mat-label>
+            <input formControlName="fptSequenceNo" matInput>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button color="primary">Save</button>
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    </div>
+</form>

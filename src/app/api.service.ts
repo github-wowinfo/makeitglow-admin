@@ -347,6 +347,38 @@ export class ApiService {
     return this.http.get(`${environment.apiUrl}/api/Items/GetVariantItemById?id=${id}`);
   }
 
+  // Featured Product
+  getAllVariant(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Items/GetAllItemVariantsDDL`);
+  }
+  getFeaturedProduct(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Ecom/GetAllFeaturedProducts`);
+  }
+
+  addFeaturedProduct(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Ecom/AddFeaturedProducts`, postData, { headers, responseType: 'text' });
+  }
+  // Ecom/SoftDeleteFeaturedProducts?Id=6
+  deleteFeaturedProduct(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Ecom/SoftDeleteFeaturedProducts?Id=${id}`, {}, { headers, responseType: 'text' });
+  }
+
+
+  getPopularProduct(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Ecom/GetAllTrendingProducts`);
+  }
+
+  addPopularProduct(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Ecom/AddTrendingProducts`, postData, { headers, responseType: 'text' });
+  }
+  // Ecom/SoftDeleteFeaturedProducts?Id=6
+  deletePopularProduct(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Ecom/SoftDeleteTrendingProducts?Id=${id}`, {}, { headers, responseType: 'text' });
+  }
   private createHeaders(): HttpHeaders {
     // Retrieve token from localStorage
     const token = localStorage.getItem('token');
