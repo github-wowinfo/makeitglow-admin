@@ -1,3 +1,5 @@
+import { PopularDataComponent } from './Popular/popular-data/popular-data.component';
+import { FeaturedDataComponent } from './FeaturedProduct/featured-data/featured-data.component';
 import { BlogDetailsComponent } from './Blogs/blog-details/blog-details.component';
 import { BlogDataComponent } from './Blogs/blog-data/blog-data.component';
 import { SubscriptionComponent } from './subscription/subscription/subscription.component';
@@ -47,6 +49,8 @@ const routes: Routes = [
   { path: 'Subscription', component: SubscriptionComponent },
   { path: 'blogs', component: BlogDataComponent },
   { path: 'blogDetails/:id', component: BlogDetailsComponent },
+  { path: 'Featured', component: FeaturedDataComponent },
+  { path: 'Popular', component: PopularDataComponent },
 ];
 
 @NgModule({

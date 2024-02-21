@@ -102,6 +102,12 @@ import { BlogModalComponent } from './Blogs/blog-modal/blog-modal.component';
 import { BlogTableComponent } from './Blogs/blog-table/blog-table.component';
 import { BlogDataComponent } from './Blogs/blog-data/blog-data.component';
 import { BlogDetailsComponent } from './Blogs/blog-details/blog-details.component';
+import { FeaturedTableComponent } from './FeaturedProduct/featured-table/featured-table.component';
+import { FeaturedModalComponent } from './FeaturedProduct/featured-modal/featured-modal.component';
+import { FeaturedDataComponent } from './FeaturedProduct/featured-data/featured-data.component';
+import { PopularTableComponent } from './Popular/popular-table/popular-table.component';
+import { PopularDataComponent } from './Popular/popular-data/popular-data.component';
+import { PopularModalComponent } from './Popular/popular-modal/popular-modal.component';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -181,6 +187,12 @@ import { BlogDetailsComponent } from './Blogs/blog-details/blog-details.componen
     BlogTableComponent,
     BlogDataComponent,
     BlogDetailsComponent,
+    FeaturedTableComponent,
+    FeaturedModalComponent,
+    FeaturedDataComponent,
+    PopularTableComponent,
+    PopularDataComponent,
+    PopularModalComponent,
   ],
   imports: [
     BrowserModule,
