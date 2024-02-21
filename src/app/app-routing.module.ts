@@ -1,3 +1,4 @@
+import { FaqDataComponent } from './FAQ/faq-data/faq-data.component';
 import { PopularDataComponent } from './Popular/popular-data/popular-data.component';
 import { FeaturedDataComponent } from './FeaturedProduct/featured-data/featured-data.component';
 import { BlogDetailsComponent } from './Blogs/blog-details/blog-details.component';
@@ -51,6 +52,7 @@ const routes: Routes = [
   { path: 'blogDetails/:id', component: BlogDetailsComponent },
   { path: 'Featured', component: FeaturedDataComponent },
   { path: 'Popular', component: PopularDataComponent },
+  { path: 'faq', component: FaqDataComponent },
 ];
 
 @NgModule({

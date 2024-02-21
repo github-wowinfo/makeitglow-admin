@@ -108,6 +108,7 @@ import { FeaturedDataComponent } from './FeaturedProduct/featured-data/featured-
 import { PopularTableComponent } from './Popular/popular-table/popular-table.component';
 import { PopularDataComponent } from './Popular/popular-data/popular-data.component';
 import { PopularModalComponent } from './Popular/popular-modal/popular-modal.component';
+import { FaqDataComponent } from './FAQ/faq-data/faq-data.component';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -193,6 +194,7 @@ import { PopularModalComponent } from './Popular/popular-modal/popular-modal.com
     PopularTableComponent,
     PopularDataComponent,
     PopularModalComponent,
+    FaqDataComponent,
   ],
   imports: [
     BrowserModule,
