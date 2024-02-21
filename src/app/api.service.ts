@@ -359,7 +359,7 @@ export class ApiService {
     const headers = this.createHeaders();
     return this.http.post(`${environment.apiUrl}/api/Ecom/AddFeaturedProducts`, postData, { headers, responseType: 'text' });
   }
-  // Ecom/SoftDeleteFeaturedProducts?Id=6
+
   deleteFeaturedProduct(id: any): Observable<any> {
     const headers = this.createHeaders();
     return this.http.post(`${environment.apiUrl}/api/Ecom/SoftDeleteFeaturedProducts?Id=${id}`, {}, { headers, responseType: 'text' });
@@ -374,11 +374,36 @@ export class ApiService {
     const headers = this.createHeaders();
     return this.http.post(`${environment.apiUrl}/api/Ecom/AddTrendingProducts`, postData, { headers, responseType: 'text' });
   }
-  // Ecom/SoftDeleteFeaturedProducts?Id=6
+
   deletePopularProduct(id: any): Observable<any> {
     const headers = this.createHeaders();
     return this.http.post(`${environment.apiUrl}/api/Ecom/SoftDeleteTrendingProducts?Id=${id}`, {}, { headers, responseType: 'text' });
   }
+  getfaq(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllFAQs`);
+  }
+
+  addfaq(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/AddFAQ`, postData, { headers, responseType: 'text' });
+  }
+
+  deletefaq(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/DeleteFAQ/${id}`, {}, { headers, responseType: 'text' });
+  }
+  getfaqById(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetFAQ/${id}`);
+  }
+  updatefaq(postData: any): Observable<any> {
+    const headers = this.createHeaders1();
+    return this.http.post(`${environment.apiUrl}/api/Masters/UpdateFAQ`, postData, { headers, responseType: 'text' });
+  }
+
+
+
+
   private createHeaders(): HttpHeaders {
     // Retrieve token from localStorage
     const token = localStorage.getItem('token');
