@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { BlogModalComponent } from './../blog-modal/blog-modal.component';
 import { DeleteConfirmationComponent } from './../../delete-confirmation/delete-confirmation.component';
 import { ToastService } from './../../toast.service';
@@ -27,7 +28,7 @@ export class BlogTableComponent implements AfterViewInit {
 
 
 
-  constructor(private apiService: ApiService, private dialog: MatDialog, private toastService: ToastService,) {
+  constructor(private router: Router, private apiService: ApiService, private dialog: MatDialog, private toastService: ToastService,) {
     // this.dataSource = new BrandTableDataSource();
     this.loadblog()
   }
@@ -87,7 +88,10 @@ export class BlogTableComponent implements AfterViewInit {
   ngOnInit(): void {
 
   }
-
+  redirectToAnotherComponent(id: string): void {
+    console.log('clicked');
+    this.router.navigate(['/blogDetails', id]);
+  }
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;

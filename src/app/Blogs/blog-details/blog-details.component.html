@@ -1,0 +1,47 @@
+<div class="container-fluid page" *ngIf="blog">
+
+    <div class="page__content shadow p-3 position-relative">
+        <div>
+            <div class="row  pt-2">
+                <div class="col-md-3">
+                    <h5>Blog Id</h5>
+                    <p>{{id}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Category Id</h5>
+                    <p>{{blog.blogCatgId}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Tag Id</h5>
+                    <p>{{blog.blogTags}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Title</h5>
+                    <p>{{blog.headerTitle}}</p>
+                </div>
+                <div class="col-md-12">
+                    <h5>Description</h5>
+                    <p>{{blog.description}}</p>
+                </div>
+            </div>
+            <div class="row border-bottom pt-2">
+                <div class="col-md-4">
+                    <h5>Sources</h5>
+                    <p>{{blog.sources}}</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Thumbnail Image</h5>
+                    <img [src]="blog.thumbnail" alt="{{ blog.thumbnail }}" style="max-width: 150px">
+                </div>
+                <div class="col-md-4">
+                    <h5>Image</h5>
+                    <img [src]="blog.image" alt="{{ blog.image }}" style="max-width: 150px">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="page__content-data position-absolute text-center">
+        </div>
+    </div>
+</div>

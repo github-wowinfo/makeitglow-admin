@@ -101,6 +101,7 @@ import { BlogTagTableComponent } from './Blogs/blog-tag-table/blog-tag-table.com
 import { BlogModalComponent } from './Blogs/blog-modal/blog-modal.component';
 import { BlogTableComponent } from './Blogs/blog-table/blog-table.component';
 import { BlogDataComponent } from './Blogs/blog-data/blog-data.component';
+import { BlogDetailsComponent } from './Blogs/blog-details/blog-details.component';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -179,6 +180,7 @@ import { BlogDataComponent } from './Blogs/blog-data/blog-data.component';
     BlogModalComponent,
     BlogTableComponent,
     BlogDataComponent,
+    BlogDetailsComponent,
   ],
   imports: [
     BrowserModule,

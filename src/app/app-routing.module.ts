@@ -1,3 +1,4 @@
+import { BlogDetailsComponent } from './Blogs/blog-details/blog-details.component';
 import { BlogDataComponent } from './Blogs/blog-data/blog-data.component';
 import { SubscriptionComponent } from './subscription/subscription/subscription.component';
 import { ViewVariantsComponent } from './products/view-variants/view-variants.component';
@@ -44,7 +45,8 @@ const routes: Routes = [
   { path: 'Inventory/:id', component: AddInventoryComponent },
   { path: 'ViewInventory/:id', component: ViewVariantsComponent },
   { path: 'Subscription', component: SubscriptionComponent },
-  { path: 'blogs', component: BlogDataComponent }
+  { path: 'blogs', component: BlogDataComponent },
+  { path: 'blogDetails/:id', component: BlogDetailsComponent },
 ];
 
 @NgModule({
