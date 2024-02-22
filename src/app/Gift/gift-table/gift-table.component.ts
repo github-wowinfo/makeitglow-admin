@@ -1,3 +1,4 @@
+import { GiftIncludeModalComponent } from './../gift-include-modal/gift-include-modal.component';
 import { DeleteConfirmationComponent } from './../../delete-confirmation/delete-confirmation.component';
 import { ToastService } from './../../toast.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -26,7 +27,7 @@ export class GiftTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
 
 
-  displayedColumns = ['ItemEntryId', 'itemName', 'action'];
+  displayedColumns = ['ItemEntryId', 'itemName', 'action', 'action1'];
 
   constructor(private router: Router, private apiService: ApiService, private dialog: MatDialog, private toastService: ToastService) {
     this.loadProduct()
@@ -80,7 +81,18 @@ export class GiftTableComponent implements AfterViewInit {
       }
     });
   }
+  addIncludes(id: any) {
+    var _popup = this.dialog.open(GiftIncludeModalComponent, {
+      width: '40%',
+      data: {
+        id: id
+      }
+    });
 
+    _popup.afterClosed().subscribe(item => {
+      this.loadProduct()
+    })
+  }
 
   redirectToViewGift(id: string): void {
     console.log('clicked');
