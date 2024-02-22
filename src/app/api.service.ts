@@ -23,6 +23,8 @@ export class ApiService {
     const headers = this.createHeaders();
     return this.http.get(`${environment.apiUrl}/api/Ecom/GetAllSubscribers`, { headers });
   }
+
+  // Order 
   getNewOrders(): Observable<any> {
     const headers = this.createHeaders();
     return this.http.get(`${environment.apiUrl}/api/Admin/Actions/AllOrdersByStatus/1`, { headers });
@@ -56,7 +58,10 @@ export class ApiService {
     return this.http.get(`${environment.apiUrl}/api/Admin/Actions/AllOrdersByStatus/0`, { headers });
   }
 
-
+  getorderById(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Order/GetOrderDetailsByOrderId?OrderId=${id}`, { headers });
+  }
   updateorderStatus(postData: any): Observable<any> {
     const headers = this.createHeaders();
     return this.http.post(`${environment.apiUrl}/api/Admin/Actions/UpdateOrderStatus`, postData, { headers, responseType: 'text' });
@@ -315,12 +320,9 @@ export class ApiService {
     const headers = this.createHeaders();
     return this.http.get(`${environment.apiUrl}/api/Items/GetItemById?id=${id}`);
   }
-  getorderById(id: any): Observable<any> {
-    const headers = this.createHeaders();
-    return this.http.get(`${environment.apiUrl}/api/Order/GetOrderDetailsByOrderId?OrderId=${id}`, { headers });
-  }
 
 
+  // product Api's
   addProduct(formData: FormData): Observable<any> {
     const headers = this.createHeaders1();
     return this.http.post(`${environment.apiUrl}/api/Items/AddNonVariantItem`, formData, { headers, responseType: 'text' });
@@ -346,6 +348,33 @@ export class ApiService {
     const headers = this.createHeaders();
     return this.http.get(`${environment.apiUrl}/api/Items/GetVariantItemById?id=${id}`);
   }
+
+
+  // Gift Api's
+  addGift(formData: FormData): Observable<any> {
+    const headers = this.createHeaders1();
+    return this.http.post(`${environment.apiUrl}/api/Items/AddGiftItem`, formData, { headers, responseType: 'text' });
+  }
+  updateGift(formData: FormData): Observable<any> {
+    const headers = this.createHeaders1();
+    return this.http.post(`${environment.apiUrl}/api/Items/UpdateGiftItem`, formData, { headers, responseType: 'text' });
+  }
+  getGifts(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Items/GetAllGiftItems`);
+  }
+  deleteGift(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Items/DeleteGiftItem?id=${id}`, {}, { headers, responseType: 'text' });
+  }
+  addGiftIncludes(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Items/AddGiftIncludedItems`, postData, { headers, responseType: 'text' });
+  }
+  getGiftById(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Items/GetGiftItemById?id=${id}`);
+  }
+
 
   // Featured Product
   getAllVariant(): Observable<any> {

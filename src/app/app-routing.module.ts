@@ -1,3 +1,6 @@
+import { GiftViewComponent } from './Gift/gift-view/gift-view.component';
+import { AddGiftComponent } from './Gift/add-gift/add-gift.component';
+import { GitListComponent } from './Gift/git-list/git-list.component';
 import { FaqDataComponent } from './FAQ/faq-data/faq-data.component';
 import { PopularDataComponent } from './Popular/popular-data/popular-data.component';
 import { FeaturedDataComponent } from './FeaturedProduct/featured-data/featured-data.component';
@@ -53,6 +56,9 @@ const routes: Routes = [
   { path: 'Featured', component: FeaturedDataComponent },
   { path: 'Popular', component: PopularDataComponent },
   { path: 'faq', component: FaqDataComponent },
+  { path: 'giftList', component: GitListComponent },
+  { path: 'addGift/:giftId', component: AddGiftComponent },
+  { path: 'viewGift/:id', component: GiftViewComponent }
 ];
 
 @NgModule({

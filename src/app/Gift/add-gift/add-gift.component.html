@@ -1,1 +1,211 @@
-<p>add-gift works!</p>
+<div class="container-fluid page">
+    <div class="d-flex page__box justify-content-between p-3 mt-2">
+        Add Gift
+    </div>
+    <form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+        <div class="page__content shadow p-3 position-relative">
+            <mat-form-field class="InputStyle">
+                <mat-label>Brand</mat-label>
+                <mat-select formControlName="BrndId" id="dropdown" [(ngModel)]="selectedOption">
+                    <mat-option *ngFor="let option of options" [value]="option.brandId">{{ option.brndName
+                        }}</mat-option>
+
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Product Category</mat-label>
+                <mat-select formControlName="CategoryId" id="dropdown" [(ngModel)]="catselectedOption">
+                    <mat-option *ngFor="let option of catoptions" [value]="option.catgEntryId">{{ option.catgName
+                        }}</mat-option>
+
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Product Sub Category</mat-label>
+                <mat-select formControlName="SubCategoryId" id="dropdown">
+                    <mat-option *ngFor="let option of subcatoptions" [value]="option.subCatgEntryId">{{
+                        option.subCatgName
+                        }}</mat-option>
+
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Product Name</mat-label>
+                <input formControlName="ItemName" matInput>
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Short Description</mat-label>
+                <textarea formControlName="ShortDescription" matInput></textarea>
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Unit Type</mat-label>
+                <mat-select formControlName="UnitType">
+                    <mat-option value="2">ml</mat-option>
+                    <mat-option value="1">gm</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Tax Rate</mat-label>
+
+                <mat-select formControlName="TaxId" id="dropdown">
+                    <mat-option *ngFor="let option of taxoptions" [value]="option.taxEntryId">{{ option.taxPercent
+                        }}</mat-option>
+
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Long Description</mat-label>
+                <textarea matInput formControlName="LongDescription"></textarea>
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Benefits</mat-label>
+                <textarea matInput formControlName="Benefits"></textarea>
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Has Dimension</mat-label>
+                <mat-select formControlName="HasDiemension">
+                    <mat-option value="true">Yes</mat-option>
+                    <mat-option value="false">No</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Batch Code</mat-label>
+                <input matInput formControlName="BatchCode">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Batch Info</mat-label>
+                <input matInput formControlName="BatchInfo">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>MFG At</mat-label>
+                <input matInput formControlName="MfgAt">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>MFG By</mat-label>
+                <input matInput formControlName="MfgBy">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>MFG Date</mat-label>
+                <input matInput formControlName="MfgDate">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Warranty In Month</mat-label>
+                <input matInput formControlName="WarrantyInMonth">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Remark</mat-label>
+                <input matInput formControlName="Remark">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Vendor Info</mat-label>
+                <input matInput formControlName="VendorInfo">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Policy</mat-label>
+                <input matInput formControlName="Policy">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Meta Tags</mat-label>
+                <input matInput formControlName="MetaTags">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Meta Property Url</mat-label>
+                <input matInput formControlName="Metapropertyurl">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Meta Property Type</mat-label>
+                <input matInput formControlName="Metapropertytype">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Meta Property Title</mat-label>
+                <input matInput formControlName="Metapropertytitle">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Meta Property Description</mat-label>
+                <input matInput formControlName="Metapropertydescription">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>SrNo</mat-label>
+                <input matInput formControlName="Srno">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>BarCodeNo</mat-label>
+                <input matInput formControlName="BarCodeNo">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Item Title</mat-label>
+                <input matInput formControlName="ItemTitle">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Website Moq</mat-label>
+                <input matInput formControlName="WebsiteMoq">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Is Available</mat-label>
+                <mat-select formControlName="IsAvailabile">
+                    <mat-option value="true">True</mat-option>
+                    <mat-option value="false">False</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Is Buyable</mat-label>
+                <mat-select formControlName="IsBuyable">
+                    <mat-option value="true">True</mat-option>
+                    <mat-option value="false">False</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Hex Color Code</mat-label>
+                <input matInput formControlName="HexColorCode">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>How To Use</mat-label>
+                <input matInput formControlName="HowToUse">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Gift SKUID</mat-label>
+                <input matInput formControlName="ItemSKUID">
+            </mat-form-field>
+
+            <mat-card class="mb-3">
+                <mat-label>Thumbnail Images *</mat-label>
+                <input class="d-block" type="file" formControlName="ThumbnailFile" (change)="onFileChange($event)">
+                <div *ngIf="myForm.controls['ThumbnailFile'].value">
+                    <img [src]="myForm.controls['ThumbnailFile'].value" width="150px" alt="Thumbnail Image">
+                </div>
+            </mat-card>
+
+            <mat-card class="mb-3">
+                <mat-label>Product Image 1 *</mat-label>
+                <input class="d-block" type="file" formControlName="MainImage1File"
+                    (change)="onMain1FileChange($event)">
+                <div *ngIf="myForm.controls['MainImage1File'].value">
+                    <img [src]="myForm.controls['MainImage1File'].value" width="150px" alt="Thumbnail Image">
+                </div>
+            </mat-card>
+            <mat-card class="mb-3">
+                <mat-label>Product Image 2 *</mat-label>
+                <input class="d-block" type="file" formControlName="Image2File" (change)="onMain2FileChange($event)">
+                <div *ngIf="myForm.controls['Image2File'].value">
+                    <img [src]="myForm.controls['Image2File'].value" width="150px" alt="Thumbnail Image">
+                </div>
+            </mat-card>
+            <mat-card class="mb-3">
+                <mat-label>Product Image 3 *</mat-label>
+                <input class="d-block" type="file" formControlName="Image3File" (change)="onMain3FileChange($event)">
+                <div *ngIf="myForm.controls['Image3File'].value">
+                    <img [src]="myForm.controls['Image3File'].value" width="150px" alt="Thumbnail Image">
+                </div>
+            </mat-card>
+            <div mat-dialog-actions class="mt-3 text-center">
+                <button mat-raised-button color="primary" class="me-3">Save</button>
+                <!-- <button mat-raised-button color="warn" mat-dialog-close>Close</button> -->
+            </div>
+            <!-- <mat-form-field>
+            </mat-form-field> -->
+            <div class="page__content-data position-absolute text-center">
+
+            </div>
+        </div>
+    </form>
+</div>

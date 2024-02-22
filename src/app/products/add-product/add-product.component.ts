@@ -45,10 +45,20 @@ export class AddProductComponent implements OnInit {
     this.SubcategoryData();
     this.TaxRate()
 
+    // this.route.paramMap.subscribe(params => {
+    //   this.productIdToUpdate = params.get('productId') || '';
+    //   if (this.productIdToUpdate) {
+    //     // Populate form for update
+    //     this.isUpdate = true;
+    //     this.populateFormForUpdate();
+    //   }
+    // });
+
     this.route.paramMap.subscribe(params => {
-      this.productIdToUpdate = params.get('productId') || '';
-      if (this.productIdToUpdate) {
-        // Populate form for update
+      const productId = +params.get('productId'); // Convert to number
+
+      if (productId && productId > 0) {
+        this.productIdToUpdate = productId.toString(); // Convert back to string if needed
         this.isUpdate = true;
         this.populateFormForUpdate();
       }
