@@ -37,10 +37,22 @@
       <a mat-list-item routerLinkActive="list-item-active" routerLink="/Popular">
         Popular Products
       </a>
-      <!-- <a mat-list-item routerLinkActive="list-item-active" routerLink="/products/addVariant">
-        Add Product Variant
-      </a> -->
-      <!-- Add more submenus as needed -->
+    </mat-nav-list>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>store</mat-icon> Gifts
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-nav-list>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/products/productList">
+        Gift List
+      </a>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/products/addProduct/0">
+        Add Gift
+      </a>
     </mat-nav-list>
   </mat-expansion-panel>
 

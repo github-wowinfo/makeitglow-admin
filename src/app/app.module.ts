@@ -111,6 +111,12 @@ import { PopularModalComponent } from './Popular/popular-modal/popular-modal.com
 import { FaqDataComponent } from './FAQ/faq-data/faq-data.component';
 import { FaqNewTableComponent } from './FAQ/faq-new-table/faq-new-table.component';
 import { FaqModalNewComponent } from './FAQ/faq-modal-new/faq-modal-new.component';
+import { AddGiftComponent } from './Gift/add-gift/add-gift.component';
+import { AddGiftInventoryComponent } from './Gift/add-gift-inventory/add-gift-inventory.component';
+import { GitDataComponent } from './Gift/git-data/git-data.component';
+import { GitListComponent } from './Gift/git-list/git-list.component';
+import { GiftTableComponent } from './Gift/gift-table/gift-table.component';
+import { GiftViewComponent } from './Gift/gift-view/gift-view.component';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -199,6 +205,12 @@ import { FaqModalNewComponent } from './FAQ/faq-modal-new/faq-modal-new.componen
     FaqDataComponent,
     FaqNewTableComponent,
     FaqModalNewComponent,
+    AddGiftComponent,
+    AddGiftInventoryComponent,
+    GitDataComponent,
+    GitListComponent,
+    GiftTableComponent,
+    GiftViewComponent,
   ],
   imports: [
     BrowserModule,
