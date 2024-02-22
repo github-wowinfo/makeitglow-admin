@@ -1,1 +1,164 @@
-<p>gift-view works!</p>
+<div class="container-fluid page">
+    <div class="d-flex page__box justify-content-between p-3 mt-2">
+        Gift Detail
+    </div>
+    <div class="page__content shadow p-3 position-relative">
+        <div *ngIf="product">
+            <div class="row border-bottom pt-2">
+                <div class="col-md-3">
+                    <h5>Product Id</h5>
+                    <p>{{product.gftItmEntryId}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Product Name</h5>
+                    <p>{{product.itemName}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Category Id</h5>
+                    <p>{{product.categoryId}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>SubCategory Id</h5>
+                    <p>{{product.subCategoryId}}</p>
+                </div>
+            </div>
+            <div class="row border-bottom pt-2">
+                <div class="col-md-3">
+                    <h5>Brand Id</h5>
+                    <p>{{product.brndId}}</p>
+                </div>
+
+                <div class="col-md-3">
+                    <h5>Unit Type</h5>
+                    <p>{{product.unitType}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Unit Volume</h5>
+                    <p>{{product.unitVolume}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Tax Id</h5>
+                    <p>{{product.taxId}}</p>
+                </div>
+            </div>
+            <div class="row border-bottom pt-2">
+
+                <div class="col-md-3">
+                    <h5>Has Dimension</h5>
+                    <p>{{product.hasDiemension}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Batch Code</h5>
+                    <p>{{product.batchCode}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Batch Info</h5>
+                    <p>{{product.batchInfo}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Mfg At</h5>
+                    <p>{{product.mfgAt}}</p>
+                </div>
+            </div>
+            <div class="row border-bottom pt-2">
+                <div class="col-md-3">
+                    <h5>Mfg By</h5>
+                    <p>{{product.mfgBy}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Mfg Date</h5>
+                    <p>{{product.mfgDate}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Warranty In Month</h5>
+                    <p>{{product.warrantyInMonth}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Remark</h5>
+                    <p>{{product.remark}}</p>
+                </div>
+            </div>
+            <div class="row border-bottom pt-2">
+                <div class="col-md-3">
+                    <h5>Vendor Info</h5>
+                    <p>{{product.vendorInfo}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Policy</h5>
+                    <p>{{product.policy}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Meta Tags</h5>
+                    <p>{{product.metaTags}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Meta Property Url</h5>
+                    <p>{{product.metapropertyurl}}</p>
+                </div>
+            </div>
+            <div class="row border-bottom pt-2">
+                <div class="col-md-3">
+                    <h5>Meta Property Type</h5>
+                    <p>{{product.metapropertytype}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Meta Property Title</h5>
+                    <p>{{product.metapropertytitle}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Meta Property Description</h5>
+                    <p>{{product.metapropertydescription}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Meta Property Type</h5>
+                    <p>{{product.metapropertytype}}</p>
+                </div>
+            </div>
+            <div class="col-md-12 border-bottom pt-2">
+                <h5>Short Description</h5>
+                <p>{{product.shortDescription}}</p>
+            </div>
+            <div class="col-md-12 border-bottom pt-2">
+                <h5>Long Description</h5>
+                <p>{{product.longDescription}}</p>
+            </div>
+            <div class="col-md-12 border-bottom pt-2">
+                <h5>Benefits</h5>
+                <p>{{product.benefits}}</p>
+            </div>
+            <div class="row border-bottom pt-2 pb-2">
+                <div class="col-md-3">
+                    <h5>Thumbnail Image</h5>
+                    <img src="{{product.thumbnail}}" width="150px" alt="">
+                </div>
+                <div class="col-md-3">
+                    <h5>Main Image 1</h5>
+                    <img src="{{product.mainImage1}}" width="150px" alt="">
+                </div>
+                <div class="col-md-3">
+                    <h5>Main Image 2</h5>
+                    <img src="{{product.image2}}" width="150px" alt="">
+                </div>
+                <div class="col-md-3">
+                    <h5>Main Image 3</h5>
+                    <img src="{{product.image3}}" width="150px" alt="">
+                </div>
+            </div>
+        </div>
+        <h5>Includes</h5>
+        <div class="row border-bottom pt-2 order-table">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of product.giftIncludedItems">
+                        <td>{{ item.includedItemName }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

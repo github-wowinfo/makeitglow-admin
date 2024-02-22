@@ -228,22 +228,23 @@ export class AddGiftComponent implements OnInit {
           VendorInfo: data.vendorInfo || '',
           Policy: data.policy || '',
           MetaTags: data.metaTags || '',
+          WebsiteMoq: data.websiteMoq || '',
           Metapropertyurl: data.metapropertyurl || '',
           Metapropertytype: data.metapropertytype || '',
           Metapropertytitle: data.metapropertytitle || '',
           Metapropertydescription: data.metapropertydescription || '',
-          Srno: data.vrnts[0].srno || '',
-          BarCodeNo: data.vrnts[0].barCodeNo || '',
-          ItemTitle: data.vrnts[0].itemTitle || '',
-          IsAvailabile: data.vrnts[0].isAvailabile || '',
-          IsBuyable: data.vrnts[0].isBuyable || '',
-          HexColorCode: data.vrnts[0].hexColorCode || '',
-          HowToUse: data.vrnts[0].howToUse || '',
-          ItemSKUID: data.vrnts[0].ItemSKUID || '',
+          Srno: data.srno || '',
+          BarCodeNo: data.barCodeNo || '',
+          ItemTitle: data.itemTitle || '',
+          IsAvailabile: data.isAvailabile || '',
+          IsBuyable: data.isBuyable || '',
+          HexColorCode: data.hexColorCode || '',
+          HowToUse: data.howToUse || '',
+          ItemSKUID: data.ItemSKUID || '',
           ThumbnailFile: data.thumbnail ? data.thumbnail : '',
-          MainImage1File: data.vrnts[0].mainImage1 ? data.vrnts[0].mainImage1 : '',
-          Image2File: data.vrnts[0].image2 ? data.vrnts[0].image2 : '',
-          Image3File: data.vrnts[0].image3 ? data.vrnts[0].image3 : '',
+          MainImage1File: data.mainImage1 ? data.mainImage1 : '',
+          Image2File: data.image2 ? data.image2 : '',
+          Image3File: data.image3 ? data.image3 : '',
         });
         console.log('this.myForm.patchValue', this.myForm.patchValue);
 
@@ -277,7 +278,7 @@ export class AddGiftComponent implements OnInit {
     console.log('formData', formData, this.myForm.value);
     this.apiService.updateGift(formData).subscribe(res => {
       this.toastService.showSuccess('Gift Updated successfully!');
-      // location.reload()
+      location.reload()
       // Optionally, navigate to a different route or do something else after update
     },
       (error) => {
