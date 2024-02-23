@@ -1,3 +1,4 @@
+import { EventViewComponent } from './Events/event-view/event-view.component';
 import { EventDataComponent } from './Events/event-data/event-data.component';
 import { GiftInventoryComponent } from './Gift/gift-inventory/gift-inventory.component';
 import { GiftViewComponent } from './Gift/gift-view/gift-view.component';
@@ -60,6 +61,7 @@ const routes: Routes = [
   { path: 'Popular', component: PopularDataComponent },
   { path: 'faq', component: FaqDataComponent },
   { path: 'events', component: EventDataComponent },
+  { path: 'viewEvent/:id', component: EventViewComponent },
   { path: 'giftList', component: GitListComponent },
   { path: 'addGift/:giftId', component: AddGiftComponent },
   { path: 'viewGift/:id', component: GiftViewComponent }

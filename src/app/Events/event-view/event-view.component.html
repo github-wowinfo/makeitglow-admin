@@ -1,1 +1,55 @@
-<p>event-view works!</p>
+<div class="container-fluid page">
+    <div class="d-flex page__box justify-content-between p-3 mt-2">
+        Event Detail
+    </div>
+    <div class="page__content shadow p-3 position-relative">
+        <div *ngIf="event">
+            <div class="row border-bottom pt-2">
+                <div class="col-md-4">
+                    <h5>Event Id</h5>
+                    <p>{{event.eventEntryId}}</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Event Title</h5>
+                    <p>{{event.title}}</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Event Date</h5>
+                    <p>{{event.eventDate}}</p>
+                </div>
+            </div>
+
+            <div class="col-md-12 border-bottom pt-2">
+                <h5>Event Descrription</h5>
+                <p>{{event.description}}</p>
+            </div>
+            <!-- <div class="row border-bottom pt-2 pb-2">
+                <div class="col-md-3">
+                    <h5>Thumbnail Image</h5>
+                    <img src="{{product.thumbnail}}" width="150px" alt="">
+                </div>
+                <div class="col-md-3">
+                    <h5>Main Image 1</h5>
+                    <img src="{{product.mainImage1}}" width="150px" alt="">
+                </div>
+                <div class="col-md-3">
+                    <h5>Main Image 2</h5>
+                    <img src="{{product.image2}}" width="150px" alt="">
+                </div>
+                <div class="col-md-3">
+                    <h5>Main Image 3</h5>
+                    <img src="{{product.image3}}" width="150px" alt="">
+                </div>
+            </div> -->
+        </div>
+        <h5>Event Media</h5>
+        <div class="row border-bottom pt-2 order-table">
+
+            <div class="col-md-3" *ngFor="let media of event.eventMediaFiles">
+                <!-- <h5>Main Image 3</h5> -->
+                <!-- console.log(media.filePath) -->
+                <img src="{{ apiUrl + media.filePath}}" width="150px" alt="">
+            </div>
+        </div>
+    </div>
+</div>

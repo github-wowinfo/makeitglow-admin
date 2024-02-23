@@ -121,6 +121,8 @@ import { GiftIncludeModalComponent } from './Gift/gift-include-modal/gift-includ
 import { EventDataComponent } from './Events/event-data/event-data.component';
 import { EventViewComponent } from './Events/event-view/event-view.component';
 import { GiftInventoryComponent } from './Gift/gift-inventory/gift-inventory.component';
+import { EventTableNewComponent } from './Events/event-table-new/event-table-new.component';
+import { EventModalNewComponent } from './Events/event-modal-new/event-modal-new.component';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -219,6 +221,8 @@ import { GiftInventoryComponent } from './Gift/gift-inventory/gift-inventory.com
     EventDataComponent,
     EventViewComponent,
     GiftInventoryComponent,
+    EventTableNewComponent,
+    EventModalNewComponent,
   ],
   imports: [
     BrowserModule,

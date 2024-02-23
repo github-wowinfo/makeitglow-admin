@@ -1,0 +1,21 @@
+<form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+    <h1 mat-dialog-title>{{inputdata.title}}</h1>
+    <div mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Event Title</mat-label>
+            <input formControlName="title" matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Event Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Event Date</mat-label>
+            <input formControlName="eventDate" matInput>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button color="primary">Save</button>
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    </div>
+</form>
