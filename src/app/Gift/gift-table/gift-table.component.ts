@@ -99,7 +99,7 @@ export class GiftTableComponent implements AfterViewInit {
     this.router.navigate(['/viewGift', id]);
   }
   redirectToStock(id: string): void {
-    this.router.navigate(['/Inventory', id]);
+    this.router.navigate(['/GiftInventory', id]);
   }
   navigateToAddOrUpdateGift(productId: string | null) {
     const route = productId ? `addGift/${productId}` : '/addGift';

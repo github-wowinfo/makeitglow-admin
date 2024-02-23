@@ -1,0 +1,38 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box justify-content-between p-3 mt-2">
+        Add Gift Inventory
+    </div>
+    <form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+        <div class="page__content shadow p-3 position-relative">
+            <mat-form-field class="InputStyle">
+                <mat-label>Purchase Price</mat-label>
+                <input matInput formControlName="purchasePrice">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Purchase Quantity</mat-label>
+                <input matInput formControlName="purchaseQty">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Available Quantity</mat-label>
+                <input matInput formControlName="availableQty">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>MRP</mat-label>
+                <input matInput formControlName="mrp">
+            </mat-form-field>
+            <mat-form-field class="InputStyle">
+                <mat-label>Selling Price</mat-label>
+                <input matInput formControlName="sellingPrice">
+            </mat-form-field>
+            <div mat-dialog-actions class="mt-3 text-center">
+                <button mat-raised-button color="primary" class="me-3">Save</button>
+                <!-- <button mat-raised-button color="warn" mat-dialog-close>Close</button> -->
+            </div>
+            <!-- <mat-form-field>
+            </mat-form-field> -->
+            <div class="page__content-data position-absolute text-center">
+
+            </div>
+        </div>
+    </form>
+</div>

@@ -118,6 +118,9 @@ import { GitListComponent } from './Gift/git-list/git-list.component';
 import { GiftTableComponent } from './Gift/gift-table/gift-table.component';
 import { GiftViewComponent } from './Gift/gift-view/gift-view.component';
 import { GiftIncludeModalComponent } from './Gift/gift-include-modal/gift-include-modal.component';
+import { EventDataComponent } from './Events/event-data/event-data.component';
+import { EventViewComponent } from './Events/event-view/event-view.component';
+import { GiftInventoryComponent } from './Gift/gift-inventory/gift-inventory.component';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -213,6 +216,9 @@ import { GiftIncludeModalComponent } from './Gift/gift-include-modal/gift-includ
     GiftTableComponent,
     GiftViewComponent,
     GiftIncludeModalComponent,
+    EventDataComponent,
+    EventViewComponent,
+    GiftInventoryComponent,
   ],
   imports: [
     BrowserModule,

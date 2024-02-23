@@ -46,6 +46,11 @@ export class AddInventoryComponent implements OnInit {
     mrp: this.builder.control('', Validators.required),
     sellingPrice: this.builder.control('', Validators.required),
     itmVrntId: this.builder.control('', Validators.required),
+    itemType: 1,
+    purchaseDetail: "",
+    prchsBillAttachment: "",
+    purchaseDate: "2024-02-14",
+
   });
   onFormSubmit() {
     if (this.myForm.valid) {

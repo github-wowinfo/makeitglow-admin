@@ -1,3 +1,4 @@
+import { GiftInventoryComponent } from './Gift/gift-inventory/gift-inventory.component';
 import { GiftViewComponent } from './Gift/gift-view/gift-view.component';
 import { AddGiftComponent } from './Gift/add-gift/add-gift.component';
 import { GitListComponent } from './Gift/git-list/git-list.component';
@@ -49,6 +50,7 @@ const routes: Routes = [
   { path: 'viewProduct/:id', component: ViewProductComponent },
   { path: 'orderDetails/:id', component: OrderDetailsComponent },
   { path: 'Inventory/:id', component: AddInventoryComponent },
+  { path: 'GiftInventory/:id', component: GiftInventoryComponent },
   { path: 'ViewInventory/:id', component: ViewVariantsComponent },
   { path: 'Subscription', component: SubscriptionComponent },
   { path: 'blogs', component: BlogDataComponent },
