@@ -123,6 +123,7 @@ import { EventViewComponent } from './Events/event-view/event-view.component';
 import { GiftInventoryComponent } from './Gift/gift-inventory/gift-inventory.component';
 import { EventTableNewComponent } from './Events/event-table-new/event-table-new.component';
 import { EventModalNewComponent } from './Events/event-modal-new/event-modal-new.component';
+import { EventMediaModalComponent } from './Events/event-media-modal/event-media-modal.component';
 // import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
@@ -223,6 +224,7 @@ import { EventModalNewComponent } from './Events/event-modal-new/event-modal-new
     GiftInventoryComponent,
     EventTableNewComponent,
     EventModalNewComponent,
+    EventMediaModalComponent,
   ],
   imports: [
     BrowserModule,

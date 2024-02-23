@@ -1,0 +1,15 @@
+<form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+    <h1 mat-dialog-title>Add Event Media</h1>
+    <div mat-dialog-content>
+        <mat-card class="mb-3">
+            <mat-label>Event Media</mat-label>
+            <input class="d-block" type="file" multiple formControlName="UploadImageFiles"
+                (change)="onFileChange($event)">
+
+        </mat-card>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button color="primary">Save</button>
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    </div>
+</form>

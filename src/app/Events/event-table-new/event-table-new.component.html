@@ -28,7 +28,13 @@
         <mat-icon style="cursor: pointer;" (click)="deleteEvent(row.eventEntryId)">delete</mat-icon>
       </td>
     </ng-container>
-
+    <ng-container matColumnDef="action1">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Images</th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-raised-button class="add-btn" color="primary" (click)="addImages(row.eventEntryId)">Add
+          Images</button>
+      </td>
+    </ng-container>
 
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
