@@ -27,7 +27,7 @@ export class GiftTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
 
 
-  displayedColumns = ['ItemEntryId', 'itemName', 'action', 'action1'];
+  displayedColumns = ['ItemEntryId', 'itemName', 'action', 'action1', 'action2'];
 
   constructor(private router: Router, private apiService: ApiService, private dialog: MatDialog, private toastService: ToastService) {
     this.loadProduct()
@@ -98,7 +98,9 @@ export class GiftTableComponent implements AfterViewInit {
     console.log('clicked');
     this.router.navigate(['/viewGift', id]);
   }
-
+  redirectToStock(id: string): void {
+    this.router.navigate(['/Inventory', id]);
+  }
   navigateToAddOrUpdateGift(productId: string | null) {
     const route = productId ? `addGift/${productId}` : '/addGift';
     this.router.navigate([route]);

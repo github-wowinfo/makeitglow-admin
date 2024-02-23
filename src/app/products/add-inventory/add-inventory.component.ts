@@ -61,11 +61,11 @@ export class AddInventoryComponent implements OnInit {
     // Object.keys(this.myForm.value).forEach(key => {
     //   formData.append(key, this.myForm.value[key]);
     // });
-    // console.log('formData', formData, this.myForm.value);
+    console.log('formData', this.myForm.value);
 
     this.apiService.addVariantStock(this.myForm.value).subscribe(res => {
       this.toastService.showSuccess('Product Stock Added successfully!');
-      location.reload()
+      // location.reload()
     },
       (error) => {
         console.error('Error creating post:', error);

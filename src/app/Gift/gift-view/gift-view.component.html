@@ -1,6 +1,7 @@
 <div class="container-fluid page">
     <div class="d-flex page__box justify-content-between p-3 mt-2">
         Gift Detail
+
     </div>
     <div class="page__content shadow p-3 position-relative">
         <div *ngIf="product">
@@ -125,6 +126,25 @@
             <div class="col-md-12 border-bottom pt-2">
                 <h5>Benefits</h5>
                 <p>{{product.benefits}}</p>
+            </div>
+            <h5>Inventory Stock</h5>
+            <div class="row border-bottom pt-2 pb-2">
+                <div class="col-md-3">
+                    <h5>Available Stock</h5>
+                    <p>{{product.availableStock}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>MRP</h5>
+                    <p>{{product.mrp}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Selling Price</h5>
+                    <p>{{product.sellingPrice}}</p>
+                </div>
+                <!-- <div class="col-md-3">
+                    <h5>Available Stock</h5>
+                    <p>{{product.availableStock}}</p>
+                </div> -->
             </div>
             <div class="row border-bottom pt-2 pb-2">
                 <div class="col-md-3">
