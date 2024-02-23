@@ -408,6 +408,8 @@ export class ApiService {
     const headers = this.createHeaders();
     return this.http.post(`${environment.apiUrl}/api/Ecom/SoftDeleteTrendingProducts?Id=${id}`, {}, { headers, responseType: 'text' });
   }
+
+  // FAQ
   getfaq(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/Masters/GetAllFAQs`);
   }
@@ -428,6 +430,37 @@ export class ApiService {
   updatefaq(postData: any): Observable<any> {
     const headers = this.createHeaders1();
     return this.http.post(`${environment.apiUrl}/api/Masters/UpdateFAQ`, postData, { headers, responseType: 'text' });
+  }
+
+  // Events
+  getevent(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetAllEvents`);
+  }
+
+  addevent(postData: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/AddEvent`, postData, { headers, responseType: 'text' });
+  }
+  addeventMedia(formData: FormData): Observable<any> {
+    const headers = this.createHeaders1();
+    return this.http.post(`${environment.apiUrl}/api/Masters/AddEventMediaFile`, formData, { headers, responseType: 'text' });
+  }
+
+  deleteevent(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.post(`${environment.apiUrl}/api/Masters/DeleteEvent/${id}`, {}, { headers, responseType: 'text' });
+  }
+  geteventById(id: any): Observable<any> {
+    const headers = this.createHeaders();
+    return this.http.get(`${environment.apiUrl}/api/Masters/GetEvent/${id}`);
+  }
+  updateevent(postData: any): Observable<any> {
+    const headers = this.createHeaders1();
+    return this.http.post(`${environment.apiUrl}/api/Masters/UpdateEvent`, postData, { headers, responseType: 'text' });
+  }
+  updateeventMedia(formData: FormData): Observable<any> {
+    const headers = this.createHeaders1();
+    return this.http.post(`${environment.apiUrl}/api/Masters/UpdateEventMediaFile`, formData, { headers, responseType: 'text' });
   }
 
 
