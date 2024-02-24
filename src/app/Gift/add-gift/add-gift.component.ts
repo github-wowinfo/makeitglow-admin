@@ -24,6 +24,15 @@ export class AddGiftComponent implements OnInit {
   selectedFileName: string = '';
   isUpdate: boolean = false; // Track if it's in update mode
   productIdToUpdate: string = ''; // Product ID to update
+  file1: any;
+  selectedMainImage: string = ''
+  file2: any;
+  selectedMainImage2: string = ''
+  file3: any;
+  selectedMainImage3: string = ''
+  file4: any;
+  selectedMainImage4: string = ''
+
   constructor(
     // @Inject() public data: any,
     // public data: any,
@@ -159,108 +168,140 @@ export class AddGiftComponent implements OnInit {
     WebsiteMoq: this.builder.control('', Validators.required),
     HowToUse: this.builder.control('', Validators.required),
 
-    ThumbnailFile: ['', Validators.required],
-    MainImage1File: ['', Validators.required],
-    Image2File: ['', Validators.required],
-    Image3File: ['', Validators.required],
+    ThumbnailFile: [''],
+    MainImage1File: [''],
+    Image2File: [''],
+    Image3File: [''],
   });
 
 
 
   onFileChange(event: any) {
+    console.log('events', event);
+
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.myForm.get('ThumbnailFile')?.setValue(file); // Set to file object
+      this.file1 = event.target.files[0];
+      this.myForm.get('ThumbnailFile')?.setValue(this.file1[0]); // Set to file object
     }
   }
 
   onMain1FileChange(event: any) {
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.myForm.get('MainImage1File')?.setValue(file); // Set to file object
+      this.file2 = event.target.files[0];
+      this.myForm.get('MainImage1File')?.setValue(this.file2[0]);
+      // const file = event.target.files[0];
+      // this.myForm.get('MainImage1File')?.setValue(file); // Set to file object
     }
   }
 
   onMain3FileChange(event: any) {
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.myForm.get('Image3File')?.setValue(file); // Set to file object
+      this.file3 = event.target.files[0];
+      this.myForm.get('MainImage1File')?.setValue(this.file3[0]);
+      // const file = event.target.files[0];
+      // this.myForm.get('Image3File')?.setValue(file); // Set to file object
     }
   }
 
   onMain2FileChange(event: any) {
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.myForm.get('Image2File')?.setValue(file); // Set to file object
+      this.file4 = event.target.files[0];
+      this.myForm.get('MainImage1File')?.setValue(this.file4[0]);
+      // const file = event.target.files[0];
+      // this.myForm.get('Image2File')?.setValue(file); // Set to file object
     }
   }
 
   populateFormForUpdate() {
     // Use the productIdToUpdate to fetch the existing product data and populate the form
     // Example:
+
+    let passData: any
     this.apiService.getGiftById(this.productIdToUpdate).subscribe(
       (data: any) => {
-        console.log('data', data);
-        const mfgDate = new Date(data.mfgDate);
+        passData = data;
+        console.log('this.myForm.patchValue', passData);
+
+        const mfgDate = new Date(passData.mfgDate);
         const day = mfgDate.getDate().toString().padStart(2, '0'); // Add zero padding for single-digit days
         const month = (mfgDate.getMonth() + 1).toString().padStart(2, '0'); // Add zero padding for single-digit months
         const year = mfgDate.getFullYear();
         const formattedMfgDate = `${day}/${month}/${year}`;
 
-        this.myForm.patchValue({
-          BrndId: data.brndId || '',
-          CategoryId: data.categoryId || '',
-          SubCategoryId: data.subCategoryId || '',
-          ItemName: data.itemName || '',
-          ShortDescription: data.shortDescription || '',
-          UnitType: data.unitType || '',
-          TaxId: data.taxId || '',
-          LongDescription: data.longDescription || '',
-          Benefits: data.benefits || '',
-          HasDiemension: data.hasDiemension || '',
-          BatchCode: data.batchCode || '',
-          BatchInfo: data.batchInfo || '',
-          MfgAt: data.mfgAt || '',
-          MfgBy: data.mfgBy || '',
-          MfgDate: formattedMfgDate || '',
-          WarrantyInMonth: data.warrantyInMonth || '',
-          Remark: data.remark || '',
-          VendorInfo: data.vendorInfo || '',
-          Policy: data.policy || '',
-          MetaTags: data.metaTags || '',
-          WebsiteMoq: data.websiteMoq || '',
-          Metapropertyurl: data.metapropertyurl || '',
-          Metapropertytype: data.metapropertytype || '',
-          Metapropertytitle: data.metapropertytitle || '',
-          Metapropertydescription: data.metapropertydescription || '',
-          Srno: data.srno || '',
-          BarCodeNo: data.barCodeNo || '',
-          ItemTitle: data.itemTitle || '',
-          IsAvailabile: data.isAvailabile || '',
-          IsBuyable: data.isBuyable || '',
-          HexColorCode: data.hexColorCode || '',
-          HowToUse: data.howToUse || '',
-          ItemSKUID: data.ItemSKUID || '',
-          ThumbnailFile: data.thumbnail ? data.thumbnail : '',
-          MainImage1File: data.mainImage1 ? data.mainImage1 : '',
-          Image2File: data.image2 ? data.image2 : '',
-          Image3File: data.image3 ? data.image3 : '',
-        });
-        console.log('this.myForm.patchValue', this.myForm.patchValue);
+        this.selectedMainImage = passData.thumbnail ? passData.thumbnail : '';
+        this.selectedMainImage2 = passData.mainImage1 ? passData.mainImage1 : '';
+        this.selectedMainImage3 = passData.image2 ? passData.image2 : '';
+        this.selectedMainImage4 = passData.image3 ? passData.image3 : '';
 
+        let patch = {
+          BrndId: passData.brndId || '',
+          CategoryId: passData.categoryId || '',
+          SubCategoryId: passData.subCategoryId || '',
+          ItemName: passData.itemName || '',
+          ShortDescription: passData.shortDescription || '',
+          UnitType: passData.unitType || '',
+          TaxId: passData.taxId || '',
+          LongDescription: passData.longDescription || '',
+          Benefits: passData.benefits || '',
+          HasDiemension: passData.hasDiemension || '',
+          BatchCode: passData.batchCode || '',
+          BatchInfo: passData.batchInfo || '',
+          MfgAt: passData.mfgAt || '',
+          MfgBy: passData.mfgBy || '',
+          MfgDate: formattedMfgDate || '',
+          WarrantyInMonth: passData.warrantyInMonth || '',
+          Remark: passData.remark || '',
+          VendorInfo: passData.vendorInfo || '',
+          Policy: passData.policy || '',
+          MetaTags: passData.metaTags || '',
+          WebsiteMoq: passData.websiteMoq || '',
+          Metapropertyurl: passData.metapropertyurl || '',
+          Metapropertytype: passData.metapropertytype || '',
+          Metapropertytitle: passData.metapropertytitle || '',
+          Metapropertydescription: passData.metapropertydescription || '',
+          Srno: passData.srno || '',
+          BarCodeNo: passData.barCodeNo || '',
+          ItemTitle: passData.itemTitle || '',
+          IsAvailabile: passData.isAvailabile || '',
+          IsBuyable: passData.isBuyable || '',
+          HexColorCode: passData.hexColorCode || '',
+          HowToUse: passData.howToUse || '',
+          ItemSKUID: passData.ItemSKUID || '',
+          ThumbnailFile: passData.thumbnail ? passData.thumbnail : '',
+          MainImage1File: passData.mainImage1 ? passData.mainImage1 : '',
+          Image2File: passData.image2 ? passData.image2 : '',
+          Image3File: passData.image3 ? passData.image3 : '',
+        };
+
+        this.myForm.patchValue(patch)
+
+        console.log('my`form', patch);
       },
       (error) => {
         console.error('Error fetching product data for update:', error);
       }
     );
+
+
+
+
+
+
   }
 
 
   onFormSubmit() {
+    console.log('this', this.myForm, this.file1);
+
     if (this.myForm.valid) {
       if (this.isUpdate) {
         this.updateProduct();
       } else {
+        if (this.file1 === undefined && this.file2 === undefined && this.file3 === undefined && this.file4 === undefined) {
+          this.toastService.showError('Please Add All The Images');
+          return
+        }
+
         this.saveProduct();
       }
     } else {
@@ -278,7 +319,7 @@ export class AddGiftComponent implements OnInit {
     console.log('formData', formData, this.myForm.value);
     this.apiService.updateGift(formData).subscribe(res => {
       this.toastService.showSuccess('Gift Updated successfully!');
-      location.reload()
+      // location.reload()
       // Optionally, navigate to a different route or do something else after update
     },
       (error) => {
@@ -297,7 +338,7 @@ export class AddGiftComponent implements OnInit {
 
     this.apiService.addGift(formData).subscribe(res => {
       this.toastService.showSuccess('Gift Added successfully!');
-      location.reload()
+      // location.reload()
     },
       (error) => {
         console.error('Error creating post:', error);

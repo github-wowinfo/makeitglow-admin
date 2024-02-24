@@ -64,7 +64,7 @@ export class EventMediaModalComponent implements OnInit {
     });
     formData.append('EventId', this.data.id);
     this.apiService.addeventMedia(formData).subscribe(res => {
-      this.toastService.showSuccess('Event Added successfully!');
+      this.toastService.showSuccess('Event Media Added successfully!');
       this.closepopup();
     },
       (error) => {
