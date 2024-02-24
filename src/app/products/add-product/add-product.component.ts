@@ -23,6 +23,15 @@ export class AddProductComponent implements OnInit {
   selectedFileName: string = '';
   isUpdate: boolean = false; // Track if it's in update mode
   productIdToUpdate: string = ''; // Product ID to update
+  file1: any;
+  selectedMainImage: string = ''
+  file2: any;
+  selectedMainImage2: string = ''
+  file3: any;
+  selectedMainImage3: string = ''
+  file4: any;
+  selectedMainImage4: string = ''
+
   constructor(
     // @Inject() public data: any,
     // public data: any,
@@ -160,32 +169,39 @@ export class AddProductComponent implements OnInit {
   });
 
 
-
   onFileChange(event: any) {
+    console.log('events', event);
+
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.myForm.get('ThumbnailFile')?.setValue(file); // Set to file object
+      this.file1 = event.target.files[0];
+      this.myForm.get('ThumbnailFile')?.setValue(this.file1[0]); // Set to file object
     }
   }
 
   onMain1FileChange(event: any) {
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.myForm.get('MainImage1File')?.setValue(file); // Set to file object
+      this.file2 = event.target.files[0];
+      this.myForm.get('MainImage1File')?.setValue(this.file2[0]);
+      // const file = event.target.files[0];
+      // this.myForm.get('MainImage1File')?.setValue(file); // Set to file object
     }
   }
 
   onMain3FileChange(event: any) {
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.myForm.get('Image3File')?.setValue(file); // Set to file object
+      this.file3 = event.target.files[0];
+      this.myForm.get('MainImage1File')?.setValue(this.file3[0]);
+      // const file = event.target.files[0];
+      // this.myForm.get('Image3File')?.setValue(file); // Set to file object
     }
   }
 
   onMain2FileChange(event: any) {
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.myForm.get('Image2File')?.setValue(file); // Set to file object
+      this.file4 = event.target.files[0];
+      this.myForm.get('MainImage1File')?.setValue(this.file4[0]);
+      // const file = event.target.files[0];
+      // this.myForm.get('Image2File')?.setValue(file); // Set to file object
     }
   }
 
@@ -200,6 +216,10 @@ export class AddProductComponent implements OnInit {
         const month = (mfgDate.getMonth() + 1).toString().padStart(2, '0'); // Add zero padding for single-digit months
         const year = mfgDate.getFullYear();
         const formattedMfgDate = `${day}/${month}/${year}`;
+        this.selectedMainImage = data.thumbnail ? data.thumbnail : '';
+        this.selectedMainImage2 = data.vrnts[0].mainImage1 ? data.vrnts[0].mainImage1 : '';
+        this.selectedMainImage3 = data.vrnts[0].image2 ? data.vrnts[0].image2 : '';
+        this.selectedMainImage4 = data.vrnts[0].image3 ? data.vrnts[0].image3 : '';
 
         this.myForm.patchValue({
           BrndId: data.brndId || '',
@@ -254,6 +274,10 @@ export class AddProductComponent implements OnInit {
       if (this.isUpdate) {
         this.updateProduct();
       } else {
+        if (this.file1 === undefined && this.file2 === undefined && this.file3 === undefined && this.file4 === undefined) {
+          this.toastService.showError('Please Add All The Images');
+          return
+        }
         this.saveProduct();
       }
     } else {
