@@ -28,7 +28,7 @@ export class OrderDetailsComponent implements OnInit {
     this.apiService.getorderById(id).subscribe(
       (response) => {
         this.order = response
-        console.log(response);
+        console.log('response', response);
 
       },
       (error) => {

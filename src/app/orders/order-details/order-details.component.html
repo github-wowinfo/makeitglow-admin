@@ -1,7 +1,8 @@
 <div class="container-fluid page" *ngIf="order">
     <div class="d-flex page__box justify-content-between p-3 mt-2">
         <h5>Order Details</h5>
-        <button mat-raised-button color="primary" *ngIf="order.ordrPymnt!== null && order.ordrPymnt.paymentStatus === 2"
+        <button mat-raised-button color="primary"
+            *ngIf="order.ordrPymnt !== null && order.ordrPymnt.paymentStatus === 2"
             (click)="openPaymentStatusModal(order.oid, $event.value, order.ordrPymnt.paymentType, order.ordrPymnt.txnId,order.ordrPymnt.txnAmount,order.ordrPymnt.txnMode,order.ordrPymnt.refNo)">COD
             Payment</button>
         <!-- <button mat-raised-button color="primary" (click)="updateOrderStatus()">Update Status</button> -->
