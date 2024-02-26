@@ -25,6 +25,8 @@ import { PopupComponent } from './popup/popup.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
@@ -254,7 +256,9 @@ import { EventMediaModalComponent } from './Events/event-media-modal/event-media
     DragDropModule,
     MatSnackBarModule,
     MatSlideToggleModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
     // NgToastModule
   ],
   providers: [],

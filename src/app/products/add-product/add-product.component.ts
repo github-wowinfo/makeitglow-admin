@@ -162,10 +162,10 @@ export class AddProductComponent implements OnInit {
     HexColorCode: this.builder.control('', Validators.required),
     HowToUse: this.builder.control('', Validators.required),
     UnitVolume: this.builder.control('', Validators.required),
-    ThumbnailFile: ['', Validators.required],
-    MainImage1File: ['', Validators.required],
-    Image2File: ['', Validators.required],
-    Image3File: ['', Validators.required],
+    ThumbnailFile: [''],
+    MainImage1File: [''],
+    Image2File: [''],
+    Image3File: [''],
   });
 
 
@@ -193,20 +193,22 @@ export class AddProductComponent implements OnInit {
     }
   }
 
-  onMain3FileChange(event: any) {
+  onMain2FileChange(event: any) {
     console.log('events', event);
     if (event.target.files.length > 0) {
       this.file3 = event.target.files[0];
+      console.log('events', this.file3);
       this.myForm.get('Image2File')?.setValue(this.file3);
       // const file = event.target.files[0];
       // this.myForm.get('Image3File')?.setValue(file); // Set to file object
     }
   }
 
-  onMain2FileChange(event: any) {
+  onMain3FileChange(event: any) {
     console.log('events', event);
     if (event.target.files.length > 0) {
       this.file4 = event.target.files[0];
+      console.log('events', this.file4);
       this.myForm.get('Image3File')?.setValue(this.file4);
       // const file = event.target.files[0];
       // this.myForm.get('Image2File')?.setValue(file); // Set to file object
@@ -322,7 +324,7 @@ export class AddProductComponent implements OnInit {
 
     this.apiService.addProduct(formData).subscribe(res => {
       this.toastService.showSuccess('Product Added successfully!');
-      // location.reload()
+      location.reload()
     },
       (error) => {
         console.error('Error creating post:', error);
