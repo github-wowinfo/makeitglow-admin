@@ -154,7 +154,7 @@ export class AddProductComponent implements OnInit {
     Metapropertytype: this.builder.control(''),
     Metapropertytitle: this.builder.control(''),
     Metapropertydescription: this.builder.control(''),
-    Srno: this.builder.control('', Validators.required),
+    // Srno: this.builder.control('', Validators.required),
     BarCodeNo: this.builder.control('', Validators.required),
     ItemTitle: this.builder.control('', Validators.required),
     IsAvailabile: this.builder.control(true),
@@ -179,6 +179,7 @@ export class AddProductComponent implements OnInit {
   }
 
   onMain1FileChange(event: any) {
+    console.log('events', event);
     if (event.target.files.length > 0) {
       this.file2 = event.target.files[0];
       this.myForm.get('MainImage1File')?.setValue(this.file2[0]);
@@ -188,6 +189,7 @@ export class AddProductComponent implements OnInit {
   }
 
   onMain3FileChange(event: any) {
+    console.log('events', event);
     if (event.target.files.length > 0) {
       this.file3 = event.target.files[0];
       this.myForm.get('MainImage1File')?.setValue(this.file3[0]);
@@ -197,6 +199,7 @@ export class AddProductComponent implements OnInit {
   }
 
   onMain2FileChange(event: any) {
+    console.log('events', event);
     if (event.target.files.length > 0) {
       this.file4 = event.target.files[0];
       this.myForm.get('MainImage1File')?.setValue(this.file4[0]);
@@ -246,7 +249,7 @@ export class AddProductComponent implements OnInit {
           Metapropertytype: data.metapropertytype || '',
           Metapropertytitle: data.metapropertytitle || '',
           Metapropertydescription: data.metapropertydescription || '',
-          Srno: data.vrnts[0].srno || '',
+          // Srno: data.vrnts[0].srno || '',
           BarCodeNo: data.vrnts[0].barCodeNo || '',
           ItemTitle: data.vrnts[0].itemTitle || '',
           IsAvailabile: data.vrnts[0].isAvailabile || '',
@@ -312,15 +315,15 @@ export class AddProductComponent implements OnInit {
     });
     console.log('formData', formData, this.myForm.value);
 
-    this.apiService.addProduct(formData).subscribe(res => {
-      this.toastService.showSuccess('Product Added successfully!');
-      location.reload()
-    },
-      (error) => {
-        console.error('Error creating post:', error);
-        this.toastService.showError(error);
-        // Optionally, you can handle errors, show a message, etc.
-      }
-    );
+    // this.apiService.addProduct(formData).subscribe(res => {
+    //   this.toastService.showSuccess('Product Added successfully!');
+    //   location.reload()
+    // },
+    //   (error) => {
+    //     console.error('Error creating post:', error);
+    //     this.toastService.showError(error);
+    //     // Optionally, you can handle errors, show a message, etc.
+    //   }
+    // );
   }
 }
