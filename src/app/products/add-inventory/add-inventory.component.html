@@ -5,7 +5,7 @@
     <form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
         <div class="page__content shadow p-3 position-relative">
             <mat-form-field class="InputStyle">
-                <mat-label>Purchase Price</mat-label>
+                <mat-label>Purchase/Cost Price</mat-label>
                 <input matInput formControlName="purchasePrice">
             </mat-form-field>
             <mat-form-field class="InputStyle">
@@ -19,10 +19,17 @@
             <mat-form-field class="InputStyle">
                 <mat-label>MRP</mat-label>
                 <input matInput formControlName="mrp">
+                <mat-error *ngIf="myForm.get('mrp').hasError('mrpLessThanPrice')">
+                    MRP must be greater than the Purchase/Cost Price.
+                </mat-error>
             </mat-form-field>
+
             <mat-form-field class="InputStyle">
                 <mat-label>Selling Price</mat-label>
                 <input matInput formControlName="sellingPrice">
+                <mat-error *ngIf="myForm.get('sellingPrice').hasError('sellingPriceGreaterThanMRP')">
+                    Selling price cannot be greater than MRP.
+                </mat-error>
             </mat-form-field>
             <!-- <mat-form-field class="InputStyle">
                 <mat-label>Shipping Charges</mat-label>

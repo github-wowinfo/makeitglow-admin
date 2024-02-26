@@ -1,9 +1,29 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastService } from './../../toast.service';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { ApiService } from 'src/app/api.service';
 import { Component, OnInit } from '@angular/core';
 
+
+function sellingPriceLessThanMRPValidator(mrpControlName: string): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const mrp = control.root.get(mrpControlName)?.value;
+    const sellingPrice = control.value;
+    return mrp !== null && sellingPrice !== null && sellingPrice > mrp
+      ? { sellingPriceGreaterThanMRP: true }
+      : null;
+  };
+}
+
+function mrpGreaterThanPriceValidator(priceControlName: string): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const price = control.root.get(priceControlName)?.value;
+    const mrp = control.value;
+    return price !== null && mrp !== null && mrp < price
+      ? { mrpLessThanPrice: true }
+      : null;
+  };
+}
 @Component({
   selector: 'app-gift-inventory',
   templateUrl: './gift-inventory.component.html',
@@ -43,8 +63,14 @@ export class GiftInventoryComponent implements OnInit {
     purchasePrice: this.builder.control('', Validators.required),
     purchaseQty: this.builder.control('', Validators.required),
     availableQty: this.builder.control('', Validators.required),
-    mrp: this.builder.control('', Validators.required),
-    sellingPrice: this.builder.control('', Validators.required),
+    mrp: this.builder.control('', [
+      Validators.required,
+      mrpGreaterThanPriceValidator('purchasePrice')
+    ]),
+    sellingPrice: this.builder.control('', [
+      Validators.required,
+      sellingPriceLessThanMRPValidator('mrp')
+    ]),
     // itmVrntId: this.builder.control('', Validators.required),
     gftID: this.builder.control('', Validators.required),
     itemType: 2,

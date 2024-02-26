@@ -1,9 +1,27 @@
 import { ToastService } from './../../toast.service';
 import { ApiService } from 'src/app/api.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Validators, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+function sellingPriceLessThanMRPValidator(mrpControlName: string): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const mrp = control.root.get(mrpControlName)?.value;
+    const sellingPrice = control.value;
+    return mrp !== null && sellingPrice !== null && sellingPrice > mrp
+      ? { sellingPriceGreaterThanMRP: true }
+      : null;
+  };
+}
 
+function mrpGreaterThanPriceValidator(priceControlName: string): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const price = control.root.get(priceControlName)?.value;
+    const mrp = control.value;
+    return price !== null && mrp !== null && mrp < price
+      ? { mrpLessThanPrice: true }
+      : null;
+  };
+}
 @Component({
   selector: 'app-add-inventory',
   templateUrl: './add-inventory.component.html',
@@ -43,8 +61,15 @@ export class AddInventoryComponent implements OnInit {
     purchasePrice: this.builder.control('', Validators.required),
     purchaseQty: this.builder.control('', Validators.required),
     availableQty: this.builder.control('', Validators.required),
-    mrp: this.builder.control('', Validators.required),
-    sellingPrice: this.builder.control('', Validators.required),
+    // mrp: this.builder.control('', Validators.required),
+    mrp: this.builder.control('', [
+      Validators.required,
+      mrpGreaterThanPriceValidator('purchasePrice')
+    ]),
+    sellingPrice: this.builder.control('', [
+      Validators.required,
+      sellingPriceLessThanMRPValidator('mrp')
+    ]),
     itmVrntId: this.builder.control('', Validators.required),
     itemType: 1,
     purchaseDetail: "",

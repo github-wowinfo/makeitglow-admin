@@ -19,10 +19,17 @@
             <mat-form-field class="InputStyle">
                 <mat-label>MRP</mat-label>
                 <input matInput formControlName="mrp">
+                <mat-error *ngIf="myForm.get('mrp').hasError('mrpLessThanPrice')">
+                    MRP must be greater than the Purchase/Cost Price.
+                </mat-error>
             </mat-form-field>
+
             <mat-form-field class="InputStyle">
                 <mat-label>Selling Price</mat-label>
                 <input matInput formControlName="sellingPrice">
+                <mat-error *ngIf="myForm.get('sellingPrice').hasError('sellingPriceGreaterThanMRP')">
+                    Selling price cannot be greater than MRP.
+                </mat-error>
             </mat-form-field>
             <div mat-dialog-actions class="mt-3 text-center">
                 <button mat-raised-button color="primary" class="me-3">Save</button>
