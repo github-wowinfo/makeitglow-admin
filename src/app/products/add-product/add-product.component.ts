@@ -169,20 +169,25 @@ export class AddProductComponent implements OnInit {
   });
 
 
+
   onFileChange(event: any) {
     console.log('events', event);
-
     if (event.target.files.length > 0) {
       this.file1 = event.target.files[0];
-      this.myForm.get('ThumbnailFile')?.setValue(this.file1[0]); // Set to file object
+      console.log('events', this.file1);
+
+      this.myForm.get('ThumbnailFile')?.setValue(this.file1);
     }
   }
+
 
   onMain1FileChange(event: any) {
     console.log('events', event);
     if (event.target.files.length > 0) {
       this.file2 = event.target.files[0];
-      this.myForm.get('MainImage1File')?.setValue(this.file2[0]);
+      console.log('events', this.file2);
+
+      this.myForm.get('MainImage1File')?.setValue(this.file2);
       // const file = event.target.files[0];
       // this.myForm.get('MainImage1File')?.setValue(file); // Set to file object
     }
@@ -192,7 +197,7 @@ export class AddProductComponent implements OnInit {
     console.log('events', event);
     if (event.target.files.length > 0) {
       this.file3 = event.target.files[0];
-      this.myForm.get('MainImage1File')?.setValue(this.file3[0]);
+      this.myForm.get('Image2File')?.setValue(this.file3);
       // const file = event.target.files[0];
       // this.myForm.get('Image3File')?.setValue(file); // Set to file object
     }
@@ -202,7 +207,7 @@ export class AddProductComponent implements OnInit {
     console.log('events', event);
     if (event.target.files.length > 0) {
       this.file4 = event.target.files[0];
-      this.myForm.get('MainImage1File')?.setValue(this.file4[0]);
+      this.myForm.get('Image3File')?.setValue(this.file4);
       // const file = event.target.files[0];
       // this.myForm.get('Image2File')?.setValue(file); // Set to file object
     }
@@ -315,15 +320,15 @@ export class AddProductComponent implements OnInit {
     });
     console.log('formData', formData, this.myForm.value);
 
-    // this.apiService.addProduct(formData).subscribe(res => {
-    //   this.toastService.showSuccess('Product Added successfully!');
-    //   location.reload()
-    // },
-    //   (error) => {
-    //     console.error('Error creating post:', error);
-    //     this.toastService.showError(error);
-    //     // Optionally, you can handle errors, show a message, etc.
-    //   }
-    // );
+    this.apiService.addProduct(formData).subscribe(res => {
+      this.toastService.showSuccess('Product Added successfully!');
+      location.reload()
+    },
+      (error) => {
+        console.error('Error creating post:', error);
+        this.toastService.showError(error);
+        // Optionally, you can handle errors, show a message, etc.
+      }
+    );
   }
 }

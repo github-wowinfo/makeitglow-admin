@@ -180,6 +180,7 @@
 
             <mat-card class="mb-3">
                 <mat-label>Thumbnail Images *</mat-label>
+                <!-- <input class="d-block" type="file" formControlName="ThumbnailFile" (change)="onFileChange($event)"> -->
                 <input class="d-block" type="file" formControlName="ThumbnailFile" (change)="onFileChange($event)">
                 <div *ngIf="selectedMainImage" class="mt-2">
                     <img [src]="selectedMainImage" width="150px" alt="Thumbnail Image">
