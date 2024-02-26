@@ -154,7 +154,7 @@ export class AddProductComponent implements OnInit {
     Metapropertytype: this.builder.control(''),
     Metapropertytitle: this.builder.control(''),
     Metapropertydescription: this.builder.control(''),
-    // Srno: this.builder.control('', Validators.required),
+    Srno: this.builder.control(''),
     BarCodeNo: this.builder.control('', Validators.required),
     ItemTitle: this.builder.control('', Validators.required),
     IsAvailabile: this.builder.control(true),
@@ -254,7 +254,7 @@ export class AddProductComponent implements OnInit {
           Metapropertytype: data.metapropertytype || '',
           Metapropertytitle: data.metapropertytitle || '',
           Metapropertydescription: data.metapropertydescription || '',
-          // Srno: data.vrnts[0].srno || '',
+          Srno: data.vrnts[0].srno || '',
           BarCodeNo: data.vrnts[0].barCodeNo || '',
           ItemTitle: data.vrnts[0].itemTitle || '',
           IsAvailabile: data.vrnts[0].isAvailabile || '',
@@ -322,7 +322,7 @@ export class AddProductComponent implements OnInit {
 
     this.apiService.addProduct(formData).subscribe(res => {
       this.toastService.showSuccess('Product Added successfully!');
-      location.reload()
+      // location.reload()
     },
       (error) => {
         console.error('Error creating post:', error);
