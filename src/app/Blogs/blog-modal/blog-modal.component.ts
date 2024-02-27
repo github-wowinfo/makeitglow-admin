@@ -167,16 +167,16 @@ export class BlogModalComponent implements OnInit {
       formData.append(key, this.myForm.value[key]);
     });
     console.log('formData', formData, this.myForm.value);
-    this.apiService.createblog(formData).subscribe(res => {
-      this.toastService.showSuccess('Blog Added successfully!');
-      this.closepopup();
-    },
-      (error) => {
-        console.error('Error creating post:', error);
-        this.toastService.showError(error);
-        // Optionally, you can handle errors, show a message, etc.
-      }
-    );
+    // this.apiService.createblog(formData).subscribe(res => {
+    //   this.toastService.showSuccess('Blog Added successfully!');
+    //   this.closepopup();
+    // },
+    //   (error) => {
+    //     console.error('Error creating post:', error);
+    //     this.toastService.showError(error);
+    //     // Optionally, you can handle errors, show a message, etc.
+    //   }
+    // );
   }
 
 

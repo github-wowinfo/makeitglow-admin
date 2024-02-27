@@ -129,46 +129,6 @@ export class AddProductComponent implements OnInit {
       }
     );
   }
-  myForm = this.builder.group({
-    BrndId: this.builder.control('', Validators.required),
-    CategoryId: this.builder.control('', Validators.required),
-    SubCategoryId: this.builder.control(''),
-    ItemName: this.builder.control('', Validators.required),
-    ShortDescription: this.builder.control('', Validators.required),
-    UnitType: this.builder.control('', Validators.required),
-    TaxId: this.builder.control(''),
-    LongDescription: this.builder.control('', Validators.required),
-    Benefits: this.builder.control(''),
-    HasDiemension: this.builder.control(''),
-    BatchCode: this.builder.control(''),
-    BatchInfo: this.builder.control(''),
-    MfgAt: this.builder.control(''),
-    MfgBy: this.builder.control(''),
-    MfgDateValue: this.builder.control('', Validators.required),
-    WarrantyInMonth: this.builder.control(''),
-    Remark: this.builder.control(''),
-    VendorInfo: this.builder.control(''),
-    Policy: this.builder.control(''),
-    MetaTags: this.builder.control(''),
-    Metapropertyurl: this.builder.control(''),
-    Metapropertytype: this.builder.control(''),
-    Metapropertytitle: this.builder.control(''),
-    Metapropertydescription: this.builder.control(''),
-    Srno: this.builder.control(''),
-    BarCodeNo: this.builder.control('', Validators.required),
-    ItemTitle: this.builder.control('', Validators.required),
-    IsAvailabile: this.builder.control(true),
-    IsBuyable: this.builder.control(true),
-    HexColorCode: this.builder.control('', Validators.required),
-    HowToUse: this.builder.control('', Validators.required),
-    UnitVolume: this.builder.control('', Validators.required),
-    ThumbnailFile: [''],
-    MainImage1File: [''],
-    Image2File: [''],
-    Image3File: [''],
-  });
-
-
 
   onFileChange(event: any) {
     console.log('events', event);
@@ -214,6 +174,49 @@ export class AddProductComponent implements OnInit {
       // this.myForm.get('Image2File')?.setValue(file); // Set to file object
     }
   }
+
+  myForm = this.builder.group({
+    BrndId: this.builder.control('', Validators.required),
+    CategoryId: this.builder.control('', Validators.required),
+    SubCategoryId: this.builder.control(''),
+    ItemName: this.builder.control('', Validators.required),
+    ShortDescription: this.builder.control('', Validators.required),
+    UnitType: this.builder.control('', Validators.required),
+    TaxId: this.builder.control(''),
+    LongDescription: this.builder.control('', Validators.required),
+    Benefits: this.builder.control(''),
+    HasDiemension: this.builder.control(''),
+    BatchCode: this.builder.control(''),
+    BatchInfo: this.builder.control(''),
+    MfgAt: this.builder.control(''),
+    MfgBy: this.builder.control(''),
+    MfgDateValue: this.builder.control('', Validators.required),
+    WarrantyInMonth: this.builder.control(''),
+    Remark: this.builder.control(''),
+    VendorInfo: this.builder.control(''),
+    Policy: this.builder.control(''),
+    MetaTags: this.builder.control(''),
+    Metapropertyurl: this.builder.control(''),
+    Metapropertytype: this.builder.control(''),
+    Metapropertytitle: this.builder.control(''),
+    Metapropertydescription: this.builder.control(''),
+    Srno: this.builder.control(''),
+    BarCodeNo: this.builder.control('', Validators.required),
+    ItemTitle: this.builder.control('', Validators.required),
+    IsAvailabile: this.builder.control(true),
+    IsBuyable: this.builder.control(true),
+    HexColorCode: this.builder.control('', Validators.required),
+    HowToUse: this.builder.control('', Validators.required),
+    UnitVolume: this.builder.control('', Validators.required),
+    ThumbnailFile: [''],
+    MainImage1File: [''],
+    Image2File: [''],
+    Image3File: [''],
+  });
+
+
+
+
 
   populateFormForUpdate() {
     // Use the productIdToUpdate to fetch the existing product data and populate the form

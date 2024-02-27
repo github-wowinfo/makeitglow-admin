@@ -39,14 +39,16 @@
         </mat-form-field>
         <mat-card class="mb-3">
             <mat-label>Thumbnail Image *</mat-label>
-            <input class="d-block" type="file" formControlName="Thumbnail" (change)="onFileChange($event)">
+            <input class="d-block" type="file" id="Thumbnail" name="Thumbnail" formControlName="Thumbnail"
+                (change)="onFileChange($event)">
             <div *ngIf="selectedMainImage" class="mt-2">
                 <img [src]="selectedMainImage" width="150px" alt="MainImage2">
             </div>
         </mat-card>
         <mat-card class="mb-3">
             <mat-label>Image 1 *</mat-label>
-            <input class="d-block" type="file" formControlName="Image" (change)="onMain1FileChange($event)">
+            <input class="d-block" type="file" id="Image" name="Image" formControlName="Image"
+                (change)="onMain1FileChange($event)">
             <div *ngIf="selectedMainImage1" class="mt-2">
                 <img [src]="selectedMainImage1" width="150px" alt="MainImage2">
             </div>
