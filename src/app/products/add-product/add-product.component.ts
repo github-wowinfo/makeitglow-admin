@@ -308,6 +308,7 @@ export class AddProductComponent implements OnInit {
     console.log('formData', formData, this.myForm.value);
     this.apiService.updateProduct(formData).subscribe(res => {
       this.toastService.showSuccess('Product Updated successfully!');
+      this.router.navigate(['/products/productList']);
       // location.reload()
       // Optionally, navigate to a different route or do something else after update
     },
@@ -327,7 +328,9 @@ export class AddProductComponent implements OnInit {
 
     this.apiService.addProduct(formData).subscribe(res => {
       this.toastService.showSuccess('Product Added successfully!');
-      location.reload()
+      // location.reload()
+      this.router.navigate(['/products/productList']);
+
     },
       (error) => {
         console.error('Error creating post:', error);

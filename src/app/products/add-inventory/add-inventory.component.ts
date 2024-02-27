@@ -96,6 +96,7 @@ export class AddInventoryComponent implements OnInit {
     this.apiService.addVariantStock(this.myForm.value).subscribe(res => {
       this.toastService.showSuccess('Product Stock Added successfully!');
       // location.reload()
+      this.router.navigate([`/viewProduct/${this.id}`]);
     },
       (error) => {
         console.error('Error creating post:', error);

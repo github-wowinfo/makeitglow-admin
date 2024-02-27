@@ -98,6 +98,7 @@ export class GiftInventoryComponent implements OnInit {
     this.apiService.addVariantStock(this.myForm.value).subscribe(res => {
       this.toastService.showSuccess('Product Stock Added successfully!');
       // location.reload()
+      this.router.navigate(['/giftList']);
     },
       (error) => {
         console.error('Error creating post:', error);

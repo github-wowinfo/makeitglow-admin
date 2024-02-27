@@ -187,6 +187,7 @@ export class AddProductVariantComponent implements OnInit {
     console.log('formData', formData, this.myForm.value);
     this.apiService.updateVariant(formData).subscribe(res => {
       this.toastService.showSuccess('Variant Updated successfully!');
+      this.router.navigate([`/viewProduct/${this.id}`]);
       // location.reload()
       // Optionally, navigate to a different route or do something else after update
     },
@@ -207,7 +208,8 @@ export class AddProductVariantComponent implements OnInit {
 
     this.apiService.addProductVariant(formData).subscribe(res => {
       this.toastService.showSuccess('Product Variant Added successfully!');
-      location.reload()
+      // location.reload()
+      this.router.navigate([`/viewProduct/${this.id}`]);
     },
       (error) => {
         console.error('Error creating post:', error);

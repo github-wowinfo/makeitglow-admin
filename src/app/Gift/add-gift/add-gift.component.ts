@@ -322,6 +322,7 @@ export class AddGiftComponent implements OnInit {
     console.log('formData', formData, this.myForm.value);
     this.apiService.updateGift(formData).subscribe(res => {
       this.toastService.showSuccess('Gift Updated successfully!');
+      this.router.navigate(['/giftList']);
       // location.reload()
       // Optionally, navigate to a different route or do something else after update
     },
@@ -342,6 +343,7 @@ export class AddGiftComponent implements OnInit {
     this.apiService.addGift(formData).subscribe(res => {
       this.toastService.showSuccess('Gift Added successfully!');
       // location.reload()
+      this.router.navigate(['/giftList']);
     },
       (error) => {
         console.error('Error creating post:', error);
