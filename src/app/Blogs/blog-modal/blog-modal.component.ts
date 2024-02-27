@@ -18,6 +18,10 @@ export class BlogModalComponent implements OnInit {
   selectedOption: any;
   tagoptions: any[] = [];
   selectedtagOption: any;
+  file1: any;
+  selectedMainImage1: string = '';
+  file: any;
+  selectedMainImage: string = ''
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private ref: MatDialogRef<BlogModalComponent>,
@@ -60,6 +64,27 @@ export class BlogModalComponent implements OnInit {
       }
     );
   }
+  onFileChange(event: any) {
+    if (event.target.files.length > 0) {
+      this.file = event.target.files[0];
+      console.log('events', this.file);
+      this.myForm.get('Thumbnail')?.setValue(this.file);
+      // const file = event.target.files[0];
+      // this.myForm.get('Thumbnail')?.setValue(file); // Set to file object
+    }
+  }
+
+  onMain1FileChange(event: any) {
+    if (event.target.files.length > 0) {
+      this.file1 = event.target.files[0];
+      console.log('events', this.file1);
+      this.myForm.get('Image')?.setValue(this.file1);
+      // const file = event.target.files[0];
+      // this.myForm.get('Image')?.setValue(file); // Set to file object
+    }
+  }
+
+
 
   closepopup() {
     this.ref.close();
@@ -73,13 +98,15 @@ export class BlogModalComponent implements OnInit {
     Sources: this.builder.control(''),
     MetaTag: this.builder.control(''),
     MetaDescription: this.builder.control(''),
-    Thumbnail: ['', Validators.required],
-    Image: ['', Validators.required],
+    Thumbnail: [''],
+    Image: [''],
   });
 
   setEditData(id: any) {
     this.apiService.getblogById(id).subscribe(item => {
       this.editData = item;
+      this.selectedMainImage = this.editData.thumbnail ? this.editData.thumbnail : '';
+      this.selectedMainImage1 = this.editData.image ? this.editData.image : '';
       this.myForm.setValue({
 
         BlogCatgId: this.editData.blogCatgId,
@@ -100,6 +127,10 @@ export class BlogModalComponent implements OnInit {
       if (this.inputdata.id > 0) {
         this.updateBlog();
       } else {
+        if (this.file1 === undefined && this.file === undefined) {
+          this.toastService.showError('Please Add All The Images');
+          return
+        }
         this.saveBlog();
       }
     } else {
@@ -150,17 +181,5 @@ export class BlogModalComponent implements OnInit {
 
 
 
-  onFileChange(event: any) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.myForm.get('Thumbnail')?.setValue(file); // Set to file object
-    }
-  }
 
-  onMain1FileChange(event: any) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.myForm.get('Image')?.setValue(file); // Set to file object
-    }
-  }
 }

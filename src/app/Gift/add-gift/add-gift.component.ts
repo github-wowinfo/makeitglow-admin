@@ -133,6 +133,45 @@ export class AddGiftComponent implements OnInit {
       }
     );
   }
+
+
+
+  onFileChange(event: any) {
+    console.log('events', event);
+
+    if (event.target.files.length > 0) {
+      this.file1 = event.target.files[0];
+      this.myForm.get('ThumbnailFile')?.setValue(this.file1); // Set to file object
+    }
+  }
+
+  onMain1FileChange(event: any) {
+    if (event.target.files.length > 0) {
+      this.file2 = event.target.files[0];
+      this.myForm.get('MainImage1File')?.setValue(this.file2);
+      // const file = event.target.files[0];
+      // this.myForm.get('MainImage1File')?.setValue(file); // Set to file object
+    }
+  }
+
+  onMain3FileChange(event: any) {
+    if (event.target.files.length > 0) {
+      this.file3 = event.target.files[0];
+      this.myForm.get('Image2File')?.setValue(this.file3);
+      // const file = event.target.files[0];
+      // this.myForm.get('Image3File')?.setValue(file); // Set to file object
+    }
+  }
+
+  onMain2FileChange(event: any) {
+    if (event.target.files.length > 0) {
+      this.file4 = event.target.files[0];
+      this.myForm.get('Image3File')?.setValue(this.file4);
+      // const file = event.target.files[0];
+      // this.myForm.get('Image2File')?.setValue(file); // Set to file object
+    }
+  }
+
   myForm = this.builder.group({
     BrndId: this.builder.control('', Validators.required),
     CategoryId: this.builder.control('', Validators.required),
@@ -175,42 +214,6 @@ export class AddGiftComponent implements OnInit {
   });
 
 
-
-  onFileChange(event: any) {
-    console.log('events', event);
-
-    if (event.target.files.length > 0) {
-      this.file1 = event.target.files[0];
-      this.myForm.get('ThumbnailFile')?.setValue(this.file1); // Set to file object
-    }
-  }
-
-  onMain1FileChange(event: any) {
-    if (event.target.files.length > 0) {
-      this.file2 = event.target.files[0];
-      this.myForm.get('MainImage1File')?.setValue(this.file2);
-      // const file = event.target.files[0];
-      // this.myForm.get('MainImage1File')?.setValue(file); // Set to file object
-    }
-  }
-
-  onMain3FileChange(event: any) {
-    if (event.target.files.length > 0) {
-      this.file3 = event.target.files[0];
-      this.myForm.get('Image2File')?.setValue(this.file3);
-      // const file = event.target.files[0];
-      // this.myForm.get('Image3File')?.setValue(file); // Set to file object
-    }
-  }
-
-  onMain2FileChange(event: any) {
-    if (event.target.files.length > 0) {
-      this.file4 = event.target.files[0];
-      this.myForm.get('Image3File')?.setValue(this.file4);
-      // const file = event.target.files[0];
-      // this.myForm.get('Image2File')?.setValue(file); // Set to file object
-    }
-  }
 
   populateFormForUpdate() {
     // Use the productIdToUpdate to fetch the existing product data and populate the form
