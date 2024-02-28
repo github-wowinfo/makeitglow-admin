@@ -3,6 +3,7 @@ import { ToastService } from './../../toast.service';
 import { FormBuilder, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { ApiService } from 'src/app/api.service';
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 
 function sellingPriceLessThanMRPValidator(mrpControlName: string): ValidatorFn {
@@ -38,7 +39,8 @@ export class GiftInventoryComponent implements OnInit {
     private builder: FormBuilder,
     private toastService: ToastService,
     private router: Router,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private location: Location) {
 
   }
 
@@ -98,7 +100,8 @@ export class GiftInventoryComponent implements OnInit {
     this.apiService.addVariantStock(this.myForm.value).subscribe(res => {
       this.toastService.showSuccess('Product Stock Added successfully!');
       // location.reload()
-      this.router.navigate(['/giftList']);
+      // this.router.navigate(['/giftList']);
+      this.location.back();
     },
       (error) => {
         console.error('Error creating post:', error);
