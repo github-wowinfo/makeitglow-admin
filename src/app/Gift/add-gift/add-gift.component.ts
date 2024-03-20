@@ -135,9 +135,29 @@ export class AddGiftComponent implements OnInit {
   }
 
 
-
+  url : any ;
+  msg =''
   onFileChange(event: any) {
     console.log('events', event);
+    if(!event.target.files[0] || event.target.files[0].length == 0) {
+			this.msg = 'You must select an image';
+			return;
+		}
+		
+		var mimeType = event.target.files[0].type;
+		
+		if (mimeType.match(/image\/*/) == null) {
+			this.msg = "Only images are supported";
+			return;
+		}
+		
+		var reader = new FileReader();
+		reader.readAsDataURL(event.target.files[0]);
+		
+		reader.onload = (_event) => {
+			this.msg = "";
+			this.url = reader.result; 
+		}
 
     if (event.target.files.length > 0) {
       this.file1 = event.target.files[0];
@@ -145,7 +165,28 @@ export class AddGiftComponent implements OnInit {
     }
   }
 
+  url1 : any ;
   onMain1FileChange(event: any) {
+    if(!event.target.files[0] || event.target.files[0].length == 0) {
+			this.msg = 'You must select an image';
+			return;
+		}
+		
+		var mimeType = event.target.files[0].type;
+		
+		if (mimeType.match(/image\/*/) == null) {
+			this.msg = "Only images are supported";
+			return;
+		}
+		
+		var reader = new FileReader();
+		reader.readAsDataURL(event.target.files[0]);
+		
+		reader.onload = (_event) => {
+			this.msg = "";
+			this.url1 = reader.result; 
+		}
+
     if (event.target.files.length > 0) {
       this.file2 = event.target.files[0];
       this.myForm.get('MainImage1File')?.setValue(this.file2);
@@ -154,7 +195,28 @@ export class AddGiftComponent implements OnInit {
     }
   }
 
+  url3 : any ;
   onMain3FileChange(event: any) {
+    if(!event.target.files[0] || event.target.files[0].length == 0) {
+			this.msg = 'You must select an image';
+			return;
+		}
+		
+		var mimeType = event.target.files[0].type;
+		
+		if (mimeType.match(/image\/*/) == null) {
+			this.msg = "Only images are supported";
+			return;
+		}
+		
+		var reader = new FileReader();
+		reader.readAsDataURL(event.target.files[0]);
+		
+		reader.onload = (_event) => {
+			this.msg = "";
+			this.url3 = reader.result; 
+		}
+    
     if (event.target.files.length > 0) {
       this.file3 = event.target.files[0];
       this.myForm.get('Image2File')?.setValue(this.file3);
@@ -163,7 +225,28 @@ export class AddGiftComponent implements OnInit {
     }
   }
 
+  url2 : any ;
   onMain2FileChange(event: any) {
+    if(!event.target.files[0] || event.target.files[0].length == 0) {
+			this.msg = 'You must select an image';
+			return;
+		}
+		
+		var mimeType = event.target.files[0].type;
+		
+		if (mimeType.match(/image\/*/) == null) {
+			this.msg = "Only images are supported";
+			return;
+		}
+		
+		var reader = new FileReader();
+		reader.readAsDataURL(event.target.files[0]);
+		
+		reader.onload = (_event) => {
+			this.msg = "";
+			this.url2 = reader.result; 
+		}
+
     if (event.target.files.length > 0) {
       this.file4 = event.target.files[0];
       this.myForm.get('Image3File')?.setValue(this.file4);

@@ -130,19 +130,60 @@ export class AddProductComponent implements OnInit {
     );
   }
 
+  url : any ;
+  msg =''
   onFileChange(event: any) {
     console.log('events', event);
+    if(!event.target.files[0] || event.target.files[0].length == 0) {
+			this.msg = 'You must select an image';
+			return;
+		}
+		
+		var mimeType = event.target.files[0].type;
+		
+		if (mimeType.match(/image\/*/) == null) {
+			this.msg = "Only images are supported";
+			return;
+		}
+		
+		var reader = new FileReader();
+		reader.readAsDataURL(event.target.files[0]);
+		
+		reader.onload = (_event) => {
+			this.msg = "";
+			this.url = reader.result; 
+		}
+
     if (event.target.files.length > 0) {
       this.file1 = event.target.files[0];
       console.log('events', this.file1);
-
       this.myForm.get('ThumbnailFile')?.setValue(this.file1);
     }
   }
 
-
+  url1 : any ;
+  // msg ='/'
   onMain1FileChange(event: any) {
     console.log('events', event);
+    if(!event.target.files[0] || event.target.files[0].length == 0) {
+			this.msg = 'You must select an image';
+			return;
+		}
+		
+		var mimeType = event.target.files[0].type;
+		
+		if (mimeType.match(/image\/*/) == null) {
+			this.msg = "Only images are supported";
+			return;
+		}
+		
+		var reader = new FileReader();
+		reader.readAsDataURL(event.target.files[0]);
+		
+		reader.onload = (_event) => {
+			this.msg = "";
+			this.url1 = reader.result; 
+		}
     if (event.target.files.length > 0) {
       this.file2 = event.target.files[0];
       console.log('events', this.file2);
@@ -152,9 +193,28 @@ export class AddProductComponent implements OnInit {
       // this.myForm.get('MainImage1File')?.setValue(file); // Set to file object
     }
   }
-
+  url2 : any ;
   onMain2FileChange(event: any) {
     console.log('events', event);
+    if(!event.target.files[0] || event.target.files[0].length == 0) {
+			this.msg = 'You must select an image';
+			return;
+		}
+		
+		var mimeType = event.target.files[0].type;
+		
+		if (mimeType.match(/image\/*/) == null) {
+			this.msg = "Only images are supported";
+			return;
+		}
+		
+		var reader = new FileReader();
+		reader.readAsDataURL(event.target.files[0]);
+		
+		reader.onload = (_event) => {
+			this.msg = "";
+			this.url2 = reader.result; 
+		}
     if (event.target.files.length > 0) {
       this.file3 = event.target.files[0];
       console.log('events', this.file3);
@@ -164,8 +224,28 @@ export class AddProductComponent implements OnInit {
     }
   }
 
+  url3 : any ;
   onMain3FileChange(event: any) {
     console.log('events', event);
+    if(!event.target.files[0] || event.target.files[0].length == 0) {
+			this.msg = 'You must select an image';
+			return;
+		}
+		
+		var mimeType = event.target.files[0].type;
+		
+		if (mimeType.match(/image\/*/) == null) {
+			this.msg = "Only images are supported";
+			return;
+		}
+		
+		var reader = new FileReader();
+		reader.readAsDataURL(event.target.files[0]);
+		
+		reader.onload = (_event) => {
+			this.msg = "";
+			this.url3 = reader.result; 
+		}
     if (event.target.files.length > 0) {
       this.file4 = event.target.files[0];
       console.log('events', this.file4);
@@ -276,7 +356,7 @@ export class AddProductComponent implements OnInit {
 
       },
       (error) => {
-        console.error('Error fetching product data for update:', error);
+        console.error('Error fetching product data for update:', error.message);
       }
     );
   }
@@ -314,10 +394,11 @@ export class AddProductComponent implements OnInit {
     },
       (error) => {
         console.error('Error updating product:', error);
-        this.toastService.showError(error);
+        this.toastService.showError(error.message);
       }
     );
   }
+
   saveProduct() {
     const formData = new FormData();
     // Append each field of myForm to FormData
@@ -334,7 +415,7 @@ export class AddProductComponent implements OnInit {
     },
       (error) => {
         console.error('Error creating post:', error);
-        this.toastService.showError(error);
+        this.toastService.showError(error.message);
         // Optionally, you can handle errors, show a message, etc.
       }
     );

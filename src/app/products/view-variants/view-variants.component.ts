@@ -27,7 +27,7 @@ export class ViewVariantsComponent implements OnInit {
     this.apiService.getVariantProductById(id).subscribe(
       (response) => {
         this.variant = response
-        console.log(response);
+        console.log('dataaaaas',response);
         // this.dataSource = new MatTableDataSource<any>(this.product.vrnts)
 
       },

@@ -13,21 +13,36 @@ export class BlogDetailsComponent implements OnInit {
   id: string;
   blog: any = [];
   ngOnInit(): void {
+
+    
     this.route.paramMap.subscribe(params => {
       // Retrieve the 'id' parameter from the URL
       this.id = params.get('id');
       console.log(this.id);
       this.blogDetails(this.id)
+
+      
     })
   }
-  constructor(private route: ActivatedRoute, private apiService: ApiService, private toastService: ToastService, private dialog: MatDialog) { }
+  constructor(private route: ActivatedRoute, 
+    private apiService: ApiService, 
+    private toastService: ToastService, 
+    private dialog: MatDialog) { }
 
+    updateThumbnailImage(newThumbnailUrl: string) {
+      this.blog.thumbnail = newThumbnailUrl;
+    }
+  
+    // Function to update full image
+    updateFullImage(newImageUrl: string) {
+      this.blog.image = newImageUrl;
+    }
 
   blogDetails(id) {
     this.apiService.getblogById(id).subscribe(
       (response) => {
         this.blog = response
-        console.log(response);
+        console.log('blog detailsss',response);
 
       },
       (error) => {

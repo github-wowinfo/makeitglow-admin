@@ -38,7 +38,7 @@ export class ViewProductComponent implements OnInit {
     this.apiService.getProductById(id).subscribe(
       (response) => {
         this.product = response
-        console.log(response);
+        console.log('productsss',response);
         this.dataSource = new MatTableDataSource<any>(this.product.vrnts)
         this.dataSource.paginator = this.paginator;
 
@@ -49,6 +49,7 @@ export class ViewProductComponent implements OnInit {
         // Optionally, you can handle errors, show a message, etc.
       }
     )
+    
   }
 
 
@@ -82,6 +83,7 @@ export class ViewProductComponent implements OnInit {
   redirectToVariantView(id: string): void {
     this.router.navigate(['/ViewInventory', id]);
   }
+
 
   ngAfterViewInit(): void {
     // Check if the necessary components are defined before accessing their properties

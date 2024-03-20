@@ -38,7 +38,8 @@ export class NewOrderTableComponent implements AfterViewInit {
 
         this.neworderData = response;
         this.dataSource = new MatTableDataSource<any>(this.neworderData);
-        this.dataSource.paginator = this.paginator; // Set paginator after receiving data
+        this.dataSource.paginator = this.paginator;
+
       },
       (error) => {
         console.error('Error creating post:', error);
